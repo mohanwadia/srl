@@ -1,0 +1,233 @@
+:root {
+  --ink: #1a1d1f;
+  --paper: #f7f6f3;
+  --panel: #ffffff;
+  --line: #e2ded5;
+  --b1: #2f6f4f;
+  --b2: #c46a2c;
+  --accent: #1d4ed8;
+  --origin: #2f6f4f;
+  --dest: #b3392c;
+  --muted: #6b6a65;
+  --mono: "IBM Plex Mono", "SFMono-Regular", Consolas, monospace;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+}
+
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background: var(--ink);
+  color: var(--paper);
+  border-bottom: 3px solid var(--accent);
+  flex-shrink: 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-mark {
+  font-size: 26px;
+  color: var(--accent);
+}
+
+.brand h1 {
+  font-size: 16px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #b9b7ae;
+  font-family: var(--mono);
+}
+
+.legend {
+  display: flex;
+  gap: 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #d8d6cd;
+}
+
+.legend-item { display: flex; align-items: center; gap: 6px; }
+
+.swatch {
+  width: 16px;
+  height: 3px;
+  display: inline-block;
+  border-radius: 2px;
+}
+.swatch.b1 { background: var(--b1); }
+.swatch.b2 { background: var(--b2); }
+
+#layout {
+  flex: 1;
+  display: flex;
+  min-height: 0;
+}
+
+#map {
+  flex: 1;
+  background: #e9e7e0;
+}
+
+#panel {
+  width: 340px;
+  flex-shrink: 0;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-block {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.panel-block.hidden { display: none; }
+
+#instructions p {
+  margin: 0 0 10px;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.btn-secondary {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 6px 12px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+  color: var(--muted);
+}
+.btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+#summary { text-align: left; }
+
+.summary-total {
+  font-family: var(--mono);
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+}
+.summary-unit {
+  font-size: 15px;
+  color: var(--muted);
+  margin-left: 4px;
+}
+
+.summary-breakdown {
+  display: flex;
+  gap: 14px;
+  margin-top: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+.summary-breakdown span { display: flex; align-items: center; gap: 5px; }
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.dot.walk { background: #8a8a8a; }
+.dot.wait { background: #d9a441; }
+.dot.ride { background: var(--accent); }
+
+#itinerary h2 {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+#itinerary-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+#itinerary-list li {
+  position: relative;
+  padding: 0 0 16px 22px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+#itinerary-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ink);
+}
+
+#itinerary-list li::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 14px;
+  bottom: -2px;
+  width: 1px;
+  background: var(--line);
+}
+
+#itinerary-list li:last-child::after { display: none; }
+
+#itinerary-list li.type-walk::before { background: #8a8a8a; }
+#itinerary-list li.type-board::before { background: #d9a441; }
+#itinerary-list li.type-ride::before { background: var(--accent); }
+#itinerary-list li.type-transfer::before { background: var(--dest); }
+
+.leg-label { font-weight: 600; }
+.leg-time { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+
+#empty-state p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0 0 8px;
+}
+#empty-state .hint {
+  font-size: 11.5px;
+  font-family: var(--mono);
+}
+
+.leaflet-popup-content { font-family: var(--sans); font-size: 12px; }

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Melbourne Bus Reform — Sketch Router</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="app">
+  <header id="topbar">
+    <div class="brand">
+      <span class="brand-mark">◎</span>
+      <div>
+        <h1>Bus Reform — Sketch Router</h1>
+        <p class="subtitle">Melbourne grid-frequency network · click two points to route between them</p>
+      </div>
+    </div>
+    <div class="legend">
+      <span class="legend-item"><i class="swatch b1"></i> B1 corridor — 5 min freq</span>
+      <span class="legend-item"><i class="swatch b2"></i> B2 corridor — 10 min freq</span>
+    </div>
+  </header>
+
+  <main id="layout">
+    <div id="map"></div>
+
+    <aside id="panel">
+      <div id="instructions" class="panel-block">
+        <p id="instruction-text">Click the map to set your <strong>origin</strong>.</p>
+        <button id="reset-btn" class="btn-secondary">Reset</button>
+      </div>
+
+      <div id="summary" class="panel-block hidden">
+        <div class="summary-total">
+          <span id="total-time">—</span>
+          <span class="summary-unit">min</span>
+        </div>
+        <div class="summary-breakdown">
+          <span><i class="dot walk"></i> <span id="bd-walk">0</span> min walk</span>
+          <span><i class="dot wait"></i> <span id="bd-wait">0</span> min wait</span>
+          <span><i class="dot ride"></i> <span id="bd-ride">0</span> min ride</span>
+        </div>
+      </div>
+
+      <div id="itinerary" class="panel-block hidden">
+        <h2>Itinerary</h2>
+        <ol id="itinerary-list"></ol>
+      </div>
+
+      <div id="empty-state" class="panel-block">
+        <p>No route calculated yet.</p>
+        <p class="hint">Walking speed is fixed at 80 m/min. Wait time is half the route's frequency. Transfers add a 2 min interchange penalty.</p>
+      </div>
+    </aside>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
