@@ -1,0 +1,2 @@
+﻿pathway_id,from_stop_id,to_stop_id,pathway_mode,is_bidirectional,traversal_time
+"20780_20781_walkway_1","20780","20781","1","1","36"

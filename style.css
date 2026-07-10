@@ -233,19 +233,52 @@ html, body {
   color: var(--ink);
 }
 
+/* NEW STYLING FOR RIDE ITINERARY */
+
+/* Ride leg text column: stop names sit flush against the colored bar
+   (.marker-bar, rendered by .leg-marker to the left); the route name and
+   trip-detail line are indented relative to them. */
+.leg-timeline-text {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2px;
+}
+
+/* Stop names: a bit bigger/more readable than before, but subordinate to
+   the route name below. Flush left — no indent. */
+.leg-stop {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+/* Route name: the largest, most prominent text in the leg (e.g.
+   "703 Brighton - The Pines"). Indented relative to the stop names. */
 .leg-route-name {
   display: block;
   font-weight: 700;
   font-size: 16px;
   color: var(--ink);
+  line-height: 1.25;
+  margin: 2px 0;
+  padding-left: 14px;
 }
 
-.leg-sub {
+/* Trip details line (time + stop count): same font family/size as before,
+   kept visually distinct from the route name, indented to match it. */
+.leg-route-detail {
   display: block;
-  margin-top: 2px;
+  font-size: 13px;
   color: var(--muted);
   font-family: var(--mono);
-  font-size: 12px;
+  line-height: 1.3;
+  padding-left: 14px;
 }
 
 #empty-state p {
