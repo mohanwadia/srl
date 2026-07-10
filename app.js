@@ -377,7 +377,7 @@ function groupLegsForDisplay(legs) {
       groups.push({
         kind: 'walk-combo',
         mainLabel: 'Walk', mainMin: 2,
-        subLabel: 'Transfer', subMin: leg.min,
+        subLabel: 'Wait', subMin: leg.min - 2,
       });
       i++; continue;
     }
