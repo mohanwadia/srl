@@ -4,13 +4,11 @@ GTFS on top of the existing hand-drawn bus network, without altering bus
 route lines or moving any train/tram stop. Trains and trams each run at
 their own uniform speed and frequency (10 min headway for both).
 
-Train and tram route lines come straight from the supplied GTFS shapes.txt
-- nothing is resampled or redrawn for rail/tram. Each route's stop sequence
-is pulled from a real trip's stop_times.txt entries for the chosen shape,
-so it's exact, ordered, and free of duplicates (e.g. it won't pick up the
-opposite direction's stop that happens to sit a few metres from this
-direction's line). Proximity-based matching against stops.txt is only used
-as a fallback if trip/stop_times data isn't available for a route.
+Train and tram route lines and stop positions come straight from the
+supplied GTFS files (routes.txt, shapes.txt, stops.txt) - nothing is
+resampled or redrawn for rail/tram; the *only* stops they get are their
+real GTFS stations (location_type=1 for trains) / stops, projected onto
+the real GTFS shape for that line.
 """
 
 from shapely.geometry import LineString, MultiLineString, Point
@@ -30,13 +28,9 @@ BUS_GEOJSON = f"data/routes.geojson"
 GTFS_ROUTES = f"gtfs/2/google_transit/routes.txt"
 GTFS_SHAPES = f"gtfs/2/google_transit/shapes.txt"
 GTFS_STOPS = f"gtfs/2/google_transit/stops.txt"
-GTFS_TRIPS = f"gtfs/2/google_transit/trips.txt"
-GTFS_STOP_TIMES = f"gtfs/2/google_transit/stop_times.txt"
 GTFS_TRAM_ROUTES = f"gtfs/3/google_transit/routes.txt"
 GTFS_TRAM_SHAPES = f"gtfs/3/google_transit/shapes.txt"
 GTFS_TRAM_STOPS = f"gtfs/3/google_transit/stops.txt"
-GTFS_TRAM_TRIPS = f"gtfs/3/google_transit/trips.txt"
-GTFS_TRAM_STOP_TIMES = f"gtfs/3/google_transit/stop_times.txt"
 SRL_GEOJSON = f"data/srl.geojson"
 
 OUTPUT_GRAPH = f"data/graph.json"
@@ -121,9 +115,8 @@ def gtfs_route_code(route_id):
 def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
                             corridor="RAIL", id_prefix="RAIL",
                             speed_kmh=TRAIN_SPEED_KMH, frequency_min=TRAIN_FREQUENCY,
-                            color=None, stop_location_types=("1",),
-                            trips_txt=None, stop_times_txt=None):
-    # 1. which route codes count as real train/tram lines (skip rail-replacement buses)
+                            color=None, stop_location_types=("1",)):
+    # 1. which route codes count as real train lines (skip rail-replacement buses)
     train_routes = {}
     with open(routes_txt, encoding="utf-8-sig") as fh:
         for row in csv.DictReader(fh):
@@ -160,7 +153,6 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
         return total
 
     # 3. pick the longest shape for each route code -> canonical real line
-    #    (keep the shape_id itself too, so we can look up the exact trip that used it)
     shapes_by_code = {}
     for shape_id, pts in shape_pts.items():
         code = shape_code(shape_id)
@@ -171,78 +163,34 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
         length = haversine_len(coords_latlon)
         best = shapes_by_code.get(code)
         if best is None or length > best[0]:
-            shapes_by_code[code] = (length, coords_latlon, shape_id)
+            shapes_by_code[code] = (length, coords_latlon)
 
-    # 4. load real stops; for each route, find stop sequence from trip/stop_times or by proximity
-    real_stops = {}
+    # 4. load real stops. Trains: location_type == '1' -> a real station, not
+    #    a platform. Trams don't have that parent-station tier, so their
+    #    stops are matched at location_type '' / '0' (an ordinary stop) instead.
+    stations = []
     with open(stops_txt, encoding="utf-8-sig") as fh:
         for row in csv.DictReader(fh):
-            stop_id = row["stop_id"]
-            real_stops[stop_id] = {
+            if row.get("location_type", "") not in stop_location_types:
+                continue
+            stations.append({
+                "stop_id": row["stop_id"],
                 "name": row["stop_name"],
                 "lat": float(row["stop_lat"]),
                 "lon": float(row["stop_lon"]),
-                "location_type": row.get("location_type", ""),
-            }
+            })
 
-    # 5. for each route shape, determine its stop sequence from trips/stop_times if available
-    #    (this is *actual* stop order for a given shape), otherwise fall back to proximity matching
-    real_stops_by_route = {}
-    if trips_txt and stop_times_txt:
-        # load trips -> shape_id mapping for this mode
-        trips_by_shape = {}
-        with open(trips_txt, encoding="utf-8-sig") as fh:
-            for row in csv.DictReader(fh):
-                shape_id = row.get("shape_id")
-                if shape_id:
-                    if shape_id not in trips_by_shape:
-                        trips_by_shape[shape_id] = []
-                    trips_by_shape[shape_id].append(row["trip_id"])
-
-        # for each shape, pick one trip and read its stop_times to get exact sequence
-        trip_stop_seqs = {}
-        with open(stop_times_txt, encoding="utf-8-sig") as fh:
-            for row in csv.DictReader(fh):
-                trip_id = row["trip_id"]
-                if trip_id not in trip_stop_seqs:
-                    trip_stop_seqs[trip_id] = []
-                trip_stop_seqs[trip_id].append((int(row["stop_sequence"]), row["stop_id"]))
-
-        # for each route's canonical shape, lookup stop sequence from one trip
-        for code, route_info in train_routes.items():
-            _, coords_latlon, shape_id = shapes_by_code.get(code, (None, None, None))
-            if not coords_latlon:
-                continue
-            trips_for_shape = trips_by_shape.get(shape_id, [])
-            if trips_for_shape:
-                # pick any trip on this shape, read its stop sequence
-                trip_id = trips_for_shape[0]
-                stops = sorted(trip_stop_seqs.get(trip_id, []))
-                real_stops_by_route[code] = [
-                    (seq, sid) for seq, sid in stops if sid in real_stops
-                ]
-                if real_stops_by_route[code]:
-                    continue
-
-            # fallback: proximity match stops to shape endpoints
-            if coords_latlon:
-                start_pt = coords_latlon[0]
-                end_pt = coords_latlon[-1]
-                best_start = min(real_stops.items(),
-                                key=lambda x: (x[1]["lat"] - start_pt[0]) ** 2 + (x[1]["lon"] - start_pt[1]) ** 2)
-                best_end = min(real_stops.items(),
-                              key=lambda x: (x[1]["lat"] - end_pt[0]) ** 2 + (x[1]["lon"] - end_pt[1]) ** 2)
-                real_stops_by_route[code] = [(0, best_start[0]), (1, best_end[0])]
-
-    # 6. Build route dicts with display info
+    # 5. build route dicts with metric LineStrings
     routes = {}
-    for code, route_info in train_routes.items():
-        if code not in shapes_by_code:
-            continue
-        _, coords_latlon, _ = shapes_by_code[code]
+    for code, (length_m, coords_latlon) in shapes_by_code.items():
+        meta = train_routes[code]
         line_wgs = LineString([(lon, lat) for lat, lon in coords_latlon])
         line_m = shapely_transform(to_metric, line_wgs)
         route_id = f"{id_prefix}:{code}"
+        if mode == "tram":
+            display_label = f"{meta['route_number']} {meta['short_name']}".strip()
+        else:
+            display_label = meta["short_name"]
         routes[route_id] = {
             "route_id": route_id,
             "corridor": corridor,
@@ -251,268 +199,299 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
             "speed_kmh": speed_kmh,
             "line_m": line_m,
             "line_wgs_coords": list(line_wgs.coords),
-            "short_name": route_info["short_name"],
-            "display_label": f'{route_info["route_number"]} — {route_info["short_name"]}',
+            "gtfs_code": code,
+            "short_name": meta["short_name"],
+            "display_label": display_label,
         }
         if color:
             routes[route_id]["color"] = color
 
-    return routes, real_stops_by_route, real_stops
+    # 6. snap real stations onto every rail line they actually sit on
+    #    (a station near several lines -> naturally becomes a shared/interchange stop)
+    station_pts_m = []
+    for st in stations:
+        x, y = to_metric(st["lon"], st["lat"])
+        station_pts_m.append((st, Point(x, y)))
 
+    real_stops_by_route = {rid: [] for rid in routes}
+    for rid, route in routes.items():
+        line = route["line_m"]
+        for st, pt in station_pts_m:
+            d = line.distance(pt)
+            if d <= STATION_SNAP_TOLERANCE_M:
+                dist_on_route = line.project(pt)
+                real_stops_by_route[rid].append(
+                    (dist_on_route, st["stop_id"], pt.x, pt.y, st["name"])
+                )
+        real_stops_by_route[rid].sort(key=lambda t: t[0])
 
-def load_srl_route(path):
-    """Load the single SRL route from hand-drawn GeoJSON (like bus routes)."""
-    data = json.load(open(path))
-    srl_routes = {}
-    for f in data["features"]:
-        props = f["properties"]
-        # Match whichever key the geojson actually uses — bus routes.geojson
-        # uses "route", but tolerate "route_id" too in case the SRL file
-        # was authored with a different convention.
-        route_id = props.get("route") or props.get("route_id")
-        if route_id is None:
-            raise KeyError(
-                f"SRL feature has neither 'route' nor 'route_id' in properties: {props}"
-            )
-        geom = f["geometry"]
-        if geom["type"] == "MultiLineString":
-            merged = linemerge(MultiLineString(geom["coordinates"]))
-            if merged.geom_type != "LineString":
-                raise ValueError(f"SRL geometry broken")
-            line_wgs = merged
-        else:
-            line_wgs = LineString(geom["coordinates"])
-        line_m = shapely_transform(to_metric, line_wgs)
-        srl_routes[route_id] = {
-            "route_id": route_id,
-            "corridor": "SRL",
-            "mode": "rail",
-            "frequency_min": SRL_FREQUENCY,
-            "speed_kmh": SRL_SPEED_KMH,
-            "line_m": line_m,
-            "line_wgs_coords": list(line_wgs.coords),
-            "short_name": "Suburban Rail Loop",
-            "display_label": "Suburban Rail Loop",
-            "color": "#008746",
-        }
-
-    # Seed 12 stops evenly spaced along the SRL line, each with a real
-    # position (interpolated along the metric geometry) and a name, so
-    # they behave exactly like GTFS-sourced stops downstream in build_stops.
-    srl_stops_by_route = {}
-    srl_stop_info = {}
-    for route_id, route_data in srl_routes.items():
-        line = route_data["line_m"]
-        code = route_id.split(":")[-1]
-        seq = []
-        n_stops = 12
-        for i in range(n_stops):
-            frac = i / (n_stops - 1) if n_stops > 1 else 0
-            pt_m = line.interpolate(frac, normalized=True)
-            lon, lat = to_wgs84(pt_m.x, pt_m.y)
-            stop_id = f"SRL_STOP_{i:02d}"
-            srl_stop_info[stop_id] = {
-                "name": f"Suburban Rail Loop Station {i + 1}",
-                "lat": lat,
-                "lon": lon,
-                "location_type": "1",
-            }
-            seq.append((i, stop_id))
-        srl_stops_by_route[code] = seq
-
-    return srl_routes, srl_stops_by_route, srl_stop_info
+    return routes, real_stops_by_route
 
 
 # ---------------------------------------------------------------------------
-# Core geometry: find route intersections, sample bus route line to stops
+# Load the Suburban Rail Loop (SRL) from its own hand-drawn geojson. It has
+# no GTFS data yet, so unlike the legacy rail lines, its real stops are just
+# the line's own vertices (the geometry was digitized stop-to-stop) - the
+# *only* stops SRL gets, no resampling, exactly like real GTFS stations.
+# ---------------------------------------------------------------------------
+
+def load_srl_route(path):
+    data = json.load(open(path))
+    feats = data["features"]
+    if len(feats) != 1:
+        raise ValueError(f"Expected exactly one SRL feature in {path}, found {len(feats)}")
+    f = feats[0]
+    props = f["properties"]
+    geom = f["geometry"]
+
+    if geom["type"] == "MultiLineString":
+        merged = linemerge(MultiLineString(geom["coordinates"]))
+        if merged.geom_type != "LineString":
+            raise ValueError(
+                f"SRL MultiLineString parts don't connect end-to-end "
+                f"(got {merged.geom_type}) — check the geometry for gaps."
+            )
+        line_wgs = merged
+    else:
+        line_wgs = LineString(geom["coordinates"])
+
+    line_m = shapely_transform(to_metric, line_wgs)
+    route_id = "RAIL:SRL"
+
+    route = {
+        "route_id": route_id,
+        "corridor": props.get("corridor", "SRL"),
+        "mode": "rail",
+        "frequency_min": SRL_FREQUENCY,
+        "speed_kmh": SRL_SPEED_KMH,
+        "line_m": line_m,
+        "line_wgs_coords": list(line_wgs.coords),
+        "gtfs_code": "SRL",
+        "short_name": props.get("route", "SRL"),
+        "display_label": "SRL Cheltenham - Box Hill",
+    }
+
+    # every vertex of the hand-drawn line is a real stop, in line order
+    real_stops = []
+    for i, (lon, lat) in enumerate(line_wgs.coords):
+        x, y = to_metric(lon, lat)
+        pt = Point(x, y)
+        dist_on_route = line_m.project(pt)
+        stop_id = f"SRL_S{i}"
+        name = f"SRL Station {i + 1}"
+        real_stops.append((dist_on_route, stop_id, x, y, name))
+    real_stops.sort(key=lambda t: t[0])
+
+    return {route_id: route}, {route_id: real_stops}
+
+
+# ---------------------------------------------------------------------------
+# Interchange detection (geometric line crossings) - same approach as
+# preprocess.py, run across bus+rail together so bus<->rail crossings and
+# bus<->bus crossings both still work exactly as before.
+# ---------------------------------------------------------------------------
+
+class UnionFind:
+    def __init__(self, n):
+        self.parent = list(range(n))
+
+    def find(self, x):
+        while self.parent[x] != x:
+            self.parent[x] = self.parent[self.parent[x]]
+            x = self.parent[x]
+        return x
+
+    def union(self, a, b):
+        ra, rb = self.find(a), self.find(b)
+        if ra != rb:
+            self.parent[ra] = rb
+
+
+def find_interchanges(routes):
+    raw_points = []
+    for a, b in combinations(routes.keys(), 2):
+        line_a, line_b = routes[a]["line_m"], routes[b]["line_m"]
+        if not line_a.intersects(line_b):
+            continue
+        inter = line_a.intersection(line_b)
+        pts = []
+        if inter.geom_type == "Point":
+            pts = [inter]
+        elif inter.geom_type == "MultiPoint":
+            pts = list(inter.geoms)
+        elif inter.geom_type in ("LineString", "MultiLineString"):
+            continue
+        for p in pts:
+            raw_points.append((p.x, p.y, a, b))
+
+    n = len(raw_points)
+    uf = UnionFind(n)
+    for i, j in combinations(range(n), 2):
+        xi, yi = raw_points[i][0], raw_points[i][1]
+        xj, yj = raw_points[j][0], raw_points[j][1]
+        if math.hypot(xi - xj, yi - yj) <= SNAP_TOLERANCE_M:
+            uf.union(i, j)
+
+    clusters = {}
+    for i in range(n):
+        clusters.setdefault(uf.find(i), []).append(i)
+
+    interchanges = []
+    for members in clusters.values():
+        xs = [raw_points[i][0] for i in members]
+        ys = [raw_points[i][1] for i in members]
+        cx, cy = sum(xs) / len(xs), sum(ys) / len(ys)
+        route_set = set()
+        for i in members:
+            route_set.add(raw_points[i][2])
+            route_set.add(raw_points[i][3])
+        interchanges.append({"point": (cx, cy), "routes": route_set})
+
+    for ic in interchanges:
+        ic["dist_on_route"] = {}
+        px, py = ic["point"]
+        p = Point(px, py)
+        for r in ic["routes"]:
+            ic["dist_on_route"][r] = routes[r]["line_m"].project(p)
+
+    return interchanges
+
+
+# ---------------------------------------------------------------------------
+# Build stops: bus keeps the original resample-every-400m approach; rail
+# uses ONLY its real GTFS stations (no resampling, no moving anything).
+# Geometric interchanges (bus<->bus, bus<->rail) are merged into whichever
+# real stop already sits within SNAP_TOLERANCE_M, so a bus line crossing at
+# an actual station reuses that station rather than minting a duplicate.
 # ---------------------------------------------------------------------------
 
 @dataclass
 class Stop:
+    stop_id: str
     x: float
     y: float
-    lat: float
-    lon: float
-    name: str = ""
+    is_interchange: bool
     routes: set = field(default_factory=set)
-    is_interchange: bool = False
+    name: str = None
 
 
-def resample_bus_line(line, spacing):
-    """Sample a line at regular ~spacing intervals."""
-    total = line.length
-    samples = []
-    for i in range(int(total / spacing) + 1):
-        dist = i * spacing
-        if dist <= total:
-            pt = line.interpolate(dist)
-            samples.append((pt.x, pt.y))
-    return samples
-
-
-def find_interchanges(routes):
-    """Find clusters of route-crossing points (bus<->bus, bus<->rail, rail<->tram)."""
-    crossing_pts = []
-    route_ids = list(routes.keys())
-    for i, rid_a in enumerate(route_ids):
-        for rid_b in route_ids[i + 1:]:
-            geom = routes[rid_a]["line_m"].intersection(routes[rid_b]["line_m"])
-            if geom.is_empty:
-                continue
-            if geom.geom_type == "Point":
-                crossing_pts.append((geom.x, geom.y, {rid_a, rid_b}))
-            elif geom.geom_type == "MultiPoint":
-                for pt in geom.geoms:
-                    crossing_pts.append((pt.x, pt.y, {rid_a, rid_b}))
-            elif geom.geom_type == "LineString":
-                # Two routes overlap for a segment; sample the midpoint
-                pt = geom.interpolate(0.5, normalized=True)
-                crossing_pts.append((pt.x, pt.y, {rid_a, rid_b}))
-
-    # Cluster nearby crossing points using single-linkage clustering.
-    # Each cluster is a dict: {"points": [(x, y), ...], "routes": set(...)}
-    clusters = []
-    for x, y, route_set in crossing_pts:
-        merged = False
-        for cluster in clusters:
-            cx = sum(p[0] for p in cluster["points"]) / len(cluster["points"])
-            cy = sum(p[1] for p in cluster["points"]) / len(cluster["points"])
-            if math.hypot(x - cx, y - cy) <= SNAP_TOLERANCE_M:
-                cluster["points"].append((x, y))
-                cluster["routes"] |= route_set
-                merged = True
-                break
-        if not merged:
-            clusters.append({"points": [(x, y)], "routes": set(route_set)})
-
-    # Return cluster centroids (only clusters actually involving 2+ crossings
-    # are meaningful interchanges; a single crossing point is still valid —
-    # every entry here came from an intersection of exactly 2 routes at minimum)
-    result = []
-    for cluster in clusters:
-        coords = cluster["points"]
-        cx = sum(x for x, y in coords) / len(coords)
-        cy = sum(y for x, y in coords) / len(coords)
-        result.append({"x": cx, "y": cy, "routes": cluster["routes"]})
-    return result
-
-
-def build_stops(routes, interchanges, real_stops_by_route, real_stop_info):
-    """
-    Build stop dict and route stop sequences.
-    For each route:
-      - Real stops (train/tram/SRL) use their GTFS (or SRL-generated) names
-      - Bus stops get sequential names: "Stop #1", "Stop #2", etc.
-      - Stops on opposite sides of the road get the same name
-    """
+def build_stops(routes, interchanges, real_stops_by_route):
     stops = {}
     route_stop_sequences = {}
 
-    # Map bare GTFS route codes (e.g. "ALM") back to their full prefixed
-    # route_id (e.g. "RAIL:ALM") once, rather than re-scanning routes for
-    # every stop sequence.
-    code_to_full_id = {}
-    for rid in routes.keys():
-        if ":" in rid:
-            code_to_full_id[rid.split(":", 1)[1]] = rid
+    # 1. seed real train/tram stations first (their ids/positions/names are ground truth)
+    for rid, entries in real_stops_by_route.items():
+        for dist, sid, x, y, name in entries:
+            if sid not in stops:
+                stops[sid] = Stop(sid, x, y, False, set())
+            stops[sid].routes.add(rid)
+            if name and not stops[sid].name:
+                stops[sid].name = name
 
-    # 1. Process train/tram/SRL routes: use real (GTFS or SRL-generated) stop names
-    for route_id, seq in real_stops_by_route.items():
-        route_full_id = code_to_full_id.get(route_id, route_id)
+    def nearest_existing_stop(x, y, tol):
+        best, best_d = None, tol
+        for sid, s in stops.items():
+            d = math.hypot(s.x - x, s.y - y)
+            if d <= best_d:
+                best, best_d = sid, d
+        return best
 
-        route_stop_sequences[route_full_id] = []
-        for order, stop_id in seq:
-            info = real_stop_info.get(stop_id)
-            if info is None:
-                # Shouldn't happen — every stop_id in real_stops_by_route
-                # should have a matching entry in real_stop_info — but skip
-                # gracefully rather than crash if GTFS data is inconsistent.
-                continue
-            if stop_id not in stops:
-                x, y = to_metric(info["lon"], info["lat"])
-                stops[stop_id] = Stop(
-                    x=x,
-                    y=y,
-                    lat=info["lat"],
-                    lon=info["lon"],
-                    name=info["name"],
-                )
-            stops[stop_id].routes.add(route_full_id)
-            route_stop_sequences[route_full_id].append((stop_id, 0))
-
-    # 2. Process bus routes: resample line, create sequential stop names per route
-    for route_id, route_info in routes.items():
-        if route_info["mode"] != "bus":
-            continue
-
-        line = route_info["line_m"]
-        pts = resample_bus_line(line, STOP_SPACING_M)
-        
-        # Remove duplicates and ensure minimum separation
-        filtered = []
-        for x, y in pts:
-            if not filtered or math.hypot(x - filtered[-1][0], y - filtered[-1][1]) >= MIN_STOP_SEPARATION_M:
-                filtered.append((x, y))
-        
-        route_stop_sequences[route_id] = []
-        for stop_num, (x, y) in enumerate(filtered, 1):
-            # Create a stop_id unique to this route and position
-            stop_id = f"{route_id}__STOP_{stop_num:03d}"
-            
-            # Use sequential naming: "Stop #1", "Stop #2", etc.
-            stop_name = f"Stop #{stop_num}"
-            
-            lon, lat = to_wgs84(x, y)
-            if stop_id not in stops:
-                stops[stop_id] = Stop(
-                    x=x,
-                    y=y,
-                    lat=lat,
-                    lon=lon,
-                    name=stop_name,
-                )
-            else:
-                # Stop already exists (possible at interchanges); reuse it
-                stops[stop_id].name = stop_name
-            
-            stops[stop_id].routes.add(route_id)
-            route_stop_sequences[route_id].append((stop_id, 0))
-
-    # 3. Mark interchanges and ensure stops share names when on same corridor
+    # 2. resolve interchange clusters, reusing a nearby real stop if one exists
+    ic_counter = 0
     for ic in interchanges:
-        candidates = []
-        for sid, stop in stops.items():
-            if math.hypot(stop.x - ic["x"], stop.y - ic["y"]) < STATION_SNAP_TOLERANCE_M:
-                candidates.append((sid, math.hypot(stop.x - ic["x"], stop.y - ic["y"])))
-        candidates.sort(key=lambda x: x[1])
-        for sid, _ in candidates[:3]:  # Mark closest 3 as interchange
-            stops[sid].is_interchange = True
+        px, py = ic["point"]
+        existing = nearest_existing_stop(px, py, SNAP_TOLERANCE_M)
+        # Geometric interchanges only ever add BUS routes to a stop. A
+        # rail/tram route's stops come exclusively from its own real GTFS
+        # stop membership (seeded in step 1, and forced again in step 3) -
+        # never from merely crossing near a stop geometrically. Filtering
+        # this here (rather than just skipping the union above) keeps the
+        # per-route "forced" stop list below in sync with `stop.routes`,
+        # so we never end up forcing a route through a stop node that was
+        # never actually created for it.
+        ic["routes"] = {r for r in ic["routes"] if routes[r].get("mode") not in ("rail", "tram")}
+        if existing:
+            ic["stop_id"] = existing
+            if ic["routes"]:
+                stops[existing].is_interchange = True
+                stops[existing].routes |= ic["routes"]
+        else:
+            # No real station already sits here, so only bus routes may get
+            # a brand-new node at this crossing.
+            if not ic["routes"]:
+                ic["stop_id"] = None
+                continue
+            sid = f"IC{ic_counter}"
+            ic_counter += 1
+            ic["stop_id"] = sid
+            stops[sid] = Stop(sid, px, py, True, set(ic["routes"]))
+
+    for rid, entries in real_stops_by_route.items():
+        if len(entries) > 1:
+            pass
+    for sid, s in stops.items():
+        if len(s.routes) > 1:
+            s.is_interchange = True
+
+    # 3. per-route stop sequences
+    for route_id, route in routes.items():
+        line = route["line_m"]
+        total = line.length
+        is_rail = route.get("mode") in ("rail", "tram")
+
+        forced = []
+        for ic in interchanges:
+            if route_id in ic["routes"]:
+                forced.append((ic["dist_on_route"][route_id], ic["stop_id"]))
+
+        if is_rail:
+            for dist, sid, x, y, name in real_stops_by_route.get(route_id, []):
+                forced.append((dist, sid))
+        forced = sorted(set(forced), key=lambda t: t[0])
+        forced_dists = [f[0] for f in forced]
+
+        if is_rail:
+            kept_regular = []
+        else:
+            n_regular = max(1, round(total / STOP_SPACING_M))
+            regular_dists = [i * total / n_regular for i in range(n_regular + 1)]
+            kept_regular = [
+                d for d in regular_dists
+                if all(abs(d - fd) > MIN_STOP_SEPARATION_M for fd in forced_dists)
+            ]
+
+        placements = [(d, "regular", None) for d in kept_regular] + \
+                     [(d, "forced", sid) for d, sid in forced]
+        placements.sort(key=lambda t: t[0])
+
+        seq = []
+        for dist, kind, forced_sid in placements:
+            if kind == "forced":
+                sid = forced_sid
+                stops[sid].routes.add(route_id)
+            else:
+                pt = line.interpolate(dist)
+                sid = f"{route_id}__S{len(seq)}"
+                stops[sid] = Stop(sid, pt.x, pt.y, False, {route_id})
+            seq.append((sid, dist))
+
+        route_stop_sequences[route_id] = seq
 
     return stops, route_stop_sequences
 
 
 # ---------------------------------------------------------------------------
-# Graph construction: nodes, edges, Dijkstra setup
+# Build graph (identical structure/semantics to preprocess.py's build_graph)
 # ---------------------------------------------------------------------------
 
 def build_graph(routes, stops, route_stop_sequences):
     nodes = {}
     edges = []
 
-    def add_node(node_id, stop_id, node_type, route_id=None):
-        if node_id in nodes:
-            return
-        if stop_id not in stops:
-            return
-        stop = stops[stop_id]
-        nodes[node_id] = {
-            "lat": stop.lat,
-            "lon": stop.lon,
-            "type": node_type,
-            "stop_id": stop_id,
-        }
-        if route_id:
-            nodes[node_id]["route"] = route_id
+    def add_node(node_id, stop_id, kind, route_id=None):
+        s = stops[stop_id]
+        lon, lat = to_wgs84(s.x, s.y)
+        nodes[node_id] = {"id": node_id, "stop_id": stop_id, "lat": lat, "lon": lon, "type": kind, "route": route_id}
 
     def hub_in_id(stop_id):
         return f"{stop_id}__HUB_IN"
@@ -611,40 +590,34 @@ def main():
     bus_routes = load_bus_routes(BUS_GEOJSON)
     print(f"Loaded {len(bus_routes)} bus routes (lines unchanged)")
 
-    train_routes, real_stops_by_route, real_stop_info = load_gtfs_train_routes(
-        GTFS_ROUTES, GTFS_SHAPES, GTFS_STOPS,
-        trips_txt=GTFS_TRIPS, stop_times_txt=GTFS_STOP_TIMES,
-    )
+    train_routes, real_stops_by_route = load_gtfs_train_routes(GTFS_ROUTES, GTFS_SHAPES, GTFS_STOPS)
     print(f"Loaded {len(train_routes)} train routes from GTFS")
     total_stations = len(set(sid for entries in real_stops_by_route.values() for _, sid, *_ in entries))
     print(f"Matched {total_stations} distinct real stations across those lines")
 
-    srl_routes, srl_real_stops, srl_stop_info = load_srl_route(SRL_GEOJSON)
+    srl_routes, srl_real_stops = load_srl_route(SRL_GEOJSON)
     print(f"Loaded {len(srl_routes)} SRL route ({len(next(iter(srl_real_stops.values())))} stops)")
     train_routes.update(srl_routes)
     real_stops_by_route.update(srl_real_stops)
-    real_stop_info.update(srl_stop_info)
 
-    tram_routes, tram_real_stops, tram_stop_info = load_gtfs_train_routes(
+    tram_routes, tram_real_stops = load_gtfs_train_routes(
         GTFS_TRAM_ROUTES, GTFS_TRAM_SHAPES, GTFS_TRAM_STOPS,
         mode="tram", corridor="TRAM", id_prefix="TRAM",
         speed_kmh=TRAM_SPEED_KMH, frequency_min=TRAM_FREQUENCY,
         color=TRAM_COLOR, stop_location_types=("", "0"),
-        trips_txt=GTFS_TRAM_TRIPS, stop_times_txt=GTFS_TRAM_STOP_TIMES,
     )
     print(f"Loaded {len(tram_routes)} tram routes from GTFS")
     total_tram_stops = len(set(sid for entries in tram_real_stops.values() for _, sid, *_ in entries))
     print(f"Matched {total_tram_stops} distinct real tram stops across those lines")
     train_routes.update(tram_routes)
     real_stops_by_route.update(tram_real_stops)
-    real_stop_info.update(tram_stop_info)
 
     routes = {**bus_routes, **train_routes}
 
     interchanges = find_interchanges(routes)
     print(f"Found {len(interchanges)} clustered geometric interchange points")
 
-    stops, route_stop_sequences = build_stops(routes, interchanges, real_stops_by_route, real_stop_info)
+    stops, route_stop_sequences = build_stops(routes, interchanges, real_stops_by_route)
     n_ic = sum(1 for s in stops.values() if s.is_interchange)
     print(f"Total stops: {len(stops)} ({n_ic} interchange, {len(stops) - n_ic} regular)")
 
@@ -653,7 +626,7 @@ def main():
     print(f"Added {n_walk} walk-transfer edges")
     print(f"Graph: {len(nodes)} nodes, {len(edges)} edges")
     n_named = sum(1 for s in stops.values() if s.name)
-    print(f"{n_named} stops have a name (GTFS or sequential)")
+    print(f"{n_named} stops have a real GTFS name (train/tram/SRL)")
 
     graph = {
         "meta": {

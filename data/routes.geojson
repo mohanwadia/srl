@@ -8808,7 +8808,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Alamein - City",
-    "display_label": "Alamein \u2014 Alamein - City"
+    "display_label": "Alamein - City"
    }
   },
   {
@@ -12983,7 +12983,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Belgrave - City",
-    "display_label": "Belgrave \u2014 Belgrave - City"
+    "display_label": "Belgrave - City"
    }
   },
   {
@@ -14978,7 +14978,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Cranbourne - City",
-    "display_label": "Cranbourne \u2014 Cranbourne - City"
+    "display_label": "Cranbourne - City"
    }
   },
   {
@@ -17089,7 +17089,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Craigieburn - City",
-    "display_label": "Craigieburn \u2014 Craigieburn - City"
+    "display_label": "Craigieburn - City"
    }
   },
   {
@@ -20072,7 +20072,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Frankston - City",
-    "display_label": "Frankston \u2014 Frankston - City"
+    "display_label": "Frankston - City"
    }
   },
   {
@@ -22355,7 +22355,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Glen Waverley - City",
-    "display_label": "Glen Waverley \u2014 Glen Waverley - City"
+    "display_label": "Glen Waverley - City"
    }
   },
   {
@@ -26974,7 +26974,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Hurstbridge - City",
-    "display_label": "Hurstbridge \u2014 Hurstbridge - City"
+    "display_label": "Hurstbridge - City"
    }
   },
   {
@@ -30397,7 +30397,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Lilydale - City",
-    "display_label": "Lilydale \u2014 Lilydale - City"
+    "display_label": "Lilydale - City"
    }
   },
   {
@@ -32880,7 +32880,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Mernda - City",
-    "display_label": "Mernda \u2014 Mernda - City"
+    "display_label": "Mernda - City"
    }
   },
   {
@@ -35259,7 +35259,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Pakenham - City",
-    "display_label": "Pakenham \u2014 Pakenham - City"
+    "display_label": "Pakenham - City"
    }
   },
   {
@@ -36274,7 +36274,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Flemington Racecourse - City",
-    "display_label": "Flemington Racecourse \u2014 Flemington Racecourse - City"
+    "display_label": "Flemington Racecourse - City"
    }
   },
   {
@@ -37957,7 +37957,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Sandringham - City",
-    "display_label": "Sandringham \u2014 Sandringham - City"
+    "display_label": "Sandringham - City"
    }
   },
   {
@@ -39344,7 +39344,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Stony Point - Frankston",
-    "display_label": "Stony Point \u2014 Stony Point - Frankston"
+    "display_label": "Stony Point - Frankston"
    }
   },
   {
@@ -41071,7 +41071,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Sunbury - City",
-    "display_label": "Sunbury \u2014 Sunbury - City"
+    "display_label": "Sunbury - City"
    }
   },
   {
@@ -42630,7 +42630,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Upfield - City",
-    "display_label": "Upfield \u2014 Upfield - City"
+    "display_label": "Upfield - City"
    }
   },
   {
@@ -48141,7 +48141,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Werribee - City",
-    "display_label": "Werribee \u2014 Werribee - City"
+    "display_label": "Werribee - City"
    }
   },
   {
@@ -50360,7 +50360,7 @@
     "corridor": "RAIL",
     "mode": "rail",
     "short_name": "Williamstown - City",
-    "display_label": "Williamstown \u2014 Williamstown - City"
+    "display_label": "Williamstown - City"
    }
   },
   {
@@ -50397,9 +50397,9 @@
    "properties": {
     "route": "RAIL:SRL",
     "corridor": "SRL",
-    "mode": "bus",
-    "short_name": "RAIL:SRL",
-    "display_label": "RAIL:SRL"
+    "mode": "rail",
+    "short_name": "SRL",
+    "display_label": "SRL Cheltenham - Box Hill"
    }
   },
   {
@@ -51706,7 +51706,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Port Melbourne - Box Hill",
-    "display_label": "109 \u2014 Port Melbourne - Box Hill"
+    "display_label": "109 Port Melbourne - Box Hill"
    }
   },
   {
@@ -52609,7 +52609,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Victoria Harbour Docklands - West Preston",
-    "display_label": "11 \u2014 Victoria Harbour Docklands - West Preston"
+    "display_label": "11 Victoria Harbour Docklands - West Preston"
    }
   },
   {
@@ -53612,7 +53612,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "St Kilda (Fitzroy St) - Victoria Gardens",
-    "display_label": "12 \u2014 St Kilda (Fitzroy St) - Victoria Gardens"
+    "display_label": "12 St Kilda (Fitzroy St) - Victoria Gardens"
    }
   },
   {
@@ -55147,7 +55147,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Kew - Melbourne University",
-    "display_label": "16 \u2014 Kew - Melbourne University"
+    "display_label": "16 Kew - Melbourne University"
    }
   },
   {
@@ -55594,7 +55594,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Flinders Street Station - North Coburg",
-    "display_label": "19 \u2014 Flinders Street Station - North Coburg"
+    "display_label": "19 Flinders Street Station - North Coburg"
    }
   },
   {
@@ -57149,7 +57149,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "South Melbourne Beach - East Coburg",
-    "display_label": "1 \u2014 South Melbourne Beach - East Coburg"
+    "display_label": "1 South Melbourne Beach - East Coburg"
    }
   },
   {
@@ -57764,7 +57764,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Central Pier Docklands - St Vincents Plaza",
-    "display_label": "30 \u2014 Central Pier Docklands - St Vincents Plaza"
+    "display_label": "30 Central Pier Docklands - St Vincents Plaza"
    }
   },
   {
@@ -58779,7 +58779,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "City Circle",
-    "display_label": "35 \u2014 City Circle"
+    "display_label": "35 City Circle"
    }
   },
   {
@@ -59966,7 +59966,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "East Malvern - Melbourne University",
-    "display_label": "3 \u2014 East Malvern - Melbourne University"
+    "display_label": "3 East Malvern - Melbourne University"
    }
   },
   {
@@ -60893,7 +60893,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Victoria Harbour Docklands - North Balwyn",
-    "display_label": "48 \u2014 Victoria Harbour Docklands - North Balwyn"
+    "display_label": "48 Victoria Harbour Docklands - North Balwyn"
    }
   },
   {
@@ -61808,7 +61808,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Flinders Street Station - West Maribyrnong",
-    "display_label": "57 \u2014 Flinders Street Station - West Maribyrnong"
+    "display_label": "57 Flinders Street Station - West Maribyrnong"
    }
   },
   {
@@ -63443,7 +63443,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Toorak - West Coburg",
-    "display_label": "58 \u2014 Toorak - West Coburg"
+    "display_label": "58 Toorak - West Coburg"
    }
   },
   {
@@ -64826,7 +64826,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Flinders Street Station - Airport West",
-    "display_label": "59 \u2014 Flinders Street Station - Airport West"
+    "display_label": "59 Flinders Street Station - Airport West"
    }
   },
   {
@@ -65633,7 +65633,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Malvern - Melbourne University",
-    "display_label": "5 \u2014 Malvern - Melbourne University"
+    "display_label": "5 Malvern - Melbourne University"
    }
   },
   {
@@ -66668,7 +66668,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "East Brighton - Melbourne University",
-    "display_label": "64 \u2014 East Brighton - Melbourne University"
+    "display_label": "64 East Brighton - Melbourne University"
    }
   },
   {
@@ -67727,7 +67727,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Carnegie - Melbourne University",
-    "display_label": "67 \u2014 Carnegie - Melbourne University"
+    "display_label": "67 Carnegie - Melbourne University"
    }
   },
   {
@@ -69190,7 +69190,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Glen Iris - Moreland",
-    "display_label": "6 \u2014 Glen Iris - Moreland"
+    "display_label": "6 Glen Iris - Moreland"
    }
   },
   {
@@ -70517,7 +70517,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Waterfront City Docklands - Wattle Park",
-    "display_label": "70 \u2014 Waterfront City Docklands - Wattle Park"
+    "display_label": "70 Waterfront City Docklands - Wattle Park"
    }
   },
   {
@@ -71496,7 +71496,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Camberwell - Melbourne University",
-    "display_label": "72 \u2014 Camberwell - Melbourne University"
+    "display_label": "72 Camberwell - Melbourne University"
    }
   },
   {
@@ -73195,7 +73195,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Central Pier Docklands - Vermont South",
-    "display_label": "75 \u2014 Central Pier Docklands - Vermont South"
+    "display_label": "75 Central Pier Docklands - Vermont South"
    }
   },
   {
@@ -73474,7 +73474,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Balaclava - North Richmond",
-    "display_label": "78 \u2014 Balaclava - North Richmond"
+    "display_label": "78 Balaclava - North Richmond"
    }
   },
   {
@@ -74213,7 +74213,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Moonee Ponds - Footscray",
-    "display_label": "82 \u2014 Moonee Ponds - Footscray"
+    "display_label": "82 Moonee Ponds - Footscray"
    }
   },
   {
@@ -76024,7 +76024,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "Waterfront City Docklands - Bundoora RMIT",
-    "display_label": "86 \u2014 Waterfront City Docklands - Bundoora RMIT"
+    "display_label": "86 Waterfront City Docklands - Bundoora RMIT"
    }
   },
   {
@@ -77495,7 +77495,7 @@
     "corridor": "TRAM",
     "mode": "tram",
     "short_name": "St Kilda Beach - East Brunswick",
-    "display_label": "96 \u2014 St Kilda Beach - East Brunswick"
+    "display_label": "96 St Kilda Beach - East Brunswick"
    }
   },
   {
@@ -77532,9 +77532,9 @@
    "properties": {
     "route": "SRL",
     "corridor": "SRL",
-    "mode": "rail",
-    "short_name": "Suburban Rail Loop",
-    "display_label": "Suburban Rail Loop"
+    "mode": "bus",
+    "short_name": "SRL",
+    "display_label": "SRL"
    }
   }
  ]

@@ -70,14 +70,7 @@ Promise.all([
   fetch('data/stop_names.json').then(r => r.ok ? r.json() : {}).catch(() => ({})),
 ]).then(([graphData, routesGeojson, stopNamesData]) => {
   graph = graphData;
-  // stop_names.json is a geocoded fallback for stops with no real GTFS name
-  // (e.g. hand-resampled bus stops). graph.stop_names comes straight from
-  // the GTFS stops.txt for train/tram/SRL and is authoritative, so it wins
-  // wherever both are present.
   stopNames = new Map(Object.entries(stopNamesData));
-  for (const [sid, name] of Object.entries(graph.stop_names || {})) {
-    stopNames.set(sid, name);
-  }
   buildAdjacency();
   buildStopIndex();
   renderRouteLines(routesGeojson);
@@ -261,8 +254,7 @@ function runDijkstra(startId, endId, extraAdj) {
     if (node === endId) break;
 
     for (const e of getEdges(node)) {
-      const routingCost = e.cost_min ?? e.weight_min;
-      const nd = cost + routingCost;
+      const nd = cost + e.weight_min;
       if (nd < (dist.get(e.to) ?? Infinity)) {
         dist.set(e.to, nd);
         prev.set(e.to, { from: node, edge: e });
@@ -281,10 +273,7 @@ function runDijkstra(startId, endId, extraAdj) {
     cur = step.from;
   }
   edges.reverse();
-  // Display the real elapsed time (weight_min), not the routing cost that
-  // may include boarding-hassle penalties used only to steer path choice.
-  const totalMin = edges.reduce((sum, e) => sum + e.weight_min, 0);
-  return { totalMin, edges };
+  return { totalMin: dist.get(endId), edges };
 }
 
 function findRoute(origin, dest) {
@@ -322,8 +311,8 @@ function stopLabel(stopId) {
   if (realName) return realName;
   const routes = stopRoutes.get(stopId);
   if (!routes || routes.size === 0) return 'this stop';
-  if (routes.size === 1) return `Route ${[...routes][0]} stop`;
-  return `${[...routes].join(' / ')} interchange`;
+  if (routes.size === 1) return `the Route ${[...routes][0]} stop`;
+  return `the ${[...routes].join(' / ')} interchange`;
 }
 
 function buildItinerary(edges) {
@@ -373,10 +362,6 @@ function buildItinerary(edges) {
       }
       rideTotal += sum;
       distTotal += distM;
-      const boardNode = graph.nodes[e.from];
-      const alightNode = graph.nodes[edges[j - 1].to];
-      const boardStop = boardNode ? stopLabel(boardNode.stop_id) : null;
-      const alightStop = alightNode ? stopLabel(alightNode.stop_id) : null;
       legs.push({
         type: 'ride',
         label: routeDisplayLabel(route),
@@ -384,8 +369,6 @@ function buildItinerary(edges) {
         min: sum,
         stopCount,
         distM,
-        boardStop,
-        alightStop,
       });
       i = j; continue;
     }
@@ -512,18 +495,9 @@ function renderItinerary(result) {
     if (group.kind === 'ride') {
       const leg = group.leg;
       const stopLabelText = leg.stopCount === 1 ? '1 stop' : `${leg.stopCount} stops`;
-      
-      // Layout:
-      // - Board stop (larger, flush against the colored bar)
-      // - Route name and trip details (indented)
-      // - Alight stop (larger, flush against the colored bar)
       content.innerHTML =
-        `<div class="leg-timeline-text">` +
-          (leg.boardStop ? `<span class="leg-stop leg-stop-board">${leg.boardStop}</span>` : '') +
-          `<span class="leg-route-name">${leg.label}</span>` +
-          `<span class="leg-route-detail">${Math.round(leg.min)} min, ${stopLabelText}</span>` +
-          (leg.alightStop ? `<span class="leg-stop leg-stop-alight">${leg.alightStop}</span>` : '') +
-        `</div>`;
+        `<span class="leg-route-name">${leg.label}</span>` +
+        `<span class="leg-sub">${Math.round(leg.min)} min, ${stopLabelText}</span>`;
     } else {
       content.innerHTML = `<span class="leg-main">${group.mainLabel} ${Math.round(group.mainMin)} min</span>` +
         (group.subLabel ? `<span class="leg-sub">${group.subLabel} ${Math.round(group.subMin)} min</span>` : '');
