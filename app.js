@@ -456,10 +456,7 @@ function renderItinerary(result) {
       seg.className = `time-bar-seg ${leg.type === 'ride' ? 'is-ride' : 'is-other'}`;
       seg.style.width = `${(leg.min / totalMin) * 100}%`;
       if (leg.type === 'ride') {
-        const mode = graph.routes && graph.routes[leg.route] && graph.routes[leg.route].mode;
-        if (mode === 'rail') {
-          seg.style.background = routeColor(leg.route);
-        }
+        seg.style.background = routeColor(leg.route);
       }
       seg.title = `${leg.label} — ${Math.round(leg.min)} min`;
       timeBar.appendChild(seg);
@@ -478,10 +475,7 @@ function renderItinerary(result) {
     if (group.kind === 'ride') {
       const markerShape = document.createElement('div');
       markerShape.className = 'marker-bar';
-      const mode = graph.routes && graph.routes[group.leg.route] && graph.routes[group.leg.route].mode;
-      if (mode === 'rail') {
-        markerShape.style.background = routeColor(group.leg.route);
-      }
+      markerShape.style.background = routeColor(group.leg.route);
       marker.appendChild(markerShape);
     } else {
       const iconWrap = document.createElement('div');

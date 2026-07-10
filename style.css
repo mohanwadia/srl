@@ -151,7 +151,7 @@ html, body {
 .summary-unit {
   font-size: 15px;
   color: var(--muted);
-  margin-left: 4px;
+  margin-left: 3px;
 }
 
 .time-bar {
@@ -161,14 +161,14 @@ html, body {
   margin-top: 12px;
   border-radius: 4px;
   overflow: hidden;
-  background: var(--line);
+  background: var(--non-ride);
 }
 
 .time-bar-seg {
   height: 100%;
 }
 .time-bar-seg.is-other { background: var(--non-ride); }
-.time-bar-seg.is-ride { background: var(--ride); }
+.time-bar-seg.is-ride { background: var(--ride); border-radius: 4px; }
 
 #itinerary h2 {
   font-size: 12px;
