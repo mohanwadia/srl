@@ -73,7 +73,7 @@ const JOURNEY_COMBOS = [
   { key: 'srl', label: 'SRL', srl: true, busReform: false },
   { key: 'both', label: 'Both', srl: true, busReform: true },
 ];
-let journeyCombo = 'current';   // which of JOURNEY_COMBOS is currently shown on the map/itinerary
+let journeyCombo = 'both';      // which of JOURNEY_COMBOS is currently shown on the map/itinerary
 let journeyResults = {};        // combo key -> findRoute() result (or null if no route for that combo)
 
 let currentTab = 'journey';     // 'journey' | 'isochrone'
@@ -1194,7 +1194,7 @@ function journeyShareText() {
   }
 
   if (fastest.key === 'current') {
-    return 'I just checked out my commute when Melbourne has SRL and better buses 🤯 mohanwadia.com/srl';
+    return 'I just checked out my commute when Melbourne has SRL and better buses 🤯mohanwadia.com/srl';
   }
 
   const x = slowest.time - fastest.time;
@@ -1204,12 +1204,12 @@ function journeyShareText() {
   else mention = 'SRL and better buses'; // 'both'
 
   const savings = x <= 4 ? 'time' : `${x} minutes`;
-  return `I'll save ${savings} on my commute when Melbourne has ${mention} 🤯 www.mohanwadia.com/srl`;
+  return `I'll save ${savings} on my commute when Melbourne has ${mention}🤯www.mohanwadia.com/srl`;
 }
 
 // Fixed share text for the Isochrone tab.
 function isochroneShareText() {
-  return "Check out how much time you'll save once Melbourne has SRL and better buses 🤯 mohanwadia.com/srl";
+  return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯mohanwadia.com/srl";
 }
 
 // Generic share text used when nothing has been clicked on the map yet
@@ -1296,7 +1296,7 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   originLatLng = null;
   destLatLng = null;
   journeyResults = {};
-  journeyCombo = 'current';
+  journeyCombo = 'both';
   if (originMarker) map.removeLayer(originMarker);
   if (destMarker) map.removeLayer(destMarker);
   if (pathLayer) map.removeLayer(pathLayer);
@@ -1309,7 +1309,7 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   document.getElementById('instructions').classList.remove('hidden');
   document.getElementById('instruction-text').innerHTML = 'Click the map to set your <strong>origin</strong>.';
 
-  applyNetworkState(false, false); // back to the "Current" network for the next trip
+  applyNetworkState(true, true); // back to the "Both" (SRL + Bus Reform) network for the next trip
 
   // Also reset the isochrone tab's point, since this is now the only
   // reset button (the isochrone tab's own reset button was removed).
