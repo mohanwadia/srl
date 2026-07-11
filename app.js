@@ -1102,12 +1102,6 @@ function syncURL(push) {
     window.history.replaceState({}, '', url);
   }
 
-  const shareBtn = document.getElementById('share-btn');
-  if (shareBtn) {
-    const hasJourney = currentTab === 'journey' && originLatLng && destLatLng;
-    const hasIso = currentTab === 'isochrone' && isoOriginLatLng;
-    shareBtn.classList.toggle('hidden', !(hasJourney || hasIso));
-  }
 }
 
 // Reads the current URL (path + query) on load or on popstate and applies
@@ -1209,7 +1203,8 @@ function journeyShareText() {
   else if (fastest.key === 'busReform') mention = 'better buses';
   else mention = 'SRL and better buses'; // 'both'
 
-  return `I'll save ${x} minutes on my commute when Melbourne has ${mention} 🤯 www.mohanwadia.com/srl`;
+  const savings = x <= 4 ? 'time' : `${x} minutes`;
+  return `I'll save ${savings} on my commute when Melbourne has ${mention} 🤯 www.mohanwadia.com/srl`;
 }
 
 // Fixed share text for the Isochrone tab.
@@ -1217,9 +1212,21 @@ function isochroneShareText() {
   return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯 mohanwadia.com/srl";
 }
 
+// Generic share text used when nothing has been clicked on the map yet
+// (no journey pins, no isochrone point) — same on both tabs.
+function genericShareText() {
+  return "Check out how much time you'll save once Melbourne has SRL and better buses 🤯 mohanwadia.com/srl";
+}
+
 function shareOrCopyLink() {
   const shareBtn = document.getElementById('share-btn');
-  const text = currentTab === 'isochrone' ? isochroneShareText() : journeyShareText();
+  const hasJourney = currentTab === 'journey' && originLatLng && destLatLng;
+  const hasIso = currentTab === 'isochrone' && isoOriginLatLng;
+
+  let text;
+  if (hasJourney) text = journeyShareText() || genericShareText();
+  else if (hasIso) text = isochroneShareText();
+  else text = genericShareText();
 
   if (isMobileOrTablet() && navigator.share && text) {
     navigator.share({ text }).catch(() => {});
