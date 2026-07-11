@@ -1200,7 +1200,7 @@ function journeyShareText() {
   }
 
   if (fastest.key === 'current') {
-    return 'I just checked out my commute when Melbourne has SRL and better buses 🤯mohanwadia.com/srl';
+    return 'I just checked out my commute when Melbourne has SRL and better buses 🤯 mohanwadia.com/srl';
   }
 
   const x = slowest.time - fastest.time;
@@ -1209,12 +1209,12 @@ function journeyShareText() {
   else if (fastest.key === 'busReform') mention = 'better buses';
   else mention = 'SRL and better buses'; // 'both'
 
-  return `I'll save ${x} minutes on my commute when Melbourne has ${mention}🤯www.mohanwadia.com/srl`;
+  return `I'll save ${x} minutes on my commute when Melbourne has ${mention} 🤯 www.mohanwadia.com/srl`;
 }
 
 // Fixed share text for the Isochrone tab.
 function isochroneShareText() {
-  return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯mohanwadia.com/srl";
+  return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯 mohanwadia.com/srl";
 }
 
 function shareOrCopyLink() {
