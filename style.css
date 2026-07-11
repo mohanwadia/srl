@@ -184,9 +184,9 @@ html, body {
   vertical-align: middle;
   background-color: var(--paper);
 }
-.swatch-15 { background-color: rgba(29, 78, 216, 0.55); }
-.swatch-30 { background-color: rgba(29, 78, 216, 0.32); }
-.swatch-45 { background-color: rgba(29, 78, 216, 0.16); }
+.swatch-20 { background-color: rgba(29, 78, 216, 0.55); }
+.swatch-40 { background-color: rgba(29, 78, 216, 0.32); }
+.swatch-60 { background-color: rgba(29, 78, 216, 0.16); }
 
 #instructions p {
   margin: 0 0 10px;
