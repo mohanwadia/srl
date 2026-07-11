@@ -64,7 +64,7 @@ SRL_FREQUENCY = 5
 TRAM_SPEED_KMH = 20.0          # universal tram speed (avg incl. stops/dwell)
 TRAM_FREQUENCY = 10            # universal tram frequency, same treatment as trains
 TRAM_COLOR = "#91DE56"
-EXIST_BUS_COLOR = "#5C6672"    # existing (non-reform) metro bus network - must match
+EXIST_BUS_COLOR = "#ff8200"    # existing (non-reform) metro bus network - must match
                                 # RIDE_COLOR_EXIST_BUS in app.js
 EXIST_BUS_DEFAULT_FREQUENCY = 30  # fallback headway (min) for any route missing from
                                     # BUS_FREQUENCY_JSON
