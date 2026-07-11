@@ -355,11 +355,11 @@ function findRoute(origin, dest) {
 // smallest — all in one translucent colour — approximates a proper isochrone
 // polygon without needing a geometry/union library.
 
-const ISO_THRESHOLDS_MIN = [20, 40, 60];
+const ISO_THRESHOLDS_MIN = [15, 30, 45];
 const ISO_MAX_CANDIDATES = 6;
 const ISO_MAX_WALK_TO_STOP_M = 1200;
 const ISO_COLOR = '#1d4ed8';
-const ISO_FILL_OPACITY = { 20: 0.4, 40: 0.24, 60: 0.14 };
+const ISO_FILL_OPACITY = { 15: 0.4, 30: 0.24, 45: 0.14 };
 
 // Like runDijkstra, but explores every node within maxCost of startId
 // instead of stopping at a single destination.
@@ -1017,7 +1017,7 @@ document.getElementById('iso-reset-btn').addEventListener('click', () => {
   isoMarker = null;
   isoOriginLatLng = null;
   document.getElementById('iso-instruction-text').innerHTML =
-    'Click the map to see how far you can travel in <strong>20</strong>, <strong>40</strong>, and <strong>60</strong> minutes.';
+    'Click the map to see how far you can travel in <strong>15</strong>, <strong>30</strong>, and <strong>45</strong> minutes.';
   syncURL(false);
 });
 
