@@ -309,11 +309,11 @@
     ]
    },
    "properties": {
-    "route": "693 Oakleigh - Belgrave",
+    "route": "Oakleigh - Belgrave",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "693 Oakleigh - Belgrave",
-    "display_label": "693 Oakleigh - Belgrave"
+    "short_name": "Oakleigh - Belgrave",
+    "display_label": "Oakleigh - Belgrave"
    }
   },
   {
@@ -420,11 +420,11 @@
     ]
    },
    "properties": {
-    "route": "800 Chadstone - Dandenong",
+    "route": "Chadstone - Dandenong",
     "corridor": "B1",
     "mode": "bus",
-    "short_name": "800 Chadstone - Dandenong",
-    "display_label": "800 Chadstone - Dandenong"
+    "short_name": "Chadstone - Dandenong",
+    "display_label": "Chadstone - Dandenong"
    }
   },
   {
@@ -571,11 +571,11 @@
     ]
    },
    "properties": {
-    "route": "901B Dandenong - Ringwood",
+    "route": "Dandenong - Ringwood",
     "corridor": "B1",
     "mode": "bus",
-    "short_name": "901B Dandenong - Ringwood",
-    "display_label": "901B Dandenong - Ringwood"
+    "short_name": "Dandenong - Ringwood",
+    "display_label": "Dandenong - Ringwood"
    }
   },
   {
@@ -829,11 +829,11 @@
     ]
    },
    "properties": {
-    "route": "Corrigan",
+    "route": "Sandown Park - Keysborough",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Corrigan",
-    "display_label": "Corrigan"
+    "short_name": "Sandown Park - Keysborough",
+    "display_label": "Sandown Park - Keysborough"
    }
   },
   {
@@ -1190,11 +1190,11 @@
     ]
    },
    "properties": {
-    "route": "901A Frankston - Dandenong",
+    "route": "Frankston - Dandenong",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "901A Frankston - Dandenong",
-    "display_label": "901A Frankston - Dandenong"
+    "short_name": "Frankston - Dandenong",
+    "display_label": "Frankston - Dandenong"
    }
   },
   {
@@ -1531,11 +1531,11 @@
     ]
    },
    "properties": {
-    "route": "Ferntree Gully - ",
+    "route": "Ferntree Gully - Croydon North",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Ferntree Gully - ",
-    "display_label": "Ferntree Gully - "
+    "short_name": "Ferntree Gully - Croydon North",
+    "display_label": "Ferntree Gully - Croydon North"
    }
   },
   {
@@ -2445,11 +2445,11 @@
     ]
    },
    "properties": {
-    "route": "Seaford - ",
+    "route": "Seaford - Skye",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Seaford - ",
-    "display_label": "Seaford - "
+    "short_name": "Seaford - Skye",
+    "display_label": "Seaford - Skye"
    }
   },
   {
@@ -2946,11 +2946,11 @@
     ]
    },
    "properties": {
-    "route": "902 Chelsea - ",
+    "route": "Chelsea - City",
     "corridor": "B1",
     "mode": "bus",
-    "short_name": "902 Chelsea - ",
-    "display_label": "902 Chelsea - "
+    "short_name": "Chelsea - City",
+    "display_label": "Chelsea - City"
    }
   },
   {
@@ -3161,11 +3161,11 @@
     ]
    },
    "properties": {
-    "route": "900 Rowville - Caulfield",
+    "route": "Rowville - Caulfield",
     "corridor": "B1",
     "mode": "bus",
-    "short_name": "900 Rowville - Caulfield",
-    "display_label": "900 Rowville - Caulfield"
+    "short_name": "Rowville - Caulfield",
+    "display_label": "Rowville - Caulfield"
    }
   },
   {
@@ -3375,11 +3375,11 @@
     ]
    },
    "properties": {
-    "route": "850 Glen Waverley - Dandenong",
+    "route": "Glen Waverley - Dandenong",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "850 Glen Waverley - Dandenong",
-    "display_label": "850 Glen Waverley - Dandenong"
+    "short_name": "Glen Waverley - Dandenong",
+    "display_label": "Glen Waverley - Dandenong"
    }
   },
   {
@@ -3806,11 +3806,11 @@
     ]
    },
    "properties": {
-    "route": "Ringwood - ",
+    "route": "Ringwood - Bayswater North",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Ringwood - ",
-    "display_label": "Ringwood - "
+    "short_name": "Ringwood - Bayswater North",
+    "display_label": "Ringwood - Bayswater North"
    }
   },
   {
@@ -5818,11 +5818,11 @@
     ]
    },
    "properties": {
-    "route": "The Pines - ",
+    "route": "The Pines - Kew East",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "The Pines - ",
-    "display_label": "The Pines - "
+    "short_name": "The Pines - Kew East",
+    "display_label": "The Pines - Kew East"
    }
   },
   {
@@ -5889,11 +5889,11 @@
     ]
    },
    "properties": {
-    "route": "Templestowe - ",
+    "route": "Templestowe - Kew",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Templestowe - ",
-    "display_label": "Templestowe - "
+    "short_name": "Templestowe - Kew",
+    "display_label": "Templestowe - Kew"
    }
   },
   {
@@ -5952,11 +5952,11 @@
     ]
    },
    "properties": {
-    "route": "Short Bulleen Route",
+    "route": "Bulleen",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Short Bulleen Route",
-    "display_label": "Short Bulleen Route"
+    "short_name": "Bulleen",
+    "display_label": "Bulleen"
    }
   },
   {
@@ -7594,11 +7594,11 @@
     ]
    },
    "properties": {
-    "route": "Short Clyde Route",
+    "route": "Clyde",
     "corridor": "B2",
     "mode": "bus",
-    "short_name": "Short Clyde Route",
-    "display_label": "Short Clyde Route"
+    "short_name": "Clyde",
+    "display_label": "Clyde"
    }
   },
   {

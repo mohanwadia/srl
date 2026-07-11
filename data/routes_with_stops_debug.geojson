@@ -835,14 +835,14 @@
     "stop_id": "vic:rail:DNG",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
-     "901A Frankston - Dandenong",
-     "901B Dandenong - Ringwood",
      "Dandenong - Brighton",
      "Dandenong - Cranbourne",
      "Dandenong - Frankston",
      "Dandenong - Mordialloc",
+     "Dandenong - Ringwood",
      "Dandenong - Victoria Park",
+     "Frankston - Dandenong",
+     "Glen Waverley - Dandenong",
      "RAIL:CBE",
      "RAIL:PKM",
      "Sandringham - Frankston via Endeavour Hills"
@@ -16477,9 +16477,9 @@
     "stop_id": "18456",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
      "Caulfield - Mordialloc",
      "Glen Waverley - Caulfield",
+     "Rowville - Caulfield",
      "TRAM:3"
     ],
     "name": "Dandenong Rd/Waverley Rd #59"
@@ -16516,11 +16516,11 @@
     "stop_id": "18652",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
      "Box Hill - Caulfield",
      "Caulfield - Mordialloc",
      "Caulfield - Sandringham",
      "Glen Waverley - Caulfield",
+     "Rowville - Caulfield",
      "TRAM:3"
     ],
     "name": "Dandenong Rd/Derby Rd #58"
@@ -34509,8 +34509,8 @@
     "stop_id": "IC0",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34528,9 +34528,9 @@
     "stop_id": "IC1",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "800 Chadstone - Dandenong",
-     "900 Rowville - Caulfield"
+     "Chadstone - Dandenong",
+     "Oakleigh - Belgrave",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -34548,8 +34548,8 @@
     "stop_id": "IC2",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34567,8 +34567,8 @@
     "stop_id": "IC3",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34586,8 +34586,8 @@
     "stop_id": "IC4",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34605,8 +34605,8 @@
     "stop_id": "IC5",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "Knoxfield-Croydon"
+     "Knoxfield-Croydon",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34624,8 +34624,8 @@
     "stop_id": "IC6",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "902 Chelsea - "
+     "Chelsea - City",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34643,8 +34643,8 @@
     "stop_id": "IC7",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "900 Rowville - Caulfield"
+     "Oakleigh - Belgrave",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -34662,8 +34662,8 @@
     "stop_id": "IC8",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34681,8 +34681,8 @@
     "stop_id": "IC9",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "703 Brighton - The Pines"
+     "703 Brighton - The Pines",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34700,8 +34700,8 @@
     "stop_id": "IC10",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave",
-     "Doncaster - Clarinda"
+     "Doncaster - Clarinda",
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34719,7 +34719,7 @@
     "stop_id": "IC11",
     "is_interchange": true,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -34737,16 +34737,16 @@
     "stop_id": "IC12",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "850 Glen Waverley - Dandenong",
-     "901A Frankston - Dandenong",
-     "901B Dandenong - Ringwood",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton",
      "Dandenong - Cranbourne",
      "Dandenong - Frankston",
      "Dandenong - Mordialloc",
+     "Dandenong - Ringwood",
      "Dandenong - Victoria Park",
      "Dandenong - pakenham",
+     "Frankston - Dandenong",
+     "Glen Waverley - Dandenong",
      "Sandringham - Frankston via Endeavour Hills"
     ],
     "name": null
@@ -34765,15 +34765,15 @@
     "stop_id": "IC13",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "850 Glen Waverley - Dandenong",
-     "901A Frankston - Dandenong",
-     "901B Dandenong - Ringwood",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton",
      "Dandenong - Cranbourne",
      "Dandenong - Mordialloc",
+     "Dandenong - Ringwood",
      "Dandenong - Victoria Park",
      "Dandenong - pakenham",
+     "Frankston - Dandenong",
+     "Glen Waverley - Dandenong",
      "Sandringham - Frankston via Endeavour Hills"
     ],
     "name": null
@@ -34792,11 +34792,11 @@
     "stop_id": "IC14",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "901B Dandenong - Ringwood",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton",
      "Dandenong - Cranbourne",
      "Dandenong - Frankston",
+     "Dandenong - Ringwood",
      "Dandenong - pakenham",
      "Sandringham - Frankston via Endeavour Hills"
     ],
@@ -34816,8 +34816,8 @@
     "stop_id": "IC15",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "901B Dandenong - Ringwood",
+     "Chadstone - Dandenong",
+     "Dandenong - Ringwood",
      "Dandenong - pakenham"
     ],
     "name": null
@@ -34837,9 +34837,9 @@
     "is_interchange": true,
     "routes": [
      "703 Brighton - The Pines",
-     "800 Chadstone - Dandenong",
-     "900 Rowville - Caulfield",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Chadstone - Dandenong",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -34857,8 +34857,8 @@
     "stop_id": "IC17",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -34876,8 +34876,8 @@
     "stop_id": "IC18",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -34895,7 +34895,7 @@
     "stop_id": "IC19",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton",
      "Dandenong - Mordialloc",
      "Dandenong - Victoria Park"
@@ -34916,7 +34916,7 @@
     "stop_id": "IC20",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton"
     ],
     "name": null
@@ -34935,7 +34935,7 @@
     "stop_id": "IC21",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton",
      "Sandringham - Frankston via Endeavour Hills"
     ],
@@ -34955,7 +34955,7 @@
     "stop_id": "IC22",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Dandenong - Brighton"
     ],
     "name": null
@@ -34974,7 +34974,7 @@
     "stop_id": "IC23",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Sandringham-Heidelberg"
     ],
     "name": null
@@ -34993,8 +34993,8 @@
     "stop_id": "IC24",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "902 Chelsea - ",
+     "Chadstone - Dandenong",
+     "Chelsea - City",
      "Dandenong - Brighton"
     ],
     "name": null
@@ -35013,8 +35013,8 @@
     "stop_id": "IC25",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
-     "850 Glen Waverley - Dandenong"
+     "Chadstone - Dandenong",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -35032,7 +35032,7 @@
     "stop_id": "IC26",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Sandringham - Frankston via Endeavour Hills"
     ],
     "name": null
@@ -35051,7 +35051,7 @@
     "stop_id": "IC27",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Doncaster - Clarinda"
     ],
     "name": null
@@ -35070,7 +35070,7 @@
     "stop_id": "IC28",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong",
+     "Chadstone - Dandenong",
      "Monash - Springvale"
     ],
     "name": null
@@ -35089,7 +35089,7 @@
     "stop_id": "IC29",
     "is_interchange": true,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -35107,9 +35107,9 @@
     "stop_id": "IC30",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
      "Box Hill - Lilydale",
-     "Box Hill - Ringwood"
+     "Box Hill - Ringwood",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35127,9 +35127,9 @@
     "stop_id": "IC31",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
      "Box Hill - Lilydale",
-     "Box Hill - Ringwood"
+     "Box Hill - Ringwood",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35147,8 +35147,8 @@
     "stop_id": "IC32",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
-     "Box Hill - Lilydale"
+     "Box Hill - Lilydale",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35166,7 +35166,7 @@
     "stop_id": "IC33",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
      "Glen Iris - Knox City"
     ],
     "name": null
@@ -35185,7 +35185,7 @@
     "stop_id": "IC34",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
      "Kooyong - Ferntree Gully"
     ],
     "name": null
@@ -35204,7 +35204,7 @@
     "stop_id": "IC35",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
      "Kooyong - Ferntree Gully"
     ],
     "name": null
@@ -35223,7 +35223,7 @@
     "stop_id": "IC36",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
      "Kooyong - Ferntree Gully"
     ],
     "name": null
@@ -35242,8 +35242,8 @@
     "stop_id": "IC37",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
-     "Dandenong - Frankston"
+     "Dandenong - Frankston",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35261,8 +35261,8 @@
     "stop_id": "IC38",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
+     "Rowville - Caulfield",
      "Rowville - Rowville"
     ],
     "name": null
@@ -35281,7 +35281,7 @@
     "stop_id": "IC39",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
      "Rowville - Ferntree Gully"
     ],
     "name": null
@@ -35300,7 +35300,7 @@
     "stop_id": "IC40",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
+     "Dandenong - Ringwood",
      "The Pines - Boronia",
      "Vermont South - The Basin"
     ],
@@ -35320,8 +35320,8 @@
     "stop_id": "IC41",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
-     "Box Hill - Ringwood"
+     "Box Hill - Ringwood",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35339,8 +35339,8 @@
     "stop_id": "IC42",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
-     "Dandenong - Mordialloc"
+     "Dandenong - Mordialloc",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35358,8 +35358,8 @@
     "stop_id": "IC43",
     "is_interchange": true,
     "routes": [
-     "901B Dandenong - Ringwood",
-     "Box Hill - Ringwood"
+     "Box Hill - Ringwood",
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -35472,8 +35472,8 @@
     "stop_id": "IC49",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -35491,8 +35491,8 @@
     "stop_id": "IC50",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -35510,8 +35510,8 @@
     "stop_id": "IC51",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -35529,8 +35529,8 @@
     "stop_id": "IC52",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -35548,9 +35548,9 @@
     "stop_id": "IC53",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
      "Carrum - The Pines",
-     "Monash - Springvale"
+     "Monash - Springvale",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -35570,8 +35570,8 @@
     "routes": [
      "703 Brighton - The Pines",
      "Carrum - The Pines",
-     "The Pines - ",
-     "The Pines - Boronia"
+     "The Pines - Boronia",
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -35759,8 +35759,8 @@
     "is_interchange": true,
     "routes": [
      "703 Brighton - The Pines",
-     "900 Rowville - Caulfield",
-     "Carrum - The Pines"
+     "Carrum - The Pines",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -35832,8 +35832,8 @@
     "stop_id": "IC68",
     "is_interchange": true,
     "routes": [
-     "Corrigan",
-     "Dandenong - Victoria Park"
+     "Dandenong - Victoria Park",
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -35851,8 +35851,8 @@
     "stop_id": "IC69",
     "is_interchange": true,
     "routes": [
-     "Corrigan",
-     "Dandenong - Mordialloc"
+     "Dandenong - Mordialloc",
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -35870,7 +35870,7 @@
     "stop_id": "IC70",
     "is_interchange": true,
     "routes": [
-     "Corrigan",
+     "Sandown Park - Keysborough",
      "Sandringham - Frankston via Endeavour Hills"
     ],
     "name": null
@@ -35889,7 +35889,7 @@
     "stop_id": "IC71",
     "is_interchange": true,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -35947,7 +35947,7 @@
     "stop_id": "IC74",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Dandenong - Victoria Park"
     ],
     "name": null
@@ -36138,9 +36138,9 @@
     "stop_id": "IC84",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
      "Dandenong - Mordialloc",
-     "Dandenong - Victoria Park"
+     "Dandenong - Victoria Park",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -36320,10 +36320,10 @@
     "stop_id": "IC94",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
      "Dandenong - Brighton",
      "Dandenong - Frankston",
      "Dandenong - pakenham",
+     "Frankston - Dandenong",
      "Sandringham - Frankston via Endeavour Hills"
     ],
     "name": null
@@ -36361,8 +36361,8 @@
     "stop_id": "IC96",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
-     "Dandenong - Brighton"
+     "Dandenong - Brighton",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -36548,8 +36548,8 @@
     "stop_id": "IC106",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
-     "Seaford - "
+     "Frankston - Dandenong",
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -36567,7 +36567,7 @@
     "stop_id": "IC107",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
+     "Frankston - Dandenong",
      "Seaford - Officer"
     ],
     "name": null
@@ -36586,8 +36586,8 @@
     "stop_id": "IC108",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
-     "Carrum - Cardinia"
+     "Carrum - Cardinia",
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -36605,8 +36605,8 @@
     "stop_id": "IC109",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
      "Dandenong - Cranbourne",
+     "Frankston - Dandenong",
      "Sandringham - Frankston via Endeavour Hills"
     ],
     "name": null
@@ -36625,9 +36625,9 @@
     "stop_id": "IC110",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
      "Dandenong - Cranbourne",
-     "Dandenong - pakenham"
+     "Dandenong - pakenham",
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -36645,8 +36645,8 @@
     "stop_id": "IC111",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
-     "Dandenong South - Narre Warren North"
+     "Dandenong South - Narre Warren North",
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -36664,7 +36664,7 @@
     "stop_id": "IC112",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong",
+     "Frankston - Dandenong",
      "Frankston - Sorrento"
     ],
     "name": null
@@ -36683,7 +36683,7 @@
     "stop_id": "IC113",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -36701,7 +36701,7 @@
     "stop_id": "IC114",
     "is_interchange": true,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -36738,8 +36738,8 @@
     "stop_id": "IC116",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
-     "Box Hill - Lilydale"
+     "Box Hill - Lilydale",
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -36911,7 +36911,7 @@
     "is_interchange": true,
     "routes": [
      "Knoxfield-Croydon",
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -37004,7 +37004,7 @@
     "stop_id": "IC130",
     "is_interchange": true,
     "routes": [
-     "Ferntree Gully - ",
+     "Ferntree Gully - Croydon North",
      "Lilydale - Croydon"
     ],
     "name": null
@@ -37023,7 +37023,7 @@
     "stop_id": "IC131",
     "is_interchange": true,
     "routes": [
-     "Ferntree Gully - ",
+     "Ferntree Gully - Croydon North",
      "Lilydale - Croydon"
     ],
     "name": null
@@ -37043,7 +37043,7 @@
     "is_interchange": true,
     "routes": [
      "Chirnside Park - Boronia",
-     "Ferntree Gully - ",
+     "Ferntree Gully - Croydon North",
      "The Pines - Boronia"
     ],
     "name": null
@@ -37062,7 +37062,7 @@
     "stop_id": "IC133",
     "is_interchange": true,
     "routes": [
-     "Ferntree Gully - ",
+     "Ferntree Gully - Croydon North",
      "Vermont South - The Basin"
     ],
     "name": null
@@ -37081,8 +37081,8 @@
     "stop_id": "IC134",
     "is_interchange": true,
     "routes": [
-     "Ferntree Gully - ",
-     "Ringwood - "
+     "Ferntree Gully - Croydon North",
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -37100,7 +37100,7 @@
     "stop_id": "IC135",
     "is_interchange": true,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -37175,10 +37175,10 @@
     "stop_id": "IC139",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Glen Iris - Knox City",
-     "Glen Waverley - Caulfield"
+     "Glen Waverley - Caulfield",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -37196,10 +37196,10 @@
     "stop_id": "IC140",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Glen Iris - Knox City",
-     "Glen Waverley - Caulfield"
+     "Glen Waverley - Caulfield",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -37217,7 +37217,7 @@
     "stop_id": "IC141",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Glen Iris - Knox City"
     ],
     "name": null
@@ -37368,7 +37368,7 @@
     "stop_id": "IC149",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Kooyong - Ferntree Gully"
     ],
     "name": null
@@ -37576,8 +37576,8 @@
     "is_interchange": true,
     "routes": [
      "Frankston-Port Melbourne",
-     "Seaford - ",
-     "Seaford - Officer"
+     "Seaford - Officer",
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -37596,8 +37596,8 @@
     "is_interchange": true,
     "routes": [
      "Frankston-Port Melbourne",
-     "Seaford - ",
-     "Seaford - Officer"
+     "Seaford - Officer",
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -37839,7 +37839,7 @@
     "stop_id": "IC174",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Doncaster - Clarinda",
      "Doncaster - Kew",
      "Sandringham-Heidelberg"
@@ -37860,7 +37860,7 @@
     "stop_id": "IC175",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
+     "Rowville - Caulfield",
      "Sandringham-Heidelberg"
     ],
     "name": null
@@ -37879,7 +37879,7 @@
     "stop_id": "IC176",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
+     "Rowville - Caulfield",
      "Sandringham-Heidelberg"
     ],
     "name": null
@@ -37956,7 +37956,7 @@
     "is_interchange": true,
     "routes": [
      "Sandringham-Heidelberg",
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -37975,7 +37975,7 @@
     "is_interchange": true,
     "routes": [
      "Sandringham-Heidelberg",
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -37993,8 +37993,8 @@
     "stop_id": "IC182",
     "is_interchange": true,
     "routes": [
-     "Sandringham-Heidelberg",
-     "Short Bulleen Route"
+     "Bulleen",
+     "Sandringham-Heidelberg"
     ],
     "name": null
    }
@@ -38525,8 +38525,8 @@
     "stop_id": "IC210",
     "is_interchange": true,
     "routes": [
-     "Seaford - ",
-     "Seaford - Officer"
+     "Seaford - Officer",
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -38680,8 +38680,8 @@
     "stop_id": "IC218",
     "is_interchange": true,
     "routes": [
-     "Seaford - Officer",
-     "Short Clyde Route"
+     "Clyde",
+     "Seaford - Officer"
     ],
     "name": null
    }
@@ -38872,7 +38872,7 @@
     "is_interchange": true,
     "routes": [
      "Carrum - Cardinia",
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -38927,8 +38927,8 @@
     "stop_id": "IC231",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
-     "902 Chelsea - "
+     "Chelsea - City",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -38946,9 +38946,9 @@
     "stop_id": "IC232",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
-     "902 Chelsea - ",
-     "Glen Waverley - Caulfield"
+     "Chelsea - City",
+     "Glen Waverley - Caulfield",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -38966,9 +38966,9 @@
     "stop_id": "IC233",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong",
-     "902 Chelsea - ",
-     "Glen Waverley - Caulfield"
+     "Chelsea - City",
+     "Glen Waverley - Caulfield",
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -38986,7 +38986,7 @@
     "stop_id": "IC234",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "The Pines - Boronia"
     ],
     "name": null
@@ -39005,8 +39005,8 @@
     "stop_id": "IC235",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
-     "Box Hill - Ringwood"
+     "Box Hill - Ringwood",
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39024,7 +39024,7 @@
     "stop_id": "IC236",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Dandenong - Mordialloc"
     ],
     "name": null
@@ -39043,7 +39043,7 @@
     "stop_id": "IC237",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Monash - Springvale",
      "Sandringham - Frankston via Endeavour Hills"
     ],
@@ -39064,7 +39064,7 @@
     "is_interchange": true,
     "routes": [
      "703 Brighton - The Pines",
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39082,8 +39082,8 @@
     "stop_id": "IC239",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
-     "Templestowe - "
+     "Chelsea - City",
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -39101,7 +39101,7 @@
     "stop_id": "IC240",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
+     "Chelsea - City",
      "Doncaster - Clarinda",
      "Doncaster - Kew"
     ],
@@ -39121,8 +39121,8 @@
     "stop_id": "IC241",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - ",
-     "Burwood - Mitcham"
+     "Burwood - Mitcham",
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39140,7 +39140,7 @@
     "stop_id": "IC242",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39158,7 +39158,7 @@
     "stop_id": "IC243",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39176,7 +39176,7 @@
     "stop_id": "IC244",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39194,7 +39194,7 @@
     "stop_id": "IC245",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39212,7 +39212,7 @@
     "stop_id": "IC246",
     "is_interchange": true,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -39230,8 +39230,8 @@
     "stop_id": "IC247",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
-     "Glen Iris - Moorabin"
+     "Glen Iris - Moorabin",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -39249,9 +39249,9 @@
     "stop_id": "IC248",
     "is_interchange": true,
     "routes": [
-     "900 Rowville - Caulfield",
      "Caulfield - Mordialloc",
-     "Glen Waverley - Caulfield"
+     "Glen Waverley - Caulfield",
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -39307,7 +39307,7 @@
     "stop_id": "IC251",
     "is_interchange": true,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -39402,7 +39402,7 @@
     "is_interchange": true,
     "routes": [
      "Chirnside Park - Boronia",
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -39456,7 +39456,7 @@
     "stop_id": "IC259",
     "is_interchange": true,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -40248,8 +40248,8 @@
     "stop_id": "IC301",
     "is_interchange": true,
     "routes": [
-     "Cranbourne - Berwick",
-     "Short Clyde Route"
+     "Clyde",
+     "Cranbourne - Berwick"
     ],
     "name": null
    }
@@ -40507,8 +40507,8 @@
     "stop_id": "IC315",
     "is_interchange": true,
     "routes": [
-     "Short Bulleen Route",
-     "The Pines - "
+     "Bulleen",
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -40526,8 +40526,8 @@
     "stop_id": "IC316",
     "is_interchange": true,
     "routes": [
-     "Short Bulleen Route",
-     "The Pines - "
+     "Bulleen",
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -40546,7 +40546,7 @@
     "is_interchange": true,
     "routes": [
      "Doncaster - Templestowe",
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -40565,8 +40565,8 @@
     "is_interchange": true,
     "routes": [
      "Camberwell - Kew East",
-     "Templestowe - ",
-     "The Pines - "
+     "Templestowe - Kew",
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -40584,8 +40584,8 @@
     "stop_id": "IC319",
     "is_interchange": true,
     "routes": [
-     "Templestowe - ",
-     "The Pines - "
+     "Templestowe - Kew",
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -40603,8 +40603,8 @@
     "stop_id": "IC320",
     "is_interchange": true,
     "routes": [
-     "Templestowe - ",
-     "The Pines - "
+     "Templestowe - Kew",
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -40623,7 +40623,7 @@
     "is_interchange": true,
     "routes": [
      "Doncaster - Kew",
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -40642,7 +40642,7 @@
     "is_interchange": true,
     "routes": [
      "Balwyn North - Glen Iris",
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -40661,7 +40661,7 @@
     "is_interchange": true,
     "routes": [
      "Balwyn North - Burwood",
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -41745,8 +41745,8 @@
     "stop_id": "IC382",
     "is_interchange": true,
     "routes": [
-     "Cranbourne - Officer South",
-     "Short Clyde Route"
+     "Clyde",
+     "Cranbourne - Officer South"
     ],
     "name": null
    }
@@ -41779,10 +41779,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S4",
+    "stop_id": "Oakleigh - Belgrave__S4",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41797,10 +41797,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S5",
+    "stop_id": "Oakleigh - Belgrave__S5",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41815,10 +41815,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S6",
+    "stop_id": "Oakleigh - Belgrave__S6",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41833,10 +41833,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S7",
+    "stop_id": "Oakleigh - Belgrave__S7",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41851,10 +41851,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S9",
+    "stop_id": "Oakleigh - Belgrave__S9",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41869,10 +41869,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S10",
+    "stop_id": "Oakleigh - Belgrave__S10",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41887,10 +41887,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S11",
+    "stop_id": "Oakleigh - Belgrave__S11",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41905,10 +41905,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S12",
+    "stop_id": "Oakleigh - Belgrave__S12",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41923,10 +41923,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S14",
+    "stop_id": "Oakleigh - Belgrave__S14",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41941,10 +41941,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S15",
+    "stop_id": "Oakleigh - Belgrave__S15",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41959,10 +41959,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S16",
+    "stop_id": "Oakleigh - Belgrave__S16",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41977,10 +41977,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S17",
+    "stop_id": "Oakleigh - Belgrave__S17",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -41995,10 +41995,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S19",
+    "stop_id": "Oakleigh - Belgrave__S19",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42013,10 +42013,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S20",
+    "stop_id": "Oakleigh - Belgrave__S20",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42031,10 +42031,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S21",
+    "stop_id": "Oakleigh - Belgrave__S21",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42049,10 +42049,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S23",
+    "stop_id": "Oakleigh - Belgrave__S23",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42067,10 +42067,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S24",
+    "stop_id": "Oakleigh - Belgrave__S24",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42085,10 +42085,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S25",
+    "stop_id": "Oakleigh - Belgrave__S25",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42103,10 +42103,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S26",
+    "stop_id": "Oakleigh - Belgrave__S26",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42121,10 +42121,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S27",
+    "stop_id": "Oakleigh - Belgrave__S27",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42139,10 +42139,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S29",
+    "stop_id": "Oakleigh - Belgrave__S29",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42157,10 +42157,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S30",
+    "stop_id": "Oakleigh - Belgrave__S30",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42175,10 +42175,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S31",
+    "stop_id": "Oakleigh - Belgrave__S31",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42193,10 +42193,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S32",
+    "stop_id": "Oakleigh - Belgrave__S32",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42211,10 +42211,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S33",
+    "stop_id": "Oakleigh - Belgrave__S33",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42229,10 +42229,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S34",
+    "stop_id": "Oakleigh - Belgrave__S34",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42247,10 +42247,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S35",
+    "stop_id": "Oakleigh - Belgrave__S35",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42265,10 +42265,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S36",
+    "stop_id": "Oakleigh - Belgrave__S36",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42283,10 +42283,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S37",
+    "stop_id": "Oakleigh - Belgrave__S37",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42301,10 +42301,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S38",
+    "stop_id": "Oakleigh - Belgrave__S38",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42319,10 +42319,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S40",
+    "stop_id": "Oakleigh - Belgrave__S40",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42337,10 +42337,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S41",
+    "stop_id": "Oakleigh - Belgrave__S41",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42355,10 +42355,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S42",
+    "stop_id": "Oakleigh - Belgrave__S42",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42373,10 +42373,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S43",
+    "stop_id": "Oakleigh - Belgrave__S43",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42391,10 +42391,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S44",
+    "stop_id": "Oakleigh - Belgrave__S44",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42409,10 +42409,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S46",
+    "stop_id": "Oakleigh - Belgrave__S46",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42427,10 +42427,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S47",
+    "stop_id": "Oakleigh - Belgrave__S47",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42445,10 +42445,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S48",
+    "stop_id": "Oakleigh - Belgrave__S48",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42463,10 +42463,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S49",
+    "stop_id": "Oakleigh - Belgrave__S49",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42481,10 +42481,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S50",
+    "stop_id": "Oakleigh - Belgrave__S50",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42499,10 +42499,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S51",
+    "stop_id": "Oakleigh - Belgrave__S51",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42517,10 +42517,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S52",
+    "stop_id": "Oakleigh - Belgrave__S52",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42535,10 +42535,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S53",
+    "stop_id": "Oakleigh - Belgrave__S53",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42553,10 +42553,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S54",
+    "stop_id": "Oakleigh - Belgrave__S54",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42571,10 +42571,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S55",
+    "stop_id": "Oakleigh - Belgrave__S55",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42589,10 +42589,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S56",
+    "stop_id": "Oakleigh - Belgrave__S56",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42607,10 +42607,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S57",
+    "stop_id": "Oakleigh - Belgrave__S57",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42625,10 +42625,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S58",
+    "stop_id": "Oakleigh - Belgrave__S58",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42643,10 +42643,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S59",
+    "stop_id": "Oakleigh - Belgrave__S59",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42661,10 +42661,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S60",
+    "stop_id": "Oakleigh - Belgrave__S60",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42679,10 +42679,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S61",
+    "stop_id": "Oakleigh - Belgrave__S61",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42697,10 +42697,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S62",
+    "stop_id": "Oakleigh - Belgrave__S62",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42715,10 +42715,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S64",
+    "stop_id": "Oakleigh - Belgrave__S64",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42733,10 +42733,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S65",
+    "stop_id": "Oakleigh - Belgrave__S65",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42751,10 +42751,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S66",
+    "stop_id": "Oakleigh - Belgrave__S66",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42769,10 +42769,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S67",
+    "stop_id": "Oakleigh - Belgrave__S67",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42787,10 +42787,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S68",
+    "stop_id": "Oakleigh - Belgrave__S68",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42805,10 +42805,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S69",
+    "stop_id": "Oakleigh - Belgrave__S69",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42823,10 +42823,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S70",
+    "stop_id": "Oakleigh - Belgrave__S70",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42841,10 +42841,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S71",
+    "stop_id": "Oakleigh - Belgrave__S71",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42859,10 +42859,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S72",
+    "stop_id": "Oakleigh - Belgrave__S72",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42877,10 +42877,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S73",
+    "stop_id": "Oakleigh - Belgrave__S73",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42895,10 +42895,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S74",
+    "stop_id": "Oakleigh - Belgrave__S74",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42913,10 +42913,10 @@
     ]
    },
    "properties": {
-    "stop_id": "693 Oakleigh - Belgrave__S75",
+    "stop_id": "Oakleigh - Belgrave__S75",
     "is_interchange": false,
     "routes": [
-     "693 Oakleigh - Belgrave"
+     "Oakleigh - Belgrave"
     ],
     "name": null
    }
@@ -42931,10 +42931,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S5",
+    "stop_id": "Chadstone - Dandenong__S5",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -42949,10 +42949,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S7",
+    "stop_id": "Chadstone - Dandenong__S7",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -42967,10 +42967,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S9",
+    "stop_id": "Chadstone - Dandenong__S9",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -42985,10 +42985,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S10",
+    "stop_id": "Chadstone - Dandenong__S10",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43003,10 +43003,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S11",
+    "stop_id": "Chadstone - Dandenong__S11",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43021,10 +43021,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S12",
+    "stop_id": "Chadstone - Dandenong__S12",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43039,10 +43039,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S13",
+    "stop_id": "Chadstone - Dandenong__S13",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43057,10 +43057,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S15",
+    "stop_id": "Chadstone - Dandenong__S15",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43075,10 +43075,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S16",
+    "stop_id": "Chadstone - Dandenong__S16",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43093,10 +43093,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S18",
+    "stop_id": "Chadstone - Dandenong__S18",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43111,10 +43111,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S19",
+    "stop_id": "Chadstone - Dandenong__S19",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43129,10 +43129,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S20",
+    "stop_id": "Chadstone - Dandenong__S20",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43147,10 +43147,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S21",
+    "stop_id": "Chadstone - Dandenong__S21",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43165,10 +43165,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S22",
+    "stop_id": "Chadstone - Dandenong__S22",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43183,10 +43183,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S23",
+    "stop_id": "Chadstone - Dandenong__S23",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43201,10 +43201,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S24",
+    "stop_id": "Chadstone - Dandenong__S24",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43219,10 +43219,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S25",
+    "stop_id": "Chadstone - Dandenong__S25",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43237,10 +43237,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S26",
+    "stop_id": "Chadstone - Dandenong__S26",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43255,10 +43255,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S29",
+    "stop_id": "Chadstone - Dandenong__S29",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43273,10 +43273,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S30",
+    "stop_id": "Chadstone - Dandenong__S30",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43291,10 +43291,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S31",
+    "stop_id": "Chadstone - Dandenong__S31",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43309,10 +43309,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S33",
+    "stop_id": "Chadstone - Dandenong__S33",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43327,10 +43327,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S34",
+    "stop_id": "Chadstone - Dandenong__S34",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43345,10 +43345,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S35",
+    "stop_id": "Chadstone - Dandenong__S35",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43363,10 +43363,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S40",
+    "stop_id": "Chadstone - Dandenong__S40",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43381,10 +43381,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S41",
+    "stop_id": "Chadstone - Dandenong__S41",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43399,10 +43399,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S42",
+    "stop_id": "Chadstone - Dandenong__S42",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43417,10 +43417,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S43",
+    "stop_id": "Chadstone - Dandenong__S43",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43435,10 +43435,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S45",
+    "stop_id": "Chadstone - Dandenong__S45",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43453,10 +43453,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S46",
+    "stop_id": "Chadstone - Dandenong__S46",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43471,10 +43471,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S50",
+    "stop_id": "Chadstone - Dandenong__S50",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43489,10 +43489,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S52",
+    "stop_id": "Chadstone - Dandenong__S52",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43507,10 +43507,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S53",
+    "stop_id": "Chadstone - Dandenong__S53",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43525,10 +43525,10 @@
     ]
    },
    "properties": {
-    "stop_id": "800 Chadstone - Dandenong__S54",
+    "stop_id": "Chadstone - Dandenong__S54",
     "is_interchange": false,
     "routes": [
-     "800 Chadstone - Dandenong"
+     "Chadstone - Dandenong"
     ],
     "name": null
    }
@@ -43543,10 +43543,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S6",
+    "stop_id": "Dandenong - Ringwood__S6",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43561,10 +43561,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S7",
+    "stop_id": "Dandenong - Ringwood__S7",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43579,10 +43579,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S8",
+    "stop_id": "Dandenong - Ringwood__S8",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43597,10 +43597,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S9",
+    "stop_id": "Dandenong - Ringwood__S9",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43615,10 +43615,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S10",
+    "stop_id": "Dandenong - Ringwood__S10",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43633,10 +43633,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S11",
+    "stop_id": "Dandenong - Ringwood__S11",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43651,10 +43651,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S13",
+    "stop_id": "Dandenong - Ringwood__S13",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43669,10 +43669,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S14",
+    "stop_id": "Dandenong - Ringwood__S14",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43687,10 +43687,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S15",
+    "stop_id": "Dandenong - Ringwood__S15",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43705,10 +43705,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S16",
+    "stop_id": "Dandenong - Ringwood__S16",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43723,10 +43723,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S17",
+    "stop_id": "Dandenong - Ringwood__S17",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43741,10 +43741,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S18",
+    "stop_id": "Dandenong - Ringwood__S18",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43759,10 +43759,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S19",
+    "stop_id": "Dandenong - Ringwood__S19",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43777,10 +43777,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S20",
+    "stop_id": "Dandenong - Ringwood__S20",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43795,10 +43795,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S21",
+    "stop_id": "Dandenong - Ringwood__S21",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43813,10 +43813,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S22",
+    "stop_id": "Dandenong - Ringwood__S22",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43831,10 +43831,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S23",
+    "stop_id": "Dandenong - Ringwood__S23",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43849,10 +43849,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S25",
+    "stop_id": "Dandenong - Ringwood__S25",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43867,10 +43867,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S26",
+    "stop_id": "Dandenong - Ringwood__S26",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43885,10 +43885,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S27",
+    "stop_id": "Dandenong - Ringwood__S27",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43903,10 +43903,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S28",
+    "stop_id": "Dandenong - Ringwood__S28",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43921,10 +43921,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S30",
+    "stop_id": "Dandenong - Ringwood__S30",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43939,10 +43939,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S31",
+    "stop_id": "Dandenong - Ringwood__S31",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43957,10 +43957,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S33",
+    "stop_id": "Dandenong - Ringwood__S33",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43975,10 +43975,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S34",
+    "stop_id": "Dandenong - Ringwood__S34",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -43993,10 +43993,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S35",
+    "stop_id": "Dandenong - Ringwood__S35",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44011,10 +44011,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S36",
+    "stop_id": "Dandenong - Ringwood__S36",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44029,10 +44029,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S37",
+    "stop_id": "Dandenong - Ringwood__S37",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44047,10 +44047,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S38",
+    "stop_id": "Dandenong - Ringwood__S38",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44065,10 +44065,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S40",
+    "stop_id": "Dandenong - Ringwood__S40",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44083,10 +44083,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S41",
+    "stop_id": "Dandenong - Ringwood__S41",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44101,10 +44101,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S42",
+    "stop_id": "Dandenong - Ringwood__S42",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44119,10 +44119,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S46",
+    "stop_id": "Dandenong - Ringwood__S46",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44137,10 +44137,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S47",
+    "stop_id": "Dandenong - Ringwood__S47",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44155,10 +44155,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S48",
+    "stop_id": "Dandenong - Ringwood__S48",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44173,10 +44173,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S49",
+    "stop_id": "Dandenong - Ringwood__S49",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44191,10 +44191,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S50",
+    "stop_id": "Dandenong - Ringwood__S50",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44209,10 +44209,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S51",
+    "stop_id": "Dandenong - Ringwood__S51",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44227,10 +44227,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S52",
+    "stop_id": "Dandenong - Ringwood__S52",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44245,10 +44245,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S53",
+    "stop_id": "Dandenong - Ringwood__S53",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44263,10 +44263,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S55",
+    "stop_id": "Dandenong - Ringwood__S55",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44281,10 +44281,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S56",
+    "stop_id": "Dandenong - Ringwood__S56",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44299,10 +44299,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S57",
+    "stop_id": "Dandenong - Ringwood__S57",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44317,10 +44317,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S58",
+    "stop_id": "Dandenong - Ringwood__S58",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44335,10 +44335,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S60",
+    "stop_id": "Dandenong - Ringwood__S60",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44353,10 +44353,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S61",
+    "stop_id": "Dandenong - Ringwood__S61",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44371,10 +44371,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S62",
+    "stop_id": "Dandenong - Ringwood__S62",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -44389,10 +44389,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901B Dandenong - Ringwood__S65",
+    "stop_id": "Dandenong - Ringwood__S65",
     "is_interchange": false,
     "routes": [
-     "901B Dandenong - Ringwood"
+     "Dandenong - Ringwood"
     ],
     "name": null
    }
@@ -45955,10 +45955,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S1",
+    "stop_id": "Sandown Park - Keysborough__S1",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -45973,10 +45973,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S2",
+    "stop_id": "Sandown Park - Keysborough__S2",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -45991,10 +45991,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S3",
+    "stop_id": "Sandown Park - Keysborough__S3",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46009,10 +46009,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S4",
+    "stop_id": "Sandown Park - Keysborough__S4",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46027,10 +46027,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S5",
+    "stop_id": "Sandown Park - Keysborough__S5",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46045,10 +46045,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S7",
+    "stop_id": "Sandown Park - Keysborough__S7",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46063,10 +46063,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S8",
+    "stop_id": "Sandown Park - Keysborough__S8",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46081,10 +46081,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S9",
+    "stop_id": "Sandown Park - Keysborough__S9",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46099,10 +46099,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S10",
+    "stop_id": "Sandown Park - Keysborough__S10",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46117,10 +46117,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S11",
+    "stop_id": "Sandown Park - Keysborough__S11",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46135,10 +46135,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S12",
+    "stop_id": "Sandown Park - Keysborough__S12",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46153,10 +46153,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S13",
+    "stop_id": "Sandown Park - Keysborough__S13",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46171,10 +46171,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S14",
+    "stop_id": "Sandown Park - Keysborough__S14",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46189,10 +46189,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S16",
+    "stop_id": "Sandown Park - Keysborough__S16",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46207,10 +46207,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S18",
+    "stop_id": "Sandown Park - Keysborough__S18",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46225,10 +46225,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S19",
+    "stop_id": "Sandown Park - Keysborough__S19",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46243,10 +46243,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S20",
+    "stop_id": "Sandown Park - Keysborough__S20",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -46261,10 +46261,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Corrigan__S21",
+    "stop_id": "Sandown Park - Keysborough__S21",
     "is_interchange": false,
     "routes": [
-     "Corrigan"
+     "Sandown Park - Keysborough"
     ],
     "name": null
    }
@@ -48439,10 +48439,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S1",
+    "stop_id": "Frankston - Dandenong__S1",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48457,10 +48457,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S2",
+    "stop_id": "Frankston - Dandenong__S2",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48475,10 +48475,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S4",
+    "stop_id": "Frankston - Dandenong__S4",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48493,10 +48493,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S5",
+    "stop_id": "Frankston - Dandenong__S5",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48511,10 +48511,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S6",
+    "stop_id": "Frankston - Dandenong__S6",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48529,10 +48529,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S7",
+    "stop_id": "Frankston - Dandenong__S7",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48547,10 +48547,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S8",
+    "stop_id": "Frankston - Dandenong__S8",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48565,10 +48565,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S9",
+    "stop_id": "Frankston - Dandenong__S9",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48583,10 +48583,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S10",
+    "stop_id": "Frankston - Dandenong__S10",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48601,10 +48601,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S11",
+    "stop_id": "Frankston - Dandenong__S11",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48619,10 +48619,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S13",
+    "stop_id": "Frankston - Dandenong__S13",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48637,10 +48637,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S14",
+    "stop_id": "Frankston - Dandenong__S14",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48655,10 +48655,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S15",
+    "stop_id": "Frankston - Dandenong__S15",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48673,10 +48673,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S16",
+    "stop_id": "Frankston - Dandenong__S16",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48691,10 +48691,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S18",
+    "stop_id": "Frankston - Dandenong__S18",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48709,10 +48709,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S19",
+    "stop_id": "Frankston - Dandenong__S19",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48727,10 +48727,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S20",
+    "stop_id": "Frankston - Dandenong__S20",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48745,10 +48745,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S21",
+    "stop_id": "Frankston - Dandenong__S21",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48763,10 +48763,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S22",
+    "stop_id": "Frankston - Dandenong__S22",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48781,10 +48781,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S23",
+    "stop_id": "Frankston - Dandenong__S23",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48799,10 +48799,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S24",
+    "stop_id": "Frankston - Dandenong__S24",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48817,10 +48817,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S25",
+    "stop_id": "Frankston - Dandenong__S25",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48835,10 +48835,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S27",
+    "stop_id": "Frankston - Dandenong__S27",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48853,10 +48853,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S28",
+    "stop_id": "Frankston - Dandenong__S28",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48871,10 +48871,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S29",
+    "stop_id": "Frankston - Dandenong__S29",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48889,10 +48889,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S30",
+    "stop_id": "Frankston - Dandenong__S30",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48907,10 +48907,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S31",
+    "stop_id": "Frankston - Dandenong__S31",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48925,10 +48925,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S32",
+    "stop_id": "Frankston - Dandenong__S32",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48943,10 +48943,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S33",
+    "stop_id": "Frankston - Dandenong__S33",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48961,10 +48961,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S34",
+    "stop_id": "Frankston - Dandenong__S34",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48979,10 +48979,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S35",
+    "stop_id": "Frankston - Dandenong__S35",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -48997,10 +48997,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S36",
+    "stop_id": "Frankston - Dandenong__S36",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49015,10 +49015,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S37",
+    "stop_id": "Frankston - Dandenong__S37",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49033,10 +49033,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S39",
+    "stop_id": "Frankston - Dandenong__S39",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49051,10 +49051,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S40",
+    "stop_id": "Frankston - Dandenong__S40",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49069,10 +49069,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S41",
+    "stop_id": "Frankston - Dandenong__S41",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49087,10 +49087,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S42",
+    "stop_id": "Frankston - Dandenong__S42",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49105,10 +49105,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S43",
+    "stop_id": "Frankston - Dandenong__S43",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49123,10 +49123,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S44",
+    "stop_id": "Frankston - Dandenong__S44",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49141,10 +49141,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S45",
+    "stop_id": "Frankston - Dandenong__S45",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49159,10 +49159,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S46",
+    "stop_id": "Frankston - Dandenong__S46",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49177,10 +49177,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S47",
+    "stop_id": "Frankston - Dandenong__S47",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49195,10 +49195,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S50",
+    "stop_id": "Frankston - Dandenong__S50",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -49213,10 +49213,10 @@
     ]
    },
    "properties": {
-    "stop_id": "901A Frankston - Dandenong__S51",
+    "stop_id": "Frankston - Dandenong__S51",
     "is_interchange": false,
     "routes": [
-     "901A Frankston - Dandenong"
+     "Frankston - Dandenong"
     ],
     "name": null
    }
@@ -50635,10 +50635,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S0",
+    "stop_id": "Ferntree Gully - Croydon North__S0",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50653,10 +50653,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S1",
+    "stop_id": "Ferntree Gully - Croydon North__S1",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50671,10 +50671,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S2",
+    "stop_id": "Ferntree Gully - Croydon North__S2",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50689,10 +50689,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S3",
+    "stop_id": "Ferntree Gully - Croydon North__S3",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50707,10 +50707,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S4",
+    "stop_id": "Ferntree Gully - Croydon North__S4",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50725,10 +50725,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S6",
+    "stop_id": "Ferntree Gully - Croydon North__S6",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50743,10 +50743,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S7",
+    "stop_id": "Ferntree Gully - Croydon North__S7",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50761,10 +50761,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S8",
+    "stop_id": "Ferntree Gully - Croydon North__S8",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50779,10 +50779,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S11",
+    "stop_id": "Ferntree Gully - Croydon North__S11",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50797,10 +50797,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S12",
+    "stop_id": "Ferntree Gully - Croydon North__S12",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50815,10 +50815,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S13",
+    "stop_id": "Ferntree Gully - Croydon North__S13",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50833,10 +50833,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S14",
+    "stop_id": "Ferntree Gully - Croydon North__S14",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50851,10 +50851,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S15",
+    "stop_id": "Ferntree Gully - Croydon North__S15",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50869,10 +50869,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S16",
+    "stop_id": "Ferntree Gully - Croydon North__S16",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50887,10 +50887,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S18",
+    "stop_id": "Ferntree Gully - Croydon North__S18",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50905,10 +50905,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S19",
+    "stop_id": "Ferntree Gully - Croydon North__S19",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50923,10 +50923,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S20",
+    "stop_id": "Ferntree Gully - Croydon North__S20",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50941,10 +50941,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S22",
+    "stop_id": "Ferntree Gully - Croydon North__S22",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50959,10 +50959,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S23",
+    "stop_id": "Ferntree Gully - Croydon North__S23",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50977,10 +50977,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S24",
+    "stop_id": "Ferntree Gully - Croydon North__S24",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -50995,10 +50995,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S25",
+    "stop_id": "Ferntree Gully - Croydon North__S25",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51013,10 +51013,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S26",
+    "stop_id": "Ferntree Gully - Croydon North__S26",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51031,10 +51031,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S27",
+    "stop_id": "Ferntree Gully - Croydon North__S27",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51049,10 +51049,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S28",
+    "stop_id": "Ferntree Gully - Croydon North__S28",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51067,10 +51067,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S30",
+    "stop_id": "Ferntree Gully - Croydon North__S30",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51085,10 +51085,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S31",
+    "stop_id": "Ferntree Gully - Croydon North__S31",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51103,10 +51103,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S32",
+    "stop_id": "Ferntree Gully - Croydon North__S32",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51121,10 +51121,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S33",
+    "stop_id": "Ferntree Gully - Croydon North__S33",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51139,10 +51139,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S34",
+    "stop_id": "Ferntree Gully - Croydon North__S34",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51157,10 +51157,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S35",
+    "stop_id": "Ferntree Gully - Croydon North__S35",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51175,10 +51175,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S36",
+    "stop_id": "Ferntree Gully - Croydon North__S36",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51193,10 +51193,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S37",
+    "stop_id": "Ferntree Gully - Croydon North__S37",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51211,10 +51211,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S38",
+    "stop_id": "Ferntree Gully - Croydon North__S38",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51229,10 +51229,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S39",
+    "stop_id": "Ferntree Gully - Croydon North__S39",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -51247,10 +51247,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ferntree Gully - __S40",
+    "stop_id": "Ferntree Gully - Croydon North__S40",
     "is_interchange": false,
     "routes": [
-     "Ferntree Gully - "
+     "Ferntree Gully - Croydon North"
     ],
     "name": null
    }
@@ -57529,10 +57529,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S0",
+    "stop_id": "Seaford - Skye__S0",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57547,10 +57547,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S3",
+    "stop_id": "Seaford - Skye__S3",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57565,10 +57565,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S5",
+    "stop_id": "Seaford - Skye__S5",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57583,10 +57583,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S6",
+    "stop_id": "Seaford - Skye__S6",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57601,10 +57601,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S7",
+    "stop_id": "Seaford - Skye__S7",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57619,10 +57619,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S8",
+    "stop_id": "Seaford - Skye__S8",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57637,10 +57637,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S9",
+    "stop_id": "Seaford - Skye__S9",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57655,10 +57655,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S10",
+    "stop_id": "Seaford - Skye__S10",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57673,10 +57673,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S12",
+    "stop_id": "Seaford - Skye__S12",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57691,10 +57691,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S13",
+    "stop_id": "Seaford - Skye__S13",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57709,10 +57709,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S14",
+    "stop_id": "Seaford - Skye__S14",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57727,10 +57727,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S15",
+    "stop_id": "Seaford - Skye__S15",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57745,10 +57745,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S16",
+    "stop_id": "Seaford - Skye__S16",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57763,10 +57763,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S17",
+    "stop_id": "Seaford - Skye__S17",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57781,10 +57781,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S18",
+    "stop_id": "Seaford - Skye__S18",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57799,10 +57799,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S19",
+    "stop_id": "Seaford - Skye__S19",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57817,10 +57817,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S20",
+    "stop_id": "Seaford - Skye__S20",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57835,10 +57835,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S21",
+    "stop_id": "Seaford - Skye__S21",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57853,10 +57853,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S22",
+    "stop_id": "Seaford - Skye__S22",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57871,10 +57871,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S23",
+    "stop_id": "Seaford - Skye__S23",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57889,10 +57889,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S24",
+    "stop_id": "Seaford - Skye__S24",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57907,10 +57907,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S25",
+    "stop_id": "Seaford - Skye__S25",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57925,10 +57925,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S26",
+    "stop_id": "Seaford - Skye__S26",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57943,10 +57943,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S27",
+    "stop_id": "Seaford - Skye__S27",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57961,10 +57961,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S28",
+    "stop_id": "Seaford - Skye__S28",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57979,10 +57979,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S29",
+    "stop_id": "Seaford - Skye__S29",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -57997,10 +57997,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S30",
+    "stop_id": "Seaford - Skye__S30",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -58015,10 +58015,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S31",
+    "stop_id": "Seaford - Skye__S31",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -58033,10 +58033,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Seaford - __S32",
+    "stop_id": "Seaford - Skye__S32",
     "is_interchange": false,
     "routes": [
-     "Seaford - "
+     "Seaford - Skye"
     ],
     "name": null
    }
@@ -60661,10 +60661,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S0",
+    "stop_id": "Chelsea - City__S0",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60679,10 +60679,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S1",
+    "stop_id": "Chelsea - City__S1",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60697,10 +60697,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S4",
+    "stop_id": "Chelsea - City__S4",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60715,10 +60715,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S5",
+    "stop_id": "Chelsea - City__S5",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60733,10 +60733,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S6",
+    "stop_id": "Chelsea - City__S6",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60751,10 +60751,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S7",
+    "stop_id": "Chelsea - City__S7",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60769,10 +60769,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S8",
+    "stop_id": "Chelsea - City__S8",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60787,10 +60787,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S9",
+    "stop_id": "Chelsea - City__S9",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60805,10 +60805,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S10",
+    "stop_id": "Chelsea - City__S10",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60823,10 +60823,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S12",
+    "stop_id": "Chelsea - City__S12",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60841,10 +60841,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S13",
+    "stop_id": "Chelsea - City__S13",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60859,10 +60859,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S14",
+    "stop_id": "Chelsea - City__S14",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60877,10 +60877,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S15",
+    "stop_id": "Chelsea - City__S15",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60895,10 +60895,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S17",
+    "stop_id": "Chelsea - City__S17",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60913,10 +60913,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S18",
+    "stop_id": "Chelsea - City__S18",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60931,10 +60931,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S19",
+    "stop_id": "Chelsea - City__S19",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60949,10 +60949,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S20",
+    "stop_id": "Chelsea - City__S20",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60967,10 +60967,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S21",
+    "stop_id": "Chelsea - City__S21",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -60985,10 +60985,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S23",
+    "stop_id": "Chelsea - City__S23",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61003,10 +61003,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S24",
+    "stop_id": "Chelsea - City__S24",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61021,10 +61021,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S25",
+    "stop_id": "Chelsea - City__S25",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61039,10 +61039,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S26",
+    "stop_id": "Chelsea - City__S26",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61057,10 +61057,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S27",
+    "stop_id": "Chelsea - City__S27",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61075,10 +61075,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S28",
+    "stop_id": "Chelsea - City__S28",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61093,10 +61093,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S29",
+    "stop_id": "Chelsea - City__S29",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61111,10 +61111,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S31",
+    "stop_id": "Chelsea - City__S31",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61129,10 +61129,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S32",
+    "stop_id": "Chelsea - City__S32",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61147,10 +61147,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S33",
+    "stop_id": "Chelsea - City__S33",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61165,10 +61165,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S35",
+    "stop_id": "Chelsea - City__S35",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61183,10 +61183,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S36",
+    "stop_id": "Chelsea - City__S36",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61201,10 +61201,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S37",
+    "stop_id": "Chelsea - City__S37",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61219,10 +61219,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S38",
+    "stop_id": "Chelsea - City__S38",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61237,10 +61237,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S40",
+    "stop_id": "Chelsea - City__S40",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61255,10 +61255,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S41",
+    "stop_id": "Chelsea - City__S41",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61273,10 +61273,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S42",
+    "stop_id": "Chelsea - City__S42",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61291,10 +61291,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S44",
+    "stop_id": "Chelsea - City__S44",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61309,10 +61309,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S45",
+    "stop_id": "Chelsea - City__S45",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61327,10 +61327,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S46",
+    "stop_id": "Chelsea - City__S46",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61345,10 +61345,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S48",
+    "stop_id": "Chelsea - City__S48",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61363,10 +61363,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S49",
+    "stop_id": "Chelsea - City__S49",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61381,10 +61381,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S50",
+    "stop_id": "Chelsea - City__S50",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61399,10 +61399,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S52",
+    "stop_id": "Chelsea - City__S52",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61417,10 +61417,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S53",
+    "stop_id": "Chelsea - City__S53",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61435,10 +61435,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S57",
+    "stop_id": "Chelsea - City__S57",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61453,10 +61453,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S58",
+    "stop_id": "Chelsea - City__S58",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61471,10 +61471,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S60",
+    "stop_id": "Chelsea - City__S60",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61489,10 +61489,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S61",
+    "stop_id": "Chelsea - City__S61",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61507,10 +61507,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S62",
+    "stop_id": "Chelsea - City__S62",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61525,10 +61525,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S64",
+    "stop_id": "Chelsea - City__S64",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61543,10 +61543,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S66",
+    "stop_id": "Chelsea - City__S66",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61561,10 +61561,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S68",
+    "stop_id": "Chelsea - City__S68",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61579,10 +61579,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S69",
+    "stop_id": "Chelsea - City__S69",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61597,10 +61597,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S70",
+    "stop_id": "Chelsea - City__S70",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61615,10 +61615,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S72",
+    "stop_id": "Chelsea - City__S72",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61633,10 +61633,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S73",
+    "stop_id": "Chelsea - City__S73",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61651,10 +61651,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S74",
+    "stop_id": "Chelsea - City__S74",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61669,10 +61669,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S77",
+    "stop_id": "Chelsea - City__S77",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61687,10 +61687,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S78",
+    "stop_id": "Chelsea - City__S78",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61705,10 +61705,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S79",
+    "stop_id": "Chelsea - City__S79",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61723,10 +61723,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S80",
+    "stop_id": "Chelsea - City__S80",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61741,10 +61741,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S81",
+    "stop_id": "Chelsea - City__S81",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61759,10 +61759,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S83",
+    "stop_id": "Chelsea - City__S83",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61777,10 +61777,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S84",
+    "stop_id": "Chelsea - City__S84",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61795,10 +61795,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S85",
+    "stop_id": "Chelsea - City__S85",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61813,10 +61813,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S86",
+    "stop_id": "Chelsea - City__S86",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61831,10 +61831,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S88",
+    "stop_id": "Chelsea - City__S88",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61849,10 +61849,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S89",
+    "stop_id": "Chelsea - City__S89",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61867,10 +61867,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S90",
+    "stop_id": "Chelsea - City__S90",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61885,10 +61885,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S92",
+    "stop_id": "Chelsea - City__S92",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61903,10 +61903,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S93",
+    "stop_id": "Chelsea - City__S93",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61921,10 +61921,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S94",
+    "stop_id": "Chelsea - City__S94",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61939,10 +61939,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S97",
+    "stop_id": "Chelsea - City__S97",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61957,10 +61957,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S98",
+    "stop_id": "Chelsea - City__S98",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61975,10 +61975,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S99",
+    "stop_id": "Chelsea - City__S99",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -61993,10 +61993,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S100",
+    "stop_id": "Chelsea - City__S100",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -62011,10 +62011,10 @@
     ]
    },
    "properties": {
-    "stop_id": "902 Chelsea - __S102",
+    "stop_id": "Chelsea - City__S102",
     "is_interchange": false,
     "routes": [
-     "902 Chelsea - "
+     "Chelsea - City"
     ],
     "name": null
    }
@@ -62029,10 +62029,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S0",
+    "stop_id": "Rowville - Caulfield__S0",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62047,10 +62047,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S1",
+    "stop_id": "Rowville - Caulfield__S1",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62065,10 +62065,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S2",
+    "stop_id": "Rowville - Caulfield__S2",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62083,10 +62083,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S4",
+    "stop_id": "Rowville - Caulfield__S4",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62101,10 +62101,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S5",
+    "stop_id": "Rowville - Caulfield__S5",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62119,10 +62119,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S6",
+    "stop_id": "Rowville - Caulfield__S6",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62137,10 +62137,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S7",
+    "stop_id": "Rowville - Caulfield__S7",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62155,10 +62155,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S8",
+    "stop_id": "Rowville - Caulfield__S8",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62173,10 +62173,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S9",
+    "stop_id": "Rowville - Caulfield__S9",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62191,10 +62191,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S10",
+    "stop_id": "Rowville - Caulfield__S10",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62209,10 +62209,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S11",
+    "stop_id": "Rowville - Caulfield__S11",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62227,10 +62227,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S12",
+    "stop_id": "Rowville - Caulfield__S12",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62245,10 +62245,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S13",
+    "stop_id": "Rowville - Caulfield__S13",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62263,10 +62263,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S14",
+    "stop_id": "Rowville - Caulfield__S14",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62281,10 +62281,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S15",
+    "stop_id": "Rowville - Caulfield__S15",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62299,10 +62299,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S16",
+    "stop_id": "Rowville - Caulfield__S16",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62317,10 +62317,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S17",
+    "stop_id": "Rowville - Caulfield__S17",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62335,10 +62335,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S18",
+    "stop_id": "Rowville - Caulfield__S18",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62353,10 +62353,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S19",
+    "stop_id": "Rowville - Caulfield__S19",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62371,10 +62371,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S21",
+    "stop_id": "Rowville - Caulfield__S21",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62389,10 +62389,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S22",
+    "stop_id": "Rowville - Caulfield__S22",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62407,10 +62407,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S23",
+    "stop_id": "Rowville - Caulfield__S23",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62425,10 +62425,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S24",
+    "stop_id": "Rowville - Caulfield__S24",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62443,10 +62443,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S25",
+    "stop_id": "Rowville - Caulfield__S25",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62461,10 +62461,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S26",
+    "stop_id": "Rowville - Caulfield__S26",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62479,10 +62479,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S32",
+    "stop_id": "Rowville - Caulfield__S32",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62497,10 +62497,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S33",
+    "stop_id": "Rowville - Caulfield__S33",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62515,10 +62515,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S34",
+    "stop_id": "Rowville - Caulfield__S34",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62533,10 +62533,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S35",
+    "stop_id": "Rowville - Caulfield__S35",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62551,10 +62551,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S36",
+    "stop_id": "Rowville - Caulfield__S36",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62569,10 +62569,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S37",
+    "stop_id": "Rowville - Caulfield__S37",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62587,10 +62587,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S38",
+    "stop_id": "Rowville - Caulfield__S38",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62605,10 +62605,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S39",
+    "stop_id": "Rowville - Caulfield__S39",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62623,10 +62623,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S40",
+    "stop_id": "Rowville - Caulfield__S40",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62641,10 +62641,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S44",
+    "stop_id": "Rowville - Caulfield__S44",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62659,10 +62659,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S46",
+    "stop_id": "Rowville - Caulfield__S46",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62677,10 +62677,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S47",
+    "stop_id": "Rowville - Caulfield__S47",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62695,10 +62695,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S48",
+    "stop_id": "Rowville - Caulfield__S48",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62713,10 +62713,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S49",
+    "stop_id": "Rowville - Caulfield__S49",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62731,10 +62731,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S50",
+    "stop_id": "Rowville - Caulfield__S50",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62749,10 +62749,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S51",
+    "stop_id": "Rowville - Caulfield__S51",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62767,10 +62767,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S53",
+    "stop_id": "Rowville - Caulfield__S53",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62785,10 +62785,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S54",
+    "stop_id": "Rowville - Caulfield__S54",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62803,10 +62803,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S55",
+    "stop_id": "Rowville - Caulfield__S55",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62821,10 +62821,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S56",
+    "stop_id": "Rowville - Caulfield__S56",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62839,10 +62839,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S57",
+    "stop_id": "Rowville - Caulfield__S57",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -62857,10 +62857,10 @@
     ]
    },
    "properties": {
-    "stop_id": "900 Rowville - Caulfield__S61",
+    "stop_id": "Rowville - Caulfield__S61",
     "is_interchange": false,
     "routes": [
-     "900 Rowville - Caulfield"
+     "Rowville - Caulfield"
     ],
     "name": null
    }
@@ -63235,10 +63235,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S3",
+    "stop_id": "Glen Waverley - Dandenong__S3",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63253,10 +63253,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S4",
+    "stop_id": "Glen Waverley - Dandenong__S4",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63271,10 +63271,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S6",
+    "stop_id": "Glen Waverley - Dandenong__S6",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63289,10 +63289,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S7",
+    "stop_id": "Glen Waverley - Dandenong__S7",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63307,10 +63307,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S8",
+    "stop_id": "Glen Waverley - Dandenong__S8",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63325,10 +63325,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S9",
+    "stop_id": "Glen Waverley - Dandenong__S9",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63343,10 +63343,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S10",
+    "stop_id": "Glen Waverley - Dandenong__S10",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63361,10 +63361,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S11",
+    "stop_id": "Glen Waverley - Dandenong__S11",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63379,10 +63379,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S12",
+    "stop_id": "Glen Waverley - Dandenong__S12",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63397,10 +63397,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S13",
+    "stop_id": "Glen Waverley - Dandenong__S13",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63415,10 +63415,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S14",
+    "stop_id": "Glen Waverley - Dandenong__S14",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63433,10 +63433,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S15",
+    "stop_id": "Glen Waverley - Dandenong__S15",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63451,10 +63451,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S17",
+    "stop_id": "Glen Waverley - Dandenong__S17",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63469,10 +63469,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S18",
+    "stop_id": "Glen Waverley - Dandenong__S18",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63487,10 +63487,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S19",
+    "stop_id": "Glen Waverley - Dandenong__S19",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63505,10 +63505,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S20",
+    "stop_id": "Glen Waverley - Dandenong__S20",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63523,10 +63523,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S21",
+    "stop_id": "Glen Waverley - Dandenong__S21",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63541,10 +63541,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S22",
+    "stop_id": "Glen Waverley - Dandenong__S22",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63559,10 +63559,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S23",
+    "stop_id": "Glen Waverley - Dandenong__S23",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63577,10 +63577,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S24",
+    "stop_id": "Glen Waverley - Dandenong__S24",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63595,10 +63595,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S25",
+    "stop_id": "Glen Waverley - Dandenong__S25",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63613,10 +63613,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S26",
+    "stop_id": "Glen Waverley - Dandenong__S26",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63631,10 +63631,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S28",
+    "stop_id": "Glen Waverley - Dandenong__S28",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63649,10 +63649,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S29",
+    "stop_id": "Glen Waverley - Dandenong__S29",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63667,10 +63667,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S30",
+    "stop_id": "Glen Waverley - Dandenong__S30",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63685,10 +63685,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S31",
+    "stop_id": "Glen Waverley - Dandenong__S31",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63703,10 +63703,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S32",
+    "stop_id": "Glen Waverley - Dandenong__S32",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63721,10 +63721,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S33",
+    "stop_id": "Glen Waverley - Dandenong__S33",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63739,10 +63739,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S35",
+    "stop_id": "Glen Waverley - Dandenong__S35",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63757,10 +63757,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S36",
+    "stop_id": "Glen Waverley - Dandenong__S36",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63775,10 +63775,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S37",
+    "stop_id": "Glen Waverley - Dandenong__S37",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63793,10 +63793,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S39",
+    "stop_id": "Glen Waverley - Dandenong__S39",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63811,10 +63811,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S40",
+    "stop_id": "Glen Waverley - Dandenong__S40",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63829,10 +63829,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S41",
+    "stop_id": "Glen Waverley - Dandenong__S41",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63847,10 +63847,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S42",
+    "stop_id": "Glen Waverley - Dandenong__S42",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63865,10 +63865,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S43",
+    "stop_id": "Glen Waverley - Dandenong__S43",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63883,10 +63883,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S44",
+    "stop_id": "Glen Waverley - Dandenong__S44",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63901,10 +63901,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S45",
+    "stop_id": "Glen Waverley - Dandenong__S45",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63919,10 +63919,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S46",
+    "stop_id": "Glen Waverley - Dandenong__S46",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63937,10 +63937,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S47",
+    "stop_id": "Glen Waverley - Dandenong__S47",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63955,10 +63955,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S48",
+    "stop_id": "Glen Waverley - Dandenong__S48",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63973,10 +63973,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S49",
+    "stop_id": "Glen Waverley - Dandenong__S49",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -63991,10 +63991,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S50",
+    "stop_id": "Glen Waverley - Dandenong__S50",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -64009,10 +64009,10 @@
     ]
    },
    "properties": {
-    "stop_id": "850 Glen Waverley - Dandenong__S51",
+    "stop_id": "Glen Waverley - Dandenong__S51",
     "is_interchange": false,
     "routes": [
-     "850 Glen Waverley - Dandenong"
+     "Glen Waverley - Dandenong"
     ],
     "name": null
    }
@@ -66349,10 +66349,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S1",
+    "stop_id": "Ringwood - Bayswater North__S1",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66367,10 +66367,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S2",
+    "stop_id": "Ringwood - Bayswater North__S2",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66385,10 +66385,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S3",
+    "stop_id": "Ringwood - Bayswater North__S3",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66403,10 +66403,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S5",
+    "stop_id": "Ringwood - Bayswater North__S5",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66421,10 +66421,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S6",
+    "stop_id": "Ringwood - Bayswater North__S6",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66439,10 +66439,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S7",
+    "stop_id": "Ringwood - Bayswater North__S7",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66457,10 +66457,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S9",
+    "stop_id": "Ringwood - Bayswater North__S9",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66475,10 +66475,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S10",
+    "stop_id": "Ringwood - Bayswater North__S10",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66493,10 +66493,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S11",
+    "stop_id": "Ringwood - Bayswater North__S11",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66511,10 +66511,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S12",
+    "stop_id": "Ringwood - Bayswater North__S12",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66529,10 +66529,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S13",
+    "stop_id": "Ringwood - Bayswater North__S13",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66547,10 +66547,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S14",
+    "stop_id": "Ringwood - Bayswater North__S14",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66565,10 +66565,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S15",
+    "stop_id": "Ringwood - Bayswater North__S15",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66583,10 +66583,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S16",
+    "stop_id": "Ringwood - Bayswater North__S16",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66601,10 +66601,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S18",
+    "stop_id": "Ringwood - Bayswater North__S18",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -66619,10 +66619,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Ringwood - __S19",
+    "stop_id": "Ringwood - Bayswater North__S19",
     "is_interchange": false,
     "routes": [
-     "Ringwood - "
+     "Ringwood - Bayswater North"
     ],
     "name": null
    }
@@ -78121,10 +78121,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S1",
+    "stop_id": "The Pines - Kew East__S1",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78139,10 +78139,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S2",
+    "stop_id": "The Pines - Kew East__S2",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78157,10 +78157,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S3",
+    "stop_id": "The Pines - Kew East__S3",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78175,10 +78175,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S4",
+    "stop_id": "The Pines - Kew East__S4",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78193,10 +78193,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S5",
+    "stop_id": "The Pines - Kew East__S5",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78211,10 +78211,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S6",
+    "stop_id": "The Pines - Kew East__S6",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78229,10 +78229,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S8",
+    "stop_id": "The Pines - Kew East__S8",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78247,10 +78247,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S9",
+    "stop_id": "The Pines - Kew East__S9",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78265,10 +78265,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S10",
+    "stop_id": "The Pines - Kew East__S10",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78283,10 +78283,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S11",
+    "stop_id": "The Pines - Kew East__S11",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78301,10 +78301,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S13",
+    "stop_id": "The Pines - Kew East__S13",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78319,10 +78319,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S14",
+    "stop_id": "The Pines - Kew East__S14",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78337,10 +78337,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S15",
+    "stop_id": "The Pines - Kew East__S15",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78355,10 +78355,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S16",
+    "stop_id": "The Pines - Kew East__S16",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78373,10 +78373,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S17",
+    "stop_id": "The Pines - Kew East__S17",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78391,10 +78391,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S18",
+    "stop_id": "The Pines - Kew East__S18",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78409,10 +78409,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S20",
+    "stop_id": "The Pines - Kew East__S20",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78427,10 +78427,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S21",
+    "stop_id": "The Pines - Kew East__S21",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78445,10 +78445,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S22",
+    "stop_id": "The Pines - Kew East__S22",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78463,10 +78463,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S23",
+    "stop_id": "The Pines - Kew East__S23",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78481,10 +78481,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S24",
+    "stop_id": "The Pines - Kew East__S24",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78499,10 +78499,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S26",
+    "stop_id": "The Pines - Kew East__S26",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78517,10 +78517,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S27",
+    "stop_id": "The Pines - Kew East__S27",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78535,10 +78535,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S28",
+    "stop_id": "The Pines - Kew East__S28",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78553,10 +78553,10 @@
     ]
    },
    "properties": {
-    "stop_id": "The Pines - __S29",
+    "stop_id": "The Pines - Kew East__S29",
     "is_interchange": false,
     "routes": [
-     "The Pines - "
+     "The Pines - Kew East"
     ],
     "name": null
    }
@@ -78571,10 +78571,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S0",
+    "stop_id": "Templestowe - Kew__S0",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78589,10 +78589,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S1",
+    "stop_id": "Templestowe - Kew__S1",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78607,10 +78607,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S2",
+    "stop_id": "Templestowe - Kew__S2",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78625,10 +78625,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S3",
+    "stop_id": "Templestowe - Kew__S3",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78643,10 +78643,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S4",
+    "stop_id": "Templestowe - Kew__S4",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78661,10 +78661,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S6",
+    "stop_id": "Templestowe - Kew__S6",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78679,10 +78679,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S7",
+    "stop_id": "Templestowe - Kew__S7",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78697,10 +78697,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S8",
+    "stop_id": "Templestowe - Kew__S8",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78715,10 +78715,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S10",
+    "stop_id": "Templestowe - Kew__S10",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78733,10 +78733,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S12",
+    "stop_id": "Templestowe - Kew__S12",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78751,10 +78751,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S13",
+    "stop_id": "Templestowe - Kew__S13",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78769,10 +78769,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S14",
+    "stop_id": "Templestowe - Kew__S14",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78787,10 +78787,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S16",
+    "stop_id": "Templestowe - Kew__S16",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78805,10 +78805,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S17",
+    "stop_id": "Templestowe - Kew__S17",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78823,10 +78823,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S20",
+    "stop_id": "Templestowe - Kew__S20",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78841,10 +78841,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S22",
+    "stop_id": "Templestowe - Kew__S22",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78859,10 +78859,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S23",
+    "stop_id": "Templestowe - Kew__S23",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78877,10 +78877,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S24",
+    "stop_id": "Templestowe - Kew__S24",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78895,10 +78895,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S25",
+    "stop_id": "Templestowe - Kew__S25",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78913,10 +78913,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S26",
+    "stop_id": "Templestowe - Kew__S26",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78931,10 +78931,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Templestowe - __S27",
+    "stop_id": "Templestowe - Kew__S27",
     "is_interchange": false,
     "routes": [
-     "Templestowe - "
+     "Templestowe - Kew"
     ],
     "name": null
    }
@@ -78949,10 +78949,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S1",
+    "stop_id": "Bulleen__S1",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -78967,10 +78967,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S2",
+    "stop_id": "Bulleen__S2",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -78985,10 +78985,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S3",
+    "stop_id": "Bulleen__S3",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -79003,10 +79003,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S4",
+    "stop_id": "Bulleen__S4",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -79021,10 +79021,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S6",
+    "stop_id": "Bulleen__S6",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -79039,10 +79039,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S7",
+    "stop_id": "Bulleen__S7",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -79057,10 +79057,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S8",
+    "stop_id": "Bulleen__S8",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -79075,10 +79075,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Bulleen Route__S9",
+    "stop_id": "Bulleen__S9",
     "is_interchange": false,
     "routes": [
-     "Short Bulleen Route"
+     "Bulleen"
     ],
     "name": null
    }
@@ -86563,10 +86563,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S1",
+    "stop_id": "Clyde__S1",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86581,10 +86581,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S2",
+    "stop_id": "Clyde__S2",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86599,10 +86599,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S3",
+    "stop_id": "Clyde__S3",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86617,10 +86617,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S5",
+    "stop_id": "Clyde__S5",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86635,10 +86635,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S6",
+    "stop_id": "Clyde__S6",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86653,10 +86653,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S7",
+    "stop_id": "Clyde__S7",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86671,10 +86671,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S9",
+    "stop_id": "Clyde__S9",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86689,10 +86689,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S10",
+    "stop_id": "Clyde__S10",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
@@ -86707,10 +86707,10 @@
     ]
    },
    "properties": {
-    "stop_id": "Short Clyde Route__S11",
+    "stop_id": "Clyde__S11",
     "is_interchange": false,
     "routes": [
-     "Short Clyde Route"
+     "Clyde"
     ],
     "name": null
    }
