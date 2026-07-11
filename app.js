@@ -77,6 +77,7 @@ let journeyCombo = 'current';   // which of JOURNEY_COMBOS is currently shown on
 let journeyResults = {};        // combo key -> findRoute() result (or null if no route for that combo)
 
 let currentTab = 'journey';     // 'journey' | 'isochrone'
+let mobileDetailsOpen = false;  // mobile-only: true when the itinerary is showing in place of the map
 let isoLayer = null;            // layered walking-radius circles
 let isoMarker = null;           // marker at the clicked isochrone origin
 let isoOriginLatLng = null;     // clicked point the isochrone was computed from
@@ -1226,6 +1227,23 @@ function onJourneyClick(e) {
   document.getElementById('instruction-text').innerHTML = 'Click to move your <strong>destination</strong>, or Reset to change your origin.';
 }
 
+// ---------------------------------------------------------------------------
+// Mobile "View Details" toggle — swaps the map out for the step-by-step
+// itinerary on narrow screens (desktop layout is unaffected; the button
+// itself is only visible below the mobile breakpoint, see style.css).
+// ---------------------------------------------------------------------------
+function setMobileDetailsOpen(open) {
+  mobileDetailsOpen = open;
+  document.getElementById('app').classList.toggle('details-open', open);
+  const btn = document.getElementById('details-toggle-btn');
+  if (btn) btn.textContent = open ? 'Hide Details ↑' : 'View Details ↓';
+}
+
+const detailsToggleBtn = document.getElementById('details-toggle-btn');
+if (detailsToggleBtn) {
+  detailsToggleBtn.addEventListener('click', () => setMobileDetailsOpen(!mobileDetailsOpen));
+}
+
 document.getElementById('reset-btn').addEventListener('click', () => {
   originLatLng = null;
   destLatLng = null;
@@ -1241,6 +1259,7 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   document.getElementById('empty-state').classList.remove('hidden');
   document.getElementById('empty-state').innerHTML = '';
   document.getElementById('instruction-text').innerHTML = 'Click the map to set your <strong>origin</strong>.';
+  setMobileDetailsOpen(false); // back to showing the map on mobile for the next trip
 
   applyNetworkState(false, false); // back to the "Current" network for the next trip
   syncURL(false);
@@ -1258,6 +1277,7 @@ document.getElementById('share-btn').addEventListener('click', copyShareLink);
 function setTab(tab, options = {}) {
   const { fromURL = false } = options;
   currentTab = tab;
+  if (tab !== 'journey') setMobileDetailsOpen(false);
 
   document.getElementById('tab-journey').classList.toggle('active', tab === 'journey');
   document.getElementById('tab-journey').setAttribute('aria-selected', tab === 'journey');
