@@ -246,15 +246,6 @@ html, body {
 }
 .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
 
-.details-toggle-btn {
-  display: none; /* shown only on mobile, see media query below */
-  width: 100%;
-  margin-top: 14px;
-  padding: 9px 12px;
-  font-weight: 600;
-  text-align: center;
-}
-
 .combo-row {
   display: flex;
   gap: 6px;
@@ -434,11 +425,11 @@ html, body {
 
 /* ---------------------------------------------------------------------
    Mobile layout — below this width the side-by-side map/sidebar becomes
-   a stacked layout: map on top, panel below capped to a sane height so
-   it doesn't swallow most of the screen. The step-by-step itinerary is
-   hidden by default and only shown (in place of the map) once the
-   "View Details" toggle is pressed — see #app.details-open below.
-   Desktop layout above this width is completely unchanged.
+   a stacked layout: map on top, panel below. The panel is capped to a
+   small slice of the screen so the map always stays mostly visible (no
+   full-screen "bottom sheet" takeover) — the panel itself scrolls for
+   any content that doesn't fit. Desktop layout above this width is
+   completely unchanged.
    ------------------------------------------------------------------- */
 @media (max-width: 700px) {
   #layout {
@@ -450,27 +441,35 @@ html, body {
     border-left: none;
     border-top: 1px solid var(--line);
     flex: 0 0 auto;
-    max-height: 55vh;
+    max-height: 25vh;
   }
 
-  #itinerary-list {
-    display: none;
+  /* Isochrone tab: lay the legend and layer checkboxes out horizontally
+     instead of stacked, so they take up far less of the panel's height
+     and leave more room for the map. */
+  #layers-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    padding: 14px 20px;
   }
 
-  .details-toggle-btn {
-    display: block;
+  .toggle-row + .toggle-row {
+    margin-top: 0;
   }
 
-  #app.details-open #map {
-    display: none;
+  #iso-legend {
+    padding: 14px 20px;
   }
 
-  #app.details-open #panel {
-    flex: 1 1 auto;
-    max-height: none;
+  #iso-legend h2 {
+    margin: 0 0 8px;
   }
 
-  #app.details-open #itinerary-list {
-    display: block;
+  .legend-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px 16px;
   }
 }

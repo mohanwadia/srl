@@ -77,7 +77,6 @@ let journeyCombo = 'current';   // which of JOURNEY_COMBOS is currently shown on
 let journeyResults = {};        // combo key -> findRoute() result (or null if no route for that combo)
 
 let currentTab = 'journey';     // 'journey' | 'isochrone'
-let mobileDetailsOpen = false;  // mobile-only: true when the itinerary is showing in place of the map
 let isoLayer = null;            // layered walking-radius circles
 let isoMarker = null;           // marker at the clicked isochrone origin
 let isoOriginLatLng = null;     // clicked point the isochrone was computed from
@@ -571,8 +570,7 @@ function onIsochroneClick(e) {
   const locations = computeIsochrone(e.latlng);
   isoOriginLatLng = e.latlng;
   renderIsochrone(e.latlng, locations);
-  document.getElementById('iso-instruction-text').innerHTML =
-    'Click elsewhere to see travel times from a different point.';
+  document.getElementById('iso-instructions').classList.add('hidden');
   syncURL(false);
 }
 
@@ -1126,6 +1124,7 @@ function loadFromURL() {
     computeAllJourneyCombos(originLatLng, destLatLng);
     const anyResult = JOURNEY_COMBOS.some((c) => journeyResults[c.key]);
     if (!anyResult) {
+      document.getElementById('instructions').classList.remove('hidden');
       document.getElementById('instruction-text').innerHTML =
         'Directions could not be found between the linked points — try clicking closer to the network.';
       document.getElementById('combo-selector').classList.add('hidden');
@@ -1148,7 +1147,7 @@ function loadFromURL() {
       : fastestJourneyCombo();
 
     selectJourneyCombo(comboToSelect);
-    document.getElementById('instruction-text').innerHTML = 'Click <strong>Reset</strong> to plan another trip.';
+    document.getElementById('instructions').classList.add('hidden');
     syncURL(false);
   } else {
     const p = parseLatLngParam(params.get('point'));
@@ -1159,8 +1158,7 @@ function loadFromURL() {
     isoOriginLatLng = latlng;
     renderIsochrone(latlng, locations);
     map.setView(latlng, map.getZoom() || 14);
-    document.getElementById('iso-instruction-text').innerHTML =
-      'Click elsewhere to see travel times from a different point.';
+    document.getElementById('iso-instructions').classList.add('hidden');
     syncURL(false);
   }
 }
@@ -1209,6 +1207,7 @@ function onJourneyClick(e) {
   computeAllJourneyCombos(originLatLng, destLatLng);
   const anyResult = JOURNEY_COMBOS.some((c) => journeyResults[c.key]);
   if (!anyResult) {
+    document.getElementById('instructions').classList.remove('hidden');
     document.getElementById('instruction-text').innerHTML =
       'Directions could not be found between those points — try clicking closer to the network.';
     document.getElementById('combo-selector').classList.add('hidden');
@@ -1224,24 +1223,7 @@ function onJourneyClick(e) {
   selectJourneyCombo(fastestJourneyCombo());
 
   syncURL(false);
-  document.getElementById('instruction-text').innerHTML = 'Click to move your <strong>destination</strong>, or Reset to change your origin.';
-}
-
-// ---------------------------------------------------------------------------
-// Mobile "View Details" toggle — swaps the map out for the step-by-step
-// itinerary on narrow screens (desktop layout is unaffected; the button
-// itself is only visible below the mobile breakpoint, see style.css).
-// ---------------------------------------------------------------------------
-function setMobileDetailsOpen(open) {
-  mobileDetailsOpen = open;
-  document.getElementById('app').classList.toggle('details-open', open);
-  const btn = document.getElementById('details-toggle-btn');
-  if (btn) btn.textContent = open ? 'Hide Details ↑' : 'View Details ↓';
-}
-
-const detailsToggleBtn = document.getElementById('details-toggle-btn');
-if (detailsToggleBtn) {
-  detailsToggleBtn.addEventListener('click', () => setMobileDetailsOpen(!mobileDetailsOpen));
+  document.getElementById('instructions').classList.add('hidden');
 }
 
 document.getElementById('reset-btn').addEventListener('click', () => {
@@ -1258,10 +1240,22 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   document.getElementById('itinerary').classList.add('hidden');
   document.getElementById('empty-state').classList.remove('hidden');
   document.getElementById('empty-state').innerHTML = '';
+  document.getElementById('instructions').classList.remove('hidden');
   document.getElementById('instruction-text').innerHTML = 'Click the map to set your <strong>origin</strong>.';
-  setMobileDetailsOpen(false); // back to showing the map on mobile for the next trip
 
   applyNetworkState(false, false); // back to the "Current" network for the next trip
+
+  // Also reset the isochrone tab's point, since this is now the only
+  // reset button (the isochrone tab's own reset button was removed).
+  if (isoLayer) map.removeLayer(isoLayer);
+  if (isoMarker) map.removeLayer(isoMarker);
+  isoLayer = null;
+  isoMarker = null;
+  isoOriginLatLng = null;
+  document.getElementById('iso-instructions').classList.remove('hidden');
+  document.getElementById('iso-instruction-text').innerHTML =
+    'Click the map to see how far you can travel in <strong>20</strong>, <strong>40</strong>, and <strong>60</strong> minutes.';
+
   syncURL(false);
 });
 
@@ -1277,7 +1271,6 @@ document.getElementById('share-btn').addEventListener('click', copyShareLink);
 function setTab(tab, options = {}) {
   const { fromURL = false } = options;
   currentTab = tab;
-  if (tab !== 'journey') setMobileDetailsOpen(false);
 
   document.getElementById('tab-journey').classList.toggle('active', tab === 'journey');
   document.getElementById('tab-journey').setAttribute('aria-selected', tab === 'journey');
@@ -1321,17 +1314,6 @@ function setTab(tab, options = {}) {
 
 document.getElementById('tab-journey').addEventListener('click', () => setTab('journey'));
 document.getElementById('tab-isochrone').addEventListener('click', () => setTab('isochrone'));
-
-document.getElementById('iso-reset-btn').addEventListener('click', () => {
-  if (isoLayer) map.removeLayer(isoLayer);
-  if (isoMarker) map.removeLayer(isoMarker);
-  isoLayer = null;
-  isoMarker = null;
-  isoOriginLatLng = null;
-  document.getElementById('iso-instruction-text').innerHTML =
-    'Click the map to see how far you can travel in <strong>20</strong>, <strong>40</strong>, and <strong>60</strong> minutes.';
-  syncURL(false);
-});
 
 // ---------------------------------------------------------------------------
 // SRL toggle
