@@ -68,10 +68,10 @@ let existingBusStopMarkers = [];    // stop dots that belong only to the existin
 // The four network combinations shown side-by-side on the Journey tab.
 // Order matters: this is the display order requested — Current, Bus Reform, SRL, Both.
 const JOURNEY_COMBOS = [
-  { key: 'current', label: 'Current', srl: false, busReform: false },
-  { key: 'busReform', label: 'Bus Reform', srl: false, busReform: true },
-  { key: 'srl', label: 'SRL', srl: true, busReform: false },
-  { key: 'both', label: 'Both', srl: true, busReform: true },
+  { key: 'current', label: 'Current Network', srl: false, busReform: false },
+  { key: 'busReform', label: 'Better Buses', srl: false, busReform: true },
+  { key: 'srl', label: 'Suburban Rail Loop', srl: true, busReform: false },
+  { key: 'both', label: 'Both Projects', srl: true, busReform: true },
 ];
 let journeyCombo = 'both';      // which of JOURNEY_COMBOS is currently shown on the map/itinerary
 let journeyResults = {};        // combo key -> findRoute() result (or null if no route for that combo)
