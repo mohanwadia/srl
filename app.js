@@ -81,6 +81,12 @@ let isoLayer = null;            // layered walking-radius circles
 let isoMarker = null;           // marker at the clicked isochrone origin
 let isoOriginLatLng = null;     // clicked point the isochrone was computed from
 
+// The isochrone tab reuses the same four SRL/Bus Reform combos as the
+// journey tab (see JOURNEY_COMBOS), shown as the same tab UI instead of the
+// old pair of checkboxes.
+let isoCombo = 'both';          // which combo's isochrone is currently shown
+let isoResults = {};            // combo key -> { locations, areaKm2 } (areaKm2 at the largest threshold)
+
 const map = L.map('map', { zoomControl: true });
 
 L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
@@ -102,12 +108,7 @@ Promise.all([
   stopNames = new Map(Object.entries(stopNamesData));
 
   srlEnabled = new URLSearchParams(window.location.search).get('srl') !== '0';
-  const srlToggle = document.getElementById('srl-toggle');
-  if (srlToggle) srlToggle.checked = srlEnabled;
-
   busReformEnabled = new URLSearchParams(window.location.search).get('busReform') !== '0';
-  const busReformToggle = document.getElementById('bus-reform-toggle');
-  if (busReformToggle) busReformToggle.checked = busReformEnabled;
 
   buildAdjacency();
   buildStopIndex();
@@ -512,6 +513,61 @@ function computeIsochrone(latlng) {
   return Array.from(byLoc.values());
 }
 
+// Estimates the reachable area (km²) covered by an isochrone's circles at a
+// given threshold. The rendered isochrone is a pile of overlapping walking
+// circles rather than a clean polygon, so an exact union area isn't cheap to
+// compute — instead this rasterizes the circles' bounding box onto a flat
+// grid (equirectangular projection, accurate enough at city scale) and
+// counts how many cells fall inside at least one circle. Used only for the
+// isochrone tab's combo comparison (+X% area), not for rendering.
+const ISO_AREA_GRID = 140;
+function estimateIsochroneAreaKm2(locations, thresholdMin) {
+  const circles = [];
+  for (const loc of locations) {
+    if (loc.min > thresholdMin) continue;
+    const radiusM = (thresholdMin - loc.min) * WALK_SPEED_M_PER_MIN;
+    if (radiusM > 0) circles.push({ lat: loc.lat, lon: loc.lon, radiusM });
+  }
+  if (circles.length === 0) return 0;
+
+  let minLat = Infinity, maxLat = -Infinity, minLon = Infinity, maxLon = -Infinity;
+  for (const c of circles) {
+    minLat = Math.min(minLat, c.lat); maxLat = Math.max(maxLat, c.lat);
+    minLon = Math.min(minLon, c.lon); maxLon = Math.max(maxLon, c.lon);
+  }
+  const refLat = (minLat + maxLat) / 2;
+  const mPerDegLat = 111320;
+  const mPerDegLon = 111320 * Math.cos((refLat * Math.PI) / 180);
+
+  // Project circle centers to a flat local meters grid — fine at this scale
+  // and avoids a trig call (haversine) per grid cell per circle below.
+  const pc = circles.map((c) => ({ x: c.lon * mPerDegLon, y: c.lat * mPerDegLat, r: c.radiusM }));
+
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (const c of pc) {
+    minX = Math.min(minX, c.x - c.r); maxX = Math.max(maxX, c.x + c.r);
+    minY = Math.min(minY, c.y - c.r); maxY = Math.max(maxY, c.y + c.r);
+  }
+
+  const stepX = (maxX - minX) / ISO_AREA_GRID;
+  const stepY = (maxY - minY) / ISO_AREA_GRID;
+  if (stepX <= 0 || stepY <= 0) return 0;
+
+  let filled = 0;
+  for (let i = 0; i < ISO_AREA_GRID; i++) {
+    const y = minY + (i + 0.5) * stepY;
+    for (let j = 0; j < ISO_AREA_GRID; j++) {
+      const x = minX + (j + 0.5) * stepX;
+      for (let k = 0; k < pc.length; k++) {
+        const dx = x - pc[k].x, dy = y - pc[k].y;
+        if (dx * dx + dy * dy <= pc[k].r * pc[k].r) { filled++; break; }
+      }
+    }
+  }
+
+  return (filled * stepX * stepY) / 1e6; // m² -> km²
+}
+
 // Each threshold gets its own Leaflet pane + canvas renderer so overlapping
 // circles within a single band are drawn fully solid (fillOpacity: 1) and
 // simply merge into one flat shape instead of stacking alpha on top of
@@ -567,10 +623,131 @@ function renderIsochrone(latlng, locations) {
 
 function onIsochroneClick(e) {
   if (!graph) return;
-  const locations = computeIsochrone(e.latlng);
   isoOriginLatLng = e.latlng;
-  renderIsochrone(e.latlng, locations);
+  computeAllIsoCombos(e.latlng);
+  selectIsoCombo(bestIsoCombo());
   document.getElementById('iso-instructions').classList.add('hidden');
+}
+
+// ---------------------------------------------------------------------------
+// Isochrone combo selector (Current / Bus Reform / SRL / Both)
+// ---------------------------------------------------------------------------
+// Same four SRL/Bus Reform combinations as the journey tab's selector,
+// reused here instead of the old pair of checkboxes. Unlike the journey
+// selector, nothing is ever hidden/deduped — all four tabs always show once
+// a point has been clicked, per design: comparing "how much area do I gain"
+// is the whole point, so a combo that ties another is still worth seeing.
+
+// Computes computeIsochrone() for all four combos, temporarily swapping the
+// global network state to do so (same pattern as computeAllJourneyCombos),
+// and estimates each combo's reachable area at the largest threshold.
+function computeAllIsoCombos(latlng) {
+  const savedSrl = srlEnabled;
+  const savedBusReform = busReformEnabled;
+
+  isoResults = {};
+  const maxThreshold = ISO_THRESHOLDS_MIN[ISO_THRESHOLDS_MIN.length - 1];
+  for (const combo of JOURNEY_COMBOS) {
+    srlEnabled = combo.srl;
+    busReformEnabled = combo.busReform;
+    rebuildAdjacency();
+    const locations = computeIsochrone(latlng);
+    isoResults[combo.key] = { locations, areaKm2: estimateIsochroneAreaKm2(locations, maxThreshold) };
+  }
+
+  srlEnabled = savedSrl;
+  busReformEnabled = savedBusReform;
+  rebuildAdjacency();
+}
+
+// The rounded "+X%" extra area a combo covers vs. the smallest of the four
+// (at the largest threshold) — null for the smallest itself (and any combo
+// tied with it), which the button then renders blank rather than "+0%".
+function isoComboExtraPercent(key) {
+  const minArea = Math.min(...JOURNEY_COMBOS.map((c) => isoResults[c.key]?.areaKm2 ?? 0));
+  const area = isoResults[key]?.areaKm2 ?? 0;
+  if (minArea <= 0) return null;
+  const pct = Math.round(((area - minArea) / minArea) * 100);
+  return pct > 0 ? pct : null;
+}
+
+// Filters JOURNEY_COMBOS down to the ones worth showing on the isochrone
+// tab: hide "SRL" and "Both" together if adding SRL alone changes nothing
+// (Current's % improvement == SRL's) AND adding SRL on top of Bus Reform
+// also changes nothing (Bus Reform's % improvement == Both's) — i.e. SRL is
+// dead weight as an option either way it'd be applied. Mirrors
+// visibleJourneyCombos()'s SRL-collapsing logic, but keyed off the % badge
+// instead of travel time. Unlike the journey tab, ties elsewhere (e.g. Bus
+// Reform tying Current on its own) are still shown — only this specific
+// combined SRL-is-useless case hides tabs.
+function visibleIsoCombos() {
+  const pct = (key) => isoComboExtraPercent(key) ?? 0;
+  const srlDeadWeight = pct('current') === pct('srl') && pct('busReform') === pct('both');
+  return JOURNEY_COMBOS.filter((c) => !(srlDeadWeight && (c.key === 'srl' || c.key === 'both')));
+}
+
+// The combo with the largest 60-min reachable area — used as the default
+// selection after a click, same role as fastestJourneyCombo() on the
+// journey tab.
+function bestIsoCombo() {
+  const visible = visibleIsoCombos();
+  let best = visible[0].key;
+  for (const combo of visible) {
+    if ((isoResults[combo.key]?.areaKm2 ?? 0) > (isoResults[best]?.areaKm2 ?? 0)) best = combo.key;
+  }
+  return best;
+}
+
+// Builds the button row (largest-area first, dead-weight SRL/Both dropped),
+// showing each combo's extra-area badge and highlighting whichever is
+// currently selected. Only shown once a point has been clicked (isoResults
+// populated).
+function renderIsoComboSelector() {
+  const container = document.getElementById('iso-combo-selector');
+  const row = document.getElementById('iso-combo-buttons');
+  if (!container || !row) return;
+
+  if (!isoOriginLatLng || Object.keys(isoResults).length === 0) {
+    container.classList.add('hidden');
+    return;
+  }
+
+  row.innerHTML = '';
+  const sorted = [...visibleIsoCombos()].sort(
+    (a, b) => (isoResults[b.key]?.areaKm2 ?? 0) - (isoResults[a.key]?.areaKm2 ?? 0)
+  );
+  for (const combo of sorted) {
+    const pct = isoComboExtraPercent(combo.key);
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'combo-btn' + (combo.key === isoCombo ? ' active' : '');
+    btn.innerHTML =
+      `<span class="combo-label">${combo.label}</span>` +
+      `<span class="combo-time">${pct !== null ? '+' + pct + '%' : ''}</span>`;
+    btn.addEventListener('click', () => selectIsoCombo(combo.key));
+    row.appendChild(btn);
+  }
+  container.classList.remove('hidden');
+}
+
+// Switches the isochrone tab to a given combo: updates the routing graph +
+// map layers to match it, and redraws the isochrone from that combo's
+// precomputed circles (no recomputation needed). If the requested combo has
+// been collapsed out by visibleIsoCombos (SRL/Both dead-weight case), falls
+// back the same way selectJourneyCombo() does.
+function selectIsoCombo(key) {
+  const visible = visibleIsoCombos();
+  if (!visible.some((c) => c.key === key)) {
+    key = (visible.find((c) => isoResults[c.key]) || visible[0]).key;
+  }
+
+  const combo = JOURNEY_COMBOS.find((c) => c.key === key);
+  if (!combo || !isoResults[key]) return;
+
+  isoCombo = key;
+  applyNetworkState(combo.srl, combo.busReform);
+  renderIsoComboSelector();
+  renderIsochrone(isoOriginLatLng, isoResults[key].locations);
   syncURL(false);
 }
 
@@ -1155,9 +1332,17 @@ function loadFromURL() {
     if (!p || !graph) { syncURL(false); return; }
 
     const latlng = L.latLng(p.lat, p.lng);
-    const locations = computeIsochrone(latlng);
     isoOriginLatLng = latlng;
-    renderIsochrone(latlng, locations);
+    computeAllIsoCombos(latlng);
+
+    // The URL's srl/busReform params (if any) pick which combo to open
+    // with; otherwise default to the combo with the largest reachable area.
+    const requestedSrl = params.get('srl') !== '0';
+    const requestedBusReform = params.get('busReform') !== '0';
+    const requestedCombo = JOURNEY_COMBOS.find((c) => c.srl === requestedSrl && c.busReform === requestedBusReform);
+    const comboToSelect = (requestedCombo && isoResults[requestedCombo.key]) ? requestedCombo.key : bestIsoCombo();
+
+    selectIsoCombo(comboToSelect);
     map.setView(latlng, map.getZoom() || 14);
     document.getElementById('iso-instructions').classList.add('hidden');
     syncURL(false);
@@ -1207,13 +1392,31 @@ function journeyShareText() {
   return `I'll save ${savings} on my commute when Melbourne has ${mention}🤯www.mohanwadia.com/srl`;
 }
 
-// Fixed share text for the Isochrone tab.
+// Isochrone tab share text. Three cases:
+// - map reset (no point clicked yet, or nothing computed): fixed fallback line.
+// - SRL is dead weight for this point (visibleIsoCombos collapsed SRL/Both
+//   out — only Current/Bus Reform show): "better buses" only, no SRL mention.
+// - otherwise: "SRL and better buses", with the best combo's %-further-area
+//   badge as the headline number.
 function isochroneShareText() {
-  return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯mohanwadia.com/srl";
+  const noPoint = !isoOriginLatLng || Object.keys(isoResults).length === 0;
+  if (noPoint) {
+    return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯mohanwadia.com/srl";
+  }
+
+  const best = bestIsoCombo();
+  const pct = isoComboExtraPercent(best) ?? 0;
+  if (pct <= 0) {
+    return "I'll be able to travel so much faster when Melbourne has SRL and better buses 🤯mohanwadia.com/srl";
+  }
+
+  const benefitsFromSrl = visibleIsoCombos().some((c) => c.key === 'srl' || c.key === 'both');
+  const mention = benefitsFromSrl ? 'SRL and better buses' : 'better buses';
+  return `I'll be able to travel ${pct}% further when Melbourne has ${mention} 🤯mohanwadia.com/srl`;
 }
 
-// Generic share text used when nothing has been clicked on the map yet
-// (no journey pins, no isochrone point) — same on both tabs.
+// Generic share text used when the Journey tab has no pins placed yet.
+// The Isochrone tab has its own reset-state line (see isochroneShareText).
 function genericShareText() {
   return "Check out how much time you'll save once Melbourne has SRL and better buses 🤯 mohanwadia.com/srl";
 }
@@ -1221,11 +1424,10 @@ function genericShareText() {
 function shareOrCopyLink() {
   const shareBtn = document.getElementById('share-btn');
   const hasJourney = currentTab === 'journey' && originLatLng && destLatLng;
-  const hasIso = currentTab === 'isochrone' && isoOriginLatLng;
 
   let text;
-  if (hasJourney) text = journeyShareText() || genericShareText();
-  else if (hasIso) text = isochroneShareText();
+  if (currentTab === 'isochrone') text = isochroneShareText();
+  else if (hasJourney) text = journeyShareText() || genericShareText();
   else text = genericShareText();
 
   if (isMobileOrTablet() && navigator.share && text) {
@@ -1318,6 +1520,9 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   isoLayer = null;
   isoMarker = null;
   isoOriginLatLng = null;
+  isoResults = {};
+  isoCombo = 'both';
+  document.getElementById('iso-combo-selector').classList.add('hidden');
   document.getElementById('iso-instructions').classList.remove('hidden');
   document.getElementById('iso-instruction-text').innerHTML =
     'Click the map to see how far you can travel in <strong>20</strong>, <strong>40</strong>, and <strong>60</strong> minutes.';
@@ -1353,8 +1558,8 @@ function setTab(tab, options = {}) {
     if (destMarker) destMarker.addTo(map);
     if (pathLayer) pathLayer.addTo(map);
 
-    // The journey tab's network state is driven by the combo selector, not
-    // the isochrone tab's checkboxes — reapply whichever combo is selected.
+    // The journey tab's network state is driven by its own combo selector —
+    // reapply whichever combo is selected there.
     const combo = JOURNEY_COMBOS.find((c) => c.key === journeyCombo) || JOURNEY_COMBOS[0];
     if (graph) applyNetworkState(combo.srl, combo.busReform);
   } else {
@@ -1364,15 +1569,10 @@ function setTab(tab, options = {}) {
     if (isoLayer) isoLayer.addTo(map);
     if (isoMarker) isoMarker.addTo(map);
 
-    // Restore whatever the isochrone checkboxes are set to.
-    const srlToggle = document.getElementById('srl-toggle');
-    const busReformToggle = document.getElementById('bus-reform-toggle');
-    if (graph) {
-      applyNetworkState(
-        srlToggle ? srlToggle.checked : srlEnabled,
-        busReformToggle ? busReformToggle.checked : busReformEnabled
-      );
-    }
+    // Same idea for the isochrone tab: reapply whichever combo is selected
+    // in its own selector (now that the old checkboxes are gone).
+    const combo = JOURNEY_COMBOS.find((c) => c.key === isoCombo) || JOURNEY_COMBOS[0];
+    if (graph) applyNetworkState(combo.srl, combo.busReform);
   }
 
   if (!fromURL) syncURL(true);
@@ -1382,15 +1582,15 @@ document.getElementById('tab-journey').addEventListener('click', () => setTab('j
 document.getElementById('tab-isochrone').addEventListener('click', () => setTab('isochrone'));
 
 // ---------------------------------------------------------------------------
-// SRL toggle
+// Network state
 // ---------------------------------------------------------------------------
-// Lets the user exclude the Suburban Rail Loop from routing entirely, to
-// compare journeys/isochrones with and without it. Affects both tabs.
+// Shared plumbing for both tabs' four-way combo selectors (Current / Bus
+// Reform / SRL / Both), letting the person compare journeys/isochrones
+// across SRL and Bus Reform combinations.
 
 // Applies a given SRL/Bus Reform combination to the routing graph and to the
-// map layers (route lines + stop markers). Used both by the isochrone tab's
-// checkboxes and by the journey tab's four-way combo selector, so all
-// network-state changes flow through one place.
+// map layers (route lines + stop markers). Used by both tabs' four-way combo
+// selectors, so all network-state changes flow through one place.
 function applyNetworkState(srl, busReform) {
   srlEnabled = srl;
   busReformEnabled = busReform;
@@ -1419,41 +1619,6 @@ function applyNetworkState(srl, busReform) {
   }
 }
 
-// Re-runs the isochrone after its SRL/Bus Reform checkboxes change. The
-// journey tab has its own recompute path (computeAllJourneyCombos +
-// selectJourneyCombo), triggered by map clicks rather than checkboxes.
-function recomputeIsochroneView() {
-  if (!isoOriginLatLng) return;
-  const locations = computeIsochrone(isoOriginLatLng);
-  renderIsochrone(isoOriginLatLng, locations);
-}
-
-function setSrlEnabled(enabled) {
-  applyNetworkState(enabled, busReformEnabled);
-  recomputeIsochroneView();
-  syncURL(false);
-}
-
-const srlToggleEl = document.getElementById('srl-toggle');
-if (srlToggleEl) {
-  srlToggleEl.addEventListener('change', (e) => setSrlEnabled(e.target.checked));
-}
-
-// ---------------------------------------------------------------------------
-// Bus Reform toggle
-// ---------------------------------------------------------------------------
-// Unlike the SRL toggle (a simple on/off), this switches between two
-// mutually-exclusive bus networks: the hand-drawn reform network (B1/B2
-// corridors, checked = on) and the existing real-world metro bus network
-// (EXIST_BUS corridor, shown when unchecked).
-
-function setBusReformEnabled(enabled) {
-  applyNetworkState(srlEnabled, enabled);
-  recomputeIsochroneView();
-  syncURL(false);
-}
-
-const busReformToggleEl = document.getElementById('bus-reform-toggle');
-if (busReformToggleEl) {
-  busReformToggleEl.addEventListener('change', (e) => setBusReformEnabled(e.target.checked));
-}
+// The isochrone tab's network state now flows through selectIsoCombo (see
+// the isochrone combo selector section above) instead of SRL/Bus Reform
+// checkboxes, mirroring how the journey tab's combo selector works.

@@ -134,10 +134,6 @@ html, body {
   border-bottom: 1px solid var(--line);
 }
 
-#layers-panel {
-  flex-shrink: 0;
-}
-
 .toggle-row {
   display: flex;
   align-items: center;
@@ -444,21 +440,9 @@ html, body {
     max-height: 25vh;
   }
 
-  /* Isochrone tab: lay the legend and layer checkboxes out horizontally
-     instead of stacked, so they take up far less of the panel's height
-     and leave more room for the map. */
-  #layers-panel {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 10px 18px;
-    padding: 14px 20px;
-  }
-
-  .toggle-row + .toggle-row {
-    margin-top: 0;
-  }
-
+  /* Isochrone tab: lay the legend out horizontally instead of stacked, so
+     it takes up far less of the panel's height and leaves more room for
+     the map. */
   #iso-legend {
     padding: 14px 20px;
   }
