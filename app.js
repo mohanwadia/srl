@@ -86,6 +86,7 @@ let isoOriginLatLng = null;     // clicked point the isochrone was computed from
 // old pair of checkboxes.
 let isoCombo = 'both';          // which combo's isochrone is currently shown
 let isoResults = {};            // combo key -> { locations, areaKm2 } (areaKm2 at the largest threshold)
+let isoLoadingRest = false;     // true from when "Both" is shown until the other 3 combos finish computing
 
 const map = L.map('map', { zoomControl: true });
 
@@ -513,6 +514,13 @@ const ISO_MAX_WALK_TO_STOP_M = 5000;
 const ISO_COLOR = '#1d4ed8';
 const ISO_FILL_OPACITY = { 20: 0.4, 40: 0.24, 60: 0.14 };
 
+// Fixed left-to-right order for the isochrone tab's combo buttons. Unlike
+// the journey tab (sorted fastest-first) the isochrone tab always shows
+// "Both" first — since it's computed and rendered before the other three
+// combos even exist (see beginIsoCompute) — followed by SRL, Bus Reform,
+// then Current, regardless of which has the largest reachable area.
+const ISO_COMBO_ORDER = ['both', 'srl', 'busReform', 'current'];
+
 // Like runDijkstra, but explores every node within maxCost of startId
 // instead of stopping at a single destination.
 function runDijkstraOneToAll(startId, extraAdj, maxCost) {
@@ -696,10 +704,8 @@ function renderIsochrone(latlng, locations) {
 
 function onIsochroneClick(e) {
   if (!graph) return;
-  isoOriginLatLng = e.latlng;
-  computeAllIsoCombos(e.latlng);
-  selectIsoCombo(bestIsoCombo());
   document.getElementById('iso-instructions').classList.add('hidden');
+  beginIsoCompute(e.latlng, () => syncURL(false));
 }
 
 // ---------------------------------------------------------------------------
@@ -711,26 +717,66 @@ function onIsochroneClick(e) {
 // a point has been clicked, per design: comparing "how much area do I gain"
 // is the whole point, so a combo that ties another is still worth seeing.
 
-// Computes computeIsochrone() for all four combos, temporarily swapping the
-// global network state to do so (same pattern as computeAllJourneyCombos),
-// and estimates each combo's reachable area at the largest threshold.
-function computeAllIsoCombos(latlng) {
+// Computes computeIsochrone() for a single combo, temporarily swapping the
+// global network state to do so (same pattern as computeAllJourneyCombos
+// used to), and estimates its reachable area at the largest threshold.
+// Stores the result straight into isoResults[key].
+function computeIsoCombo(key, latlng) {
+  const combo = JOURNEY_COMBOS.find((c) => c.key === key);
+  if (!combo) return;
+
   const savedSrl = srlEnabled;
   const savedBusReform = busReformEnabled;
 
-  isoResults = {};
+  srlEnabled = combo.srl;
+  busReformEnabled = combo.busReform;
+  rebuildAdjacency();
+
   const maxThreshold = ISO_THRESHOLDS_MIN[ISO_THRESHOLDS_MIN.length - 1];
-  for (const combo of JOURNEY_COMBOS) {
-    srlEnabled = combo.srl;
-    busReformEnabled = combo.busReform;
-    rebuildAdjacency();
-    const locations = computeIsochrone(latlng);
-    isoResults[combo.key] = { locations, areaKm2: estimateIsochroneAreaKm2(locations, maxThreshold) };
-  }
+  const locations = computeIsochrone(latlng);
+  isoResults[key] = { locations, areaKm2: estimateIsochroneAreaKm2(locations, maxThreshold) };
 
   srlEnabled = savedSrl;
   busReformEnabled = savedBusReform;
   rebuildAdjacency();
+}
+
+// Computes and shows the isochrone for a clicked/loaded origin, in two
+// stages so the person isn't staring at a blank map for as long as all four
+// combos take to compute:
+//   1. "Both" is computed and rendered on its own first — it's the default
+//      combo, so this is the one thing that needs to be ready before
+//      anything is shown at all.
+//   2. The other three combos are then computed right after (deferred by a
+//      setTimeout so the browser gets a chance to paint "Both" first rather
+//      than the four Dijkstra runs blocking the main thread back-to-back).
+//      Once all four are in, isoLoadingRest flips off and the combo
+//      selector's %-area badges appear.
+// onReady, if given, is called with 'both' right after the first stage
+// renders and with 'all' once every combo is in — callers use this to sync
+// the URL, and (for a URL-driven load) to switch to a non-"Both" combo that
+// was requested but couldn't be selected until its data existed.
+function beginIsoCompute(latlng, onReady) {
+  isoOriginLatLng = latlng;
+  isoResults = {};
+  isoLoadingRest = true;
+  isoCombo = 'both';
+
+  computeIsoCombo('both', latlng);
+  applyNetworkState(true, true);
+  renderIsoComboSelector();
+  renderIsochrone(latlng, isoResults.both.locations);
+  if (onReady) onReady('both');
+
+  setTimeout(() => {
+    for (const key of ISO_COMBO_ORDER) {
+      if (key === 'both') continue;
+      computeIsoCombo(key, latlng);
+    }
+    isoLoadingRest = false;
+    renderIsoComboSelector();
+    if (onReady) onReady('all');
+  }, 0);
 }
 
 // The rounded "+X%" extra area a combo covers vs. the smallest of the four
@@ -759,9 +805,10 @@ function visibleIsoCombos() {
   return JOURNEY_COMBOS.filter((c) => !(srlDeadWeight && (c.key === 'srl' || c.key === 'both')));
 }
 
-// The combo with the largest 60-min reachable area — used as the default
-// selection after a click, same role as fastestJourneyCombo() on the
-// journey tab.
+// The combo with the largest 60-min reachable area — no longer used to pick
+// the default selected tab (that's always "Both" now, see beginIsoCompute),
+// but still used for the share-text headline stat, which wants whichever
+// combo shows the biggest improvement rather than always "Both".
 function bestIsoCombo() {
   const visible = visibleIsoCombos();
   let best = visible[0].key;
@@ -771,10 +818,19 @@ function bestIsoCombo() {
   return best;
 }
 
-// Builds the button row (largest-area first, dead-weight SRL/Both dropped),
-// showing each combo's extra-area badge and highlighting whichever is
-// currently selected. Only shown once a point has been clicked (isoResults
-// populated).
+// Builds the button row. "Both" is always the default combo now (see
+// beginIsoCompute), so there's no more "largest area wins" selection to
+// make here.
+//
+// While the other three combos are still loading (isoLoadingRest), every
+// tab is shown in the fixed ISO_COMBO_ORDER with its %-area badge left
+// blank — that badge, and the dead-weight SRL/Both hiding in
+// visibleIsoCombos(), both need every combo's area to be known first, so
+// neither can be computed yet. Only "Both" is clickable at this point.
+//
+// Once loading finishes, the row switches to the same fixed order filtered
+// down by visibleIsoCombos() (dead-weight SRL/Both dropped), each button
+// now showing its real %-area badge.
 function renderIsoComboSelector() {
   const container = document.getElementById('iso-combo-selector');
   const row = document.getElementById('iso-combo-buttons');
@@ -786,9 +842,28 @@ function renderIsoComboSelector() {
   }
 
   row.innerHTML = '';
-  const sorted = [...visibleIsoCombos()].sort(
-    (a, b) => (isoResults[b.key]?.areaKm2 ?? 0) - (isoResults[a.key]?.areaKm2 ?? 0)
-  );
+
+  if (isoLoadingRest) {
+    for (const key of ISO_COMBO_ORDER) {
+      const combo = JOURNEY_COMBOS.find((c) => c.key === key);
+      const ready = !!isoResults[key];
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'combo-btn' + (key === isoCombo ? ' active' : '') + (!ready ? ' unavailable' : '');
+      btn.innerHTML =
+        `<span class="combo-label">${combo.label}</span>` +
+        `<span class="combo-time"></span>`;
+      if (ready) btn.addEventListener('click', () => selectIsoCombo(key));
+      row.appendChild(btn);
+    }
+    container.classList.remove('hidden');
+    return;
+  }
+
+  const visibleKeys = new Set(visibleIsoCombos().map((c) => c.key));
+  const sorted = ISO_COMBO_ORDER
+    .filter((key) => visibleKeys.has(key))
+    .map((key) => JOURNEY_COMBOS.find((c) => c.key === key));
   for (const combo of sorted) {
     const pct = isoComboExtraPercent(combo.key);
     const btn = document.createElement('button');
@@ -808,10 +883,17 @@ function renderIsoComboSelector() {
 // precomputed circles (no recomputation needed). If the requested combo has
 // been collapsed out by visibleIsoCombos (SRL/Both dead-weight case), falls
 // back the same way selectJourneyCombo() does.
+//
+// While the other three combos are still loading (isoLoadingRest), the
+// dead-weight check is skipped entirely — it needs every combo's area to
+// decide anything, and only "Both" is selectable at that point anyway (see
+// renderIsoComboSelector).
 function selectIsoCombo(key) {
-  const visible = visibleIsoCombos();
-  if (!visible.some((c) => c.key === key)) {
-    key = (visible.find((c) => isoResults[c.key]) || visible[0]).key;
+  if (!isoLoadingRest) {
+    const visible = visibleIsoCombos();
+    if (!visible.some((c) => c.key === key)) {
+      key = (visible.find((c) => isoResults[c.key]) || visible[0]).key;
+    }
   }
 
   const combo = JOURNEY_COMBOS.find((c) => c.key === key);
@@ -1405,20 +1487,23 @@ function loadFromURL() {
     if (!p || !graph) { syncURL(false); return; }
 
     const latlng = L.latLng(p.lat, p.lng);
-    isoOriginLatLng = latlng;
-    computeAllIsoCombos(latlng);
 
     // The URL's srl/busReform params (if any) pick which combo to open
-    // with; otherwise default to the combo with the largest reachable area.
+    // with; otherwise (and always in the meantime, since "Both" renders
+    // before the other three combos are even computed — see
+    // beginIsoCompute) default to "Both".
     const requestedSrl = params.get('srl') !== '0';
     const requestedBusReform = params.get('busReform') !== '0';
     const requestedCombo = JOURNEY_COMBOS.find((c) => c.srl === requestedSrl && c.busReform === requestedBusReform);
-    const comboToSelect = (requestedCombo && isoResults[requestedCombo.key]) ? requestedCombo.key : bestIsoCombo();
 
-    selectIsoCombo(comboToSelect);
+    beginIsoCompute(latlng, (stage) => {
+      if (stage === 'all' && requestedCombo && requestedCombo.key !== 'both' && isoResults[requestedCombo.key]) {
+        selectIsoCombo(requestedCombo.key);
+      }
+      syncURL(false);
+    });
     map.setView(latlng, map.getZoom() || 14);
     document.getElementById('iso-instructions').classList.add('hidden');
-    syncURL(false);
   }
 }
 
@@ -1595,6 +1680,7 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   isoOriginLatLng = null;
   isoResults = {};
   isoCombo = 'both';
+  isoLoadingRest = false;
   document.getElementById('iso-combo-selector').classList.add('hidden');
   document.getElementById('iso-instructions').classList.remove('hidden');
   document.getElementById('iso-instruction-text').innerHTML =
