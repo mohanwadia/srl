@@ -427,6 +427,24 @@ class MinHeap {
   }
 }
 
+// Hidden routing penalties — these edge types are weighted up when
+// Dijkstra compares routes, so a path leaning on more walking or more
+// waiting has to actually save real time elsewhere to be picked over an
+// alternative. This only affects which route wins; once a route is
+// chosen, everything shown to the user (leg times, itinerary, total-time
+// badge) is based on real, unpenalized durations — see the totalMin
+// recomputation below.
+const WALK_PENALTY_MULTIPLIER = 2.2;
+const INITIAL_WAIT_PENALTY_MULTIPLIER = 2.1;   // 'board' edges — waiting for the first vehicle
+const CONNECTION_WAIT_PENALTY_MULTIPLIER = 2.5; // 'transfer' edges — waiting for a connecting vehicle
+
+function edgeRoutingCost(e) {
+  if (e.type === 'walk') return e.weight_min * WALK_PENALTY_MULTIPLIER;
+  if (e.type === 'board') return e.weight_min * INITIAL_WAIT_PENALTY_MULTIPLIER;
+  if (e.type === 'transfer') return e.weight_min * CONNECTION_WAIT_PENALTY_MULTIPLIER;
+  return e.weight_min;
+}
+
 function runDijkstra(startId, endId, extraAdj) {
   // extraAdj only ever has entries for the injected origin/destination nodes
   // and the handful of stops within walking distance of them — so for the
@@ -453,7 +471,7 @@ function runDijkstra(startId, endId, extraAdj) {
     if (node === endId) break;
 
     for (const e of getEdges(node)) {
-      const nd = cost + e.weight_min;
+      const nd = cost + edgeRoutingCost(e);
       if (nd < (dist.get(e.to) ?? Infinity)) {
         dist.set(e.to, nd);
         prev.set(e.to, { from: node, edge: e });
@@ -472,7 +490,11 @@ function runDijkstra(startId, endId, extraAdj) {
     cur = step.from;
   }
   edges.reverse();
-  return { totalMin: dist.get(endId), edges };
+
+  // dist.get(endId) is the penalized cost used to pick this path — real,
+  // user-facing totalMin is the actual sum of each edge's true weight.
+  const totalMin = edges.reduce((sum, e) => sum + e.weight_min, 0);
+  return { totalMin, edges };
 }
 
 function findRoute(origin, dest) {
@@ -1321,9 +1343,24 @@ function comboDisplayMin(key) {
   return result ? Math.round(result.totalMin) : null;
 }
 
+// Whether a computed route actually rides a bus (reform B1/B2 or an
+// existing bus route) at any point — used so the "Better Buses" tab isn't
+// hidden just because it ties Current on time if it's still routing the
+// person via a bus (e.g. a bus that happens to be just as fast).
+function journeyUsesBus(result) {
+  if (!result) return false;
+  return result.edges.some((e) => {
+    if (e.type !== 'ride') return false;
+    const corridor = routeCorridor(e.route);
+    return isReformBusCorridor(corridor) || isExistingBusCorridor(corridor);
+  });
+}
+
 // Filters JOURNEY_COMBOS down to the ones worth showing:
 // - hide any combo with no route at all (nothing to show for that tab)
-// - hide "Bus Reform" if it matches "Current" (nothing new to show)
+// - hide "Bus Reform" if it matches "Current" on time AND the Bus Reform
+//   route doesn't actually involve a bus (if it still rides a bus despite
+//   tying Current, it's still worth showing as a viable bus option)
 // - hide "Both" if it matches "SRL" or "Bus Reform" (nothing new to show)
 // - hide "SRL" (and therefore "Both") if "Current" == "SRL" AND
 //   "Bus Reform" == "Both" — i.e. adding SRL alone changes nothing, and
@@ -1337,7 +1374,7 @@ function visibleJourneyCombos() {
   const srl = comboDisplayMin('srl');
   const both = comboDisplayMin('both');
 
-  const hideBusReform = same(current, busReform);
+  const hideBusReform = same(current, busReform) && !journeyUsesBus(journeyResults.busReform);
   const hideBoth = same(srl, both) || same(busReform, both);
   const hideSrl = same(current, srl);
 
@@ -1512,6 +1549,8 @@ function loadFromURL() {
     destLatLng = L.latLng(d.lat, d.lng);
     originMarker = L.circleMarker(originLatLng, { radius: 7, color: '#1a1d1f', weight: 2, fillColor: '#1a1d1f', fillOpacity: 1 }).addTo(map);
     destMarker = L.marker(destLatLng, { icon: destPinIcon() }).addTo(map);
+    document.getElementById('origin-search').value = coordLabel(originLatLng);
+    document.getElementById('dest-search').value = coordLabel(destLatLng);
     const journeyBounds = L.latLngBounds([originLatLng, destLatLng]);
     map.fitBounds(journeyBounds, { padding: [80, 80] });
     if (isPreviewMode) previewDefaultView = { bounds: journeyBounds, padding: [80, 80] };
@@ -1549,6 +1588,7 @@ function loadFromURL() {
     if (!p || !graph) { syncURL(false); return; }
 
     const latlng = L.latLng(p.lat, p.lng);
+    document.getElementById('iso-place-search').value = coordLabel(latlng);
 
     // The URL's srl/busReform params (if any) pick which combo to open
     // with; otherwise (and always in the meantime, since "Both" renders
@@ -1690,6 +1730,8 @@ function shareOrCopyLink() {
 // ---------------------------------------------------------------------------
 
 const MELBOURNE_VIEWBOX = '144.4,-37.5,145.6,-38.3'; // left,top,right,bottom
+const MELBOURNE_CENTER = { lat: -37.8136, lon: 144.9631 };
+const MAX_RESULT_DISTANCE_KM = 300; // results further than this from Melbourne are almost certainly a wrong match, not a place someone's actually asking about
 
 function debounce(fn, delayMs) {
   let timer = null;
@@ -1704,7 +1746,15 @@ async function geocodePlace(query) {
     `&viewbox=${MELBOURNE_VIEWBOX}&bounded=0&limit=6`;
   const res = await fetch(url, { headers: { 'Accept-Language': 'en' } });
   if (!res.ok) throw new Error('geocode request failed');
-  return res.json();
+  const results = await res.json();
+  // Nominatim's viewbox only biases ranking, it doesn't exclude far-away
+  // matches — a query with no good local match can still return something
+  // on the other side of the world. Drop anything unreasonably far from
+  // Melbourne rather than show it as a suggestion.
+  return results.filter((r) => {
+    const distKm = haversineMeters(MELBOURNE_CENTER.lat, MELBOURNE_CENTER.lon, parseFloat(r.lat), parseFloat(r.lon)) / 1000;
+    return distKm <= MAX_RESULT_DISTANCE_KM;
+  });
 }
 
 // Wires up a text input + its dropdown container to search-as-you-type,
@@ -1762,6 +1812,19 @@ function setupPlaceSearch(inputId, suggId, onSelect) {
   input.addEventListener('input', () => runSearch(input.value));
   input.addEventListener('focus', () => { if (input.value.trim().length >= 3) runSearch(input.value); });
   input.addEventListener('blur', () => { setTimeout(hideDropdown, 100); });
+
+  // Clicking into a box that already has a value while it's out of focus
+  // should select all the text, not drop the cursor mid-string — mirrors
+  // how browsers handle the URL bar. Prevent the mousedown's default
+  // focus+caret-placement and do it manually with select() instead; once
+  // the input is already focused, clicks behave normally again.
+  input.addEventListener('mousedown', (evt) => {
+    if (document.activeElement !== input && input.value) {
+      evt.preventDefault();
+      input.focus();
+      input.select();
+    }
+  });
 }
 
 function initPlaceSearch() {
