@@ -31,17 +31,19 @@ from shapely.geometry import LineString, Point
 from shapely.ops import transform as shapely_transform
 
 BUS_GEOJSON = f"data/gis.geojson"
-GTFS_ROUTES = f"gtfs/2/google_transit/routes.txt"
-GTFS_SHAPES = f"gtfs/2/google_transit/shapes.txt"
-GTFS_STOPS = f"gtfs/2/google_transit/stops.txt"
-GTFS_TRAM_ROUTES = f"gtfs/3/google_transit/routes.txt"
-GTFS_TRAM_SHAPES = f"gtfs/3/google_transit/shapes.txt"
-GTFS_TRAM_STOPS = f"gtfs/3/google_transit/stops.txt"
-GTFS_BUS_ROUTES = f"gtfs/4/google_transit/routes.txt"   # PTV metro bus feed - the *existing*
-GTFS_BUS_SHAPES = f"gtfs/4/google_transit/shapes.txt"   # real-world network, as opposed to the
-GTFS_BUS_STOPS = f"gtfs/4/google_transit/stops.txt"     # hand-drawn reform network in BUS_GEOJSON
+GTFS_ROUTES = f"../PT/gtfs/2/google_transit/routes.txt"
+GTFS_SHAPES = f"../PT/gtfs/2/google_transit/shapes.txt"
+GTFS_STOPS = f"../PT/gtfs/2/google_transit/stops.txt"
+GTFS_TRAM_ROUTES = f"../PT/gtfs/3/google_transit/routes.txt"
+GTFS_TRAM_SHAPES = f"../PT/gtfs/3/google_transit/shapes.txt"
+GTFS_TRAM_STOPS = f"../PT/gtfs/3/google_transit/stops.txt"
+GTFS_BUS_ROUTES = f"../PT/gtfs/4/google_transit/routes.txt"   # PTV metro bus feed - the *existing*
+GTFS_BUS_SHAPES = f"../PT/gtfs/4/google_transit/shapes.txt"   # real-world network, as opposed to the
+GTFS_BUS_STOPS = f"../PT/gtfs/4/google_transit/stops.txt"     # hand-drawn reform network in BUS_GEOJSON
 FREQUENCY_JSON = f"data/bus_frequency_summary.json"      # download from:
-                                                          # https://raw.githubusercontent.com/adambain014/FrequencyFinder/main/route_jsons/summary.json
+GTFS_V_LINE_ROUTES = f"../PT/gtfs/1/google_transit/routes.txt"
+GTFS_V_LINE_SHAPES = f"../PT/gtfs/1/google_transit/shapes.txt"
+GTFS_V_LINE_STOPS = f"../PT/gtfs/1/google_transit/stops.txt"                                                          # https://raw.githubusercontent.com/adambain014/FrequencyFinder/main/route_jsons/summary.json
                                                           # covers both existing buses and trams -
                                                           # used as the frequency source for both
 SRL_GEOJSON = f"data/srl.geojson"
@@ -52,6 +54,7 @@ OUTPUT_STOPS_DEBUG = f"data/routes_with_stops_debug.geojson"
 
 BUS_SPEED_KMH = 25.0
 TRAIN_SPEED_KMH = 40.0         # express-ish average incl. dwell; only affects ride time, not lines/stops
+V_LINE_SPEED_KMH = 80.0        # regional long-distance rail service, faster than metro trains
 SRL_SPEED_KMH = 62.0           # Suburban Rail Loop: modern underground metro, wider stop spacing
                                 # than the legacy network, so a higher average incl. dwell is reasonable
 WALK_SPEED_M_PER_MIN = 80.0
@@ -69,8 +72,10 @@ TRAIN_FREQUENCY = 10
 B1_FREQUENCY = 5
 B2_FREQUENCY = 10
 SRL_FREQUENCY = 5
+V_LINE_FREQUENCY = 20
 TRAM_SPEED_KMH = 20.0          # universal tram speed (avg incl. stops/dwell)
 TRAM_COLOR = "#91DE56"
+V_LINE_COLOR = "#8F1A95"
 EXIST_BUS_COLOR = "#ff8200"    # existing (non-reform) metro bus network - must match
                                 # RIDE_COLOR_EXIST_BUS in app.js
 
@@ -309,7 +314,7 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
 
     if missing_freq_routes:
         uniq = sorted(set(missing_freq_routes))
-        shown = ", ".join(uniq[:15]) + ("..." if len(uniq) > 15 else "")
+        shown = ", ".join(uniq[:50]) + ("..." if len(uniq) > 50 else "")
         print(f"  (no frequency match for {len(uniq)} routes, excluded "
               f"entirely: {shown})")
 
@@ -671,7 +676,7 @@ def build_graph(routes, stops, route_stop_sequences):
     return nodes, edges
 
 
-def add_walk_transfer_edges(nodes, edges, stops, max_walk_m=1000):
+def add_walk_transfer_edges(nodes, edges, stops, max_walk_m=800):
     hub_stops = list(stops.items())
     added = 0
     for (sid_a, a), (sid_b, b) in combinations(hub_stops, 2):
@@ -728,6 +733,18 @@ def main():
     print(f"Loaded {len(train_routes)} train routes from GTFS")
     total_stations = len(set(sid for entries in real_stops_by_route.values() for _, sid, *_ in entries))
     print(f"Matched {total_stations} distinct real stations across those lines")
+
+    vline_routes, vline_real_stops = load_gtfs_train_routes(
+        GTFS_V_LINE_ROUTES, GTFS_V_LINE_SHAPES, GTFS_V_LINE_STOPS,
+        mode="rail", corridor="V_LINE", id_prefix="VLINE",
+        speed_kmh=V_LINE_SPEED_KMH, frequency_min=V_LINE_FREQUENCY,
+        color=V_LINE_COLOR, stop_location_types=("1",),
+    )
+    print(f"Loaded {len(vline_routes)} V/Line routes from GTFS")
+    total_vline_stops = len(set(sid for entries in vline_real_stops.values() for _, sid, *_ in entries))
+    print(f"Matched {total_vline_stops} distinct real V/Line stations across those lines")
+    train_routes.update(vline_routes)
+    real_stops_by_route.update(vline_real_stops)
 
     srl_routes, srl_real_stops = load_srl_route(SRL_GEOJSON)
     print(f"Loaded {len(srl_routes)} SRL route ({len(next(iter(srl_real_stops.values())))} stops)")
@@ -795,6 +812,7 @@ def main():
             "board_penalty_min": BOARD_PENALTY_MIN,
             "stop_spacing_m": STOP_SPACING_M,
             "train_frequency": TRAIN_FREQUENCY,
+            "vline_frequency": V_LINE_FREQUENCY,
             "B1_frequency": B1_FREQUENCY,
             "B2_frequency": B2_FREQUENCY,
         },

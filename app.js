@@ -14,6 +14,7 @@ const RIDE_LINE_WEIGHT = 6;
 const RIDE_COLOR_B1 = '#D92B26';
 const RIDE_COLOR_B2 = '#F1B80E';
 const RIDE_COLOR_RAIL = '#0072CE';
+const RIDE_COLOR_V_LINE = '#8F1A95';
 const RIDE_COLOR_DEFAULT = '#ff8200';
 const RIDE_COLOR_SRL = '#008746';
 const RIDE_COLOR_TRAM = '#91DE56';
@@ -58,8 +59,8 @@ let srlRouteLayer = null;       // the SRL line geometry (toggled on/off the map
 let srlStopMarkers = [];        // SRL station dot markers (added/removed from stopMarkersLayer)
 
 let busReformEnabled = true;        // true = reform bus network (B1/B2) usable & shown;
-                                     // false = existing metro bus network (EXIST_BUS) instead.
-                                     // The two are mutually exclusive, unlike the SRL on/off toggle.
+// false = existing metro bus network (EXIST_BUS) instead.
+// The two are mutually exclusive, unlike the SRL on/off toggle.
 let reformBusLayer = null;          // hand-drawn reform bus route lines
 let existingBusLayer = null;        // real GTFS existing bus route lines
 let reformBusStopMarkers = [];      // stop dots that belong only to the reform network
@@ -265,6 +266,10 @@ function routeLineStyle(feature) {
   }
   if (corridor === 'SRL') {
     const base = feature.properties.color || RIDE_COLOR_SRL;
+    return { color: dullColor(base), weight: 5, opacity: 0.75 };
+  }
+  if (corridor === 'V_LINE') {
+    const base = feature.properties.color || RIDE_COLOR_V_LINE;
     return { color: dullColor(base), weight: 5, opacity: 0.75 };
   }
   if (corridor === 'TRAM') {
@@ -1222,6 +1227,9 @@ function routeColor(routeName) {
     if (routeName === 'RAIL:SRL' || corridor === 'SRL') {
       return (meta && meta.color) || RIDE_COLOR_SRL;
     }
+    if (routeName.startsWith('VLINE:') || corridor === 'V_LINE') {
+      return (meta && meta.color) || RIDE_COLOR_V_LINE;
+    }
     return (meta && meta.color) || RIDE_COLOR_RAIL;
   }
   if (meta && meta.mode === 'tram') {
@@ -1707,7 +1715,7 @@ function shareOrCopyLink() {
   else text = genericShareText();
 
   if (isMobileOrTablet() && navigator.share && text) {
-    navigator.share({ text }).catch(() => {});
+    navigator.share({ text }).catch(() => { });
     return;
   }
 
@@ -2034,7 +2042,7 @@ function previewShare() {
   const shareBtn = document.getElementById('share-btn');
 
   if (isMobileOrTablet() && navigator.share) {
-    navigator.share({ url }).catch(() => {});
+    navigator.share({ url }).catch(() => { });
     return;
   }
 

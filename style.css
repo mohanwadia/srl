@@ -6,6 +6,7 @@
   --b1: #D92B26;
   --b2: #F1B80E;
   --rail: #0072CE;
+  --vline: #8F1A95;
   --accent: #1d4ed8;
   --origin: #2f6f4f;
   --dest: #b3392c;
@@ -17,11 +18,16 @@
   --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
-.hidden { display: none !important; }
+.hidden {
+  display: none !important;
+}
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
   font-family: var(--sans);
@@ -79,7 +85,11 @@ html, body {
   color: #d8d6cd;
 }
 
-.legend-item { display: flex; align-items: center; gap: 6px; }
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
 .swatch {
   width: 16px;
@@ -87,9 +97,22 @@ html, body {
   display: inline-block;
   border-radius: 2px;
 }
-.swatch.b1 { background: var(--b1); }
-.swatch.b2 { background: var(--b2); }
-.swatch.rail { background: var(--rail); }
+
+.swatch.b1 {
+  background: var(--b1);
+}
+
+.swatch.b2 {
+  background: var(--b2);
+}
+
+.swatch.rail {
+  background: var(--rail);
+}
+
+.swatch.vline {
+  background: var(--vline);
+}
 
 #layout {
   flex: 1;
@@ -110,7 +133,8 @@ html, body {
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  order: -1; /* sidebar sits left of the map on desktop; see mobile override below */
+  order: -1;
+  /* sidebar sits left of the map on desktop; see mobile override below */
 }
 
 #panel-header {
@@ -129,6 +153,7 @@ html, body {
   color: var(--ink);
   cursor: pointer;
 }
+
 #panel-title:hover {
   text-decoration: underline;
 }
@@ -157,7 +182,7 @@ html, body {
   cursor: pointer;
 }
 
-.toggle-row + .toggle-row {
+.toggle-row+.toggle-row {
   margin-top: 10px;
 }
 
@@ -173,20 +198,28 @@ html, body {
   color: var(--muted);
   cursor: pointer;
 }
-.tab-btn:hover { color: var(--ink); }
+
+.tab-btn:hover {
+  color: var(--ink);
+}
+
 .tab-btn.active {
   color: var(--ink);
   border-bottom-color: var(--accent);
 }
 
-.tab-panel.hidden { display: none; }
+.tab-panel.hidden {
+  display: none;
+}
 
 .panel-block {
   padding: 18px 20px;
   border-bottom: 1px solid var(--line);
 }
 
-.panel-block.hidden { display: none; }
+.panel-block.hidden {
+  display: none;
+}
 
 .legend-list {
   list-style: none;
@@ -208,9 +241,18 @@ html, body {
   vertical-align: middle;
   background-color: var(--paper);
 }
-.swatch-20 { background-color: rgba(29, 78, 216, 0.55); }
-.swatch-40 { background-color: rgba(29, 78, 216, 0.32); }
-.swatch-60 { background-color: rgba(29, 78, 216, 0.16); }
+
+.swatch-20 {
+  background-color: rgba(29, 78, 216, 0.55);
+}
+
+.swatch-40 {
+  background-color: rgba(29, 78, 216, 0.32);
+}
+
+.swatch-60 {
+  background-color: rgba(29, 78, 216, 0.16);
+}
 
 .search-block {
   display: flex;
@@ -233,8 +275,14 @@ html, body {
   border-radius: 5px;
   outline: none;
 }
-.search-input::placeholder { color: var(--muted); }
-.search-input:focus { border-color: var(--accent); }
+
+.search-input::placeholder {
+  color: var(--muted);
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+}
 
 .suggestions-dropdown {
   position: absolute;
@@ -258,7 +306,11 @@ html, body {
   cursor: pointer;
   border-bottom: 1px solid var(--line);
 }
-.suggestion-item:last-child { border-bottom: none; }
+
+.suggestion-item:last-child {
+  border-bottom: none;
+}
+
 .suggestion-item:hover,
 .suggestion-item.highlighted {
   background: var(--paper);
@@ -304,7 +356,11 @@ html, body {
   cursor: pointer;
   color: var(--muted);
 }
-.btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+
+.btn-secondary:hover {
+  border-color: var(--ink);
+  color: var(--ink);
+}
 
 .combo-row {
   display: flex;
@@ -325,12 +381,16 @@ html, body {
   cursor: pointer;
   font-family: var(--sans);
 }
-.combo-btn:hover { border-color: var(--muted); }
+
+.combo-btn:hover {
+  border-color: var(--muted);
+}
 
 .combo-btn.active {
   background: var(--ink);
   border-color: var(--ink);
 }
+
 .combo-btn.active .combo-label,
 .combo-btn.active .combo-time {
   color: var(--paper);
@@ -340,8 +400,14 @@ html, body {
   opacity: 0.45;
   cursor: default;
 }
-.combo-btn.unavailable:hover { border-color: var(--line); }
-.combo-btn.unavailable.active { opacity: 0.7; }
+
+.combo-btn.unavailable:hover {
+  border-color: var(--line);
+}
+
+.combo-btn.unavailable.active {
+  opacity: 0.7;
+}
 
 .combo-label {
   font-size: 10.5px;
@@ -360,7 +426,9 @@ html, body {
   color: var(--ink);
 }
 
-#summary { text-align: left; }
+#summary {
+  text-align: left;
+}
 
 .summary-total {
   font-family: var(--mono);
@@ -369,6 +437,7 @@ html, body {
   line-height: 1;
   color: var(--ink);
 }
+
 .summary-unit {
   font-size: 15px;
   color: var(--muted);
@@ -388,8 +457,15 @@ html, body {
 .time-bar-seg {
   height: 100%;
 }
-.time-bar-seg.is-other { background: var(--non-ride); }
-.time-bar-seg.is-ride { background: var(--ride); border-radius: 4px; }
+
+.time-bar-seg.is-other {
+  background: var(--non-ride);
+}
+
+.time-bar-seg.is-ride {
+  background: var(--ride);
+  border-radius: 4px;
+}
 
 #itinerary h2,
 #iso-legend h2 {
@@ -476,12 +552,16 @@ html, body {
   line-height: 1.5;
   margin: 0 0 8px;
 }
+
 #empty-state .hint {
   font-size: 11.5px;
   font-family: var(--mono);
 }
 
-.leaflet-popup-content { font-family: var(--sans); font-size: 12px; }
+.leaflet-popup-content {
+  font-family: var(--sans);
+  font-size: 12px;
+}
 
 /* ---------------------------------------------------------------------
    Mobile layout — below this width the side-by-side map/sidebar becomes
@@ -501,8 +581,10 @@ html, body {
     border-right: none;
     border-top: 1px solid var(--line);
     flex: 0 0 auto;
-    max-height: 42.5vh; /* 70% more than the original 25vh */
-    order: 1; /* undo the desktop left-sidebar order — map stays on top on mobile */
+    max-height: 42.5vh;
+    /* 70% more than the original 25vh */
+    order: 1;
+    /* undo the desktop left-sidebar order — map stays on top on mobile */
   }
 
   /* Isochrone tab: lay the legend out horizontally instead of stacked, so
@@ -557,7 +639,8 @@ body.preview-mode #panel {
   border-right: none;
   border-top: 1px solid var(--line);
   overflow: visible;
-  order: 1 !important; /* map stays on top in preview embeds too */
+  order: 1 !important;
+  /* map stays on top in preview embeds too */
 }
 
 /* Hide the tab switcher and the journey-detail blocks; the title/Reset/
