@@ -179,7 +179,8 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
                             route_key_field="route_id",
                             route_types=None,
                             skip_route_short_names=("Replacement Bus", "City Circle",
-                                                     "Flemington Racecourse", "Stony Point")):
+                                                     "Flemington Racecourse", "Stony Point"),
+                            skip_stop_names=()):
     """Generic real-GTFS-shape route loader, used for trains, trams, and (with
     route_key_field="route_short_name") the existing metro bus network.
 
@@ -325,6 +326,7 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
         x, y = to_metric(st["lon"], st["lat"])
         station_pts_m.append((st, Point(x, y)))
 
+    skip_stop_names_set = set(skip_stop_names)
     real_stops_by_route = {rid: [] for rid in routes}
     for rid, route in routes.items():
         line = route["line_m"]
@@ -332,6 +334,8 @@ def load_gtfs_train_routes(routes_txt, shapes_txt, stops_txt, mode="rail",
             if route["route_id"] in ["RAIL:PKM", "RAIL:CBE"]:
                 if st["name"] in ["Hawksburn Railway Station", "Toorak Railway Station", "Armadale Railway Station"]:
                     continue
+            if skip_stop_names_set and st["name"] in skip_stop_names_set:
+                continue
             d = line.distance(pt)
             if d <= STATION_SNAP_TOLERANCE_M:
                 dist_on_route = line.project(pt)
@@ -739,6 +743,18 @@ def main():
         mode="rail", corridor="V_LINE", id_prefix="VLINE",
         speed_kmh=V_LINE_SPEED_KMH, frequency_min=V_LINE_FREQUENCY,
         color=V_LINE_COLOR, stop_location_types=("1",),
+        skip_stop_names=(
+            "Sunshine Station",
+            "Craigieburn Station",
+            "Watergardens Station",
+            "Dandenong Station",
+            "Footscray Station",
+            "Caulfield Station",
+            "Clayton Station",
+            "Richmond Station",
+            "Broadmeadows Station",
+            "North Melbourne Station",
+        ),
     )
     print(f"Loaded {len(vline_routes)} V/Line routes from GTFS")
     total_vline_stops = len(set(sid for entries in vline_real_stops.values() for _, sid, *_ in entries))

@@ -847,6 +847,18 @@ function beginIsoCompute(latlng, onReady) {
       computeIsoCombo(key, latlng);
     }
     isoLoadingRest = false;
+
+    // If SRL/Both got filtered out as dead weight and we're still showing
+    // 'both', auto-switch to Better Buses — it's the same isochrone data so
+    // no redraw is needed, just update the state and network layers.
+    const visibleAfterLoad = visibleIsoCombos();
+    if (!visibleAfterLoad.some((c) => c.key === isoCombo) &&
+        visibleAfterLoad.some((c) => c.key === 'busReform')) {
+      isoCombo = 'busReform';
+      const busReformCombo = JOURNEY_COMBOS.find((c) => c.key === 'busReform');
+      applyNetworkState(busReformCombo.srl, busReformCombo.busReform);
+    }
+
     renderIsoComboSelector();
     if (onReady) onReady('all');
   }, 0);
