@@ -6,6 +6,7 @@
 <title>Melbourne Bus Network Reform</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body, #map { width: 100%; height: 100%; }
@@ -25,11 +26,79 @@
   #route-info.visible { display: block; }
   #route-info strong { display: block; font-size: 14px; margin-bottom: 2px; }
   #route-info span { color: #555; }
+
+  #coverage-toggle {
+    position: absolute;
+    bottom: 24px;
+    left: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 8px 12px;
+    font: 13px/1.4 sans-serif;
+    color: #333;
+    cursor: pointer;
+    user-select: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  #coverage-toggle .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #aaa;
+    flex-shrink: 0;
+    transition: background 0.15s;
+  }
+  #coverage-toggle.active .dot { background: #fd8d3c; }
+
+  #legend {
+    display: none;
+    position: absolute;
+    bottom: 60px;
+    left: 10px;
+    z-index: 1000;
+    background: white;
+    padding: 10px 14px;
+    font: 12px/1.6 sans-serif;
+    color: #333;
+    pointer-events: none;
+  }
+  #legend.visible { display: block; }
+  #legend .legend-title {
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #888;
+    margin-bottom: 4px;
+  }
+  #legend .legend-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  #legend .swatch {
+    width: 16px;
+    height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
 </style>
 </head>
 <body>
 <div id="map"></div>
 <div id="route-info"><strong id="ri-name"></strong><span id="ri-meta"></span></div>
+<div id="legend">
+  <div class="legend-title">Route coverage</div>
+  <div class="legend-row"><div class="swatch" style="background:#e31a1c;"></div>0 routes</div>
+  <div class="legend-row"><div class="swatch" style="background:#fd8d3c;"></div>1 route</div>
+  <div class="legend-row"><div class="swatch" style="background:#2196f3;"></div>2 routes</div>
+  <div class="legend-row"><div class="swatch" style="background:#005a2b;"></div>3+ routes</div>
+</div>
+<button id="coverage-toggle"><span class="dot"></span>Coverage</button>
+
 <script>
 const COLORS = {
   B1: '#D92B26',
@@ -38,12 +107,31 @@ const COLORS = {
 };
 const WEIGHTS = { B1: 5, B2: 4 };
 
-let selectedVis = null;   // the visible layer that is highlighted
-let selectedHit = null;   // the hit layer that was clicked
+let selectedVis = null;
+let selectedHit = null;
+let coverageLayers = [];
+let coverageOn     = false;
 
-const info    = document.getElementById('route-info');
-const riName  = document.getElementById('ri-name');
-const riMeta  = document.getElementById('ri-meta');
+const info   = document.getElementById('route-info');
+const riName = document.getElementById('ri-name');
+const riMeta = document.getElementById('ri-meta');
+const legend = document.getElementById('legend');
+const btn    = document.getElementById('coverage-toggle');
+
+// Coverage colours: 0 routes (red), 1 route (orange), 2 routes (blue), 3+ routes (dark green)
+const COV_STYLES = [
+  { fillColor: '#fd8d3c', color: '#d45500', label: '1 route' },
+  { fillColor: '#2196f3', color: '#0d6fca', label: '2 routes' },
+  { fillColor: '#005a2b', color: '#003d1c', label: '3+ routes' }
+];
+const COV0_STYLE = { fillColor: '#e31a1c', color: '#99000d', label: '0 routes' };
+
+function safeUnion(a, b) {
+  try { return a ? turf.union(a, b) : b; } catch(e) { return a; }
+}
+function safeIntersect(a, b) {
+  try { return turf.intersect(a, b); } catch(e) { return null; }
+}
 
 function routeStyle(f) {
   return {
@@ -70,9 +158,7 @@ function showInfo(feature) {
   info.classList.add('visible');
 }
 
-function hideInfo() {
-  info.classList.remove('visible');
-}
+function hideInfo() { info.classList.remove('visible'); }
 
 function deselect() {
   if (selectedVis) {
@@ -93,40 +179,93 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 fetch('data/gis.geojson')
   .then(r => r.json())
   .then(GEOJSON => {
-    // Visible layer
+
+    // --- Build graduated coverage zones ---
+    const features = GEOJSON.features;
+    const bufs = features.map(f => {
+      try { return turf.buffer(f, 0.8, { units: 'kilometers' }); }
+      catch(e) { return null; }
+    }).filter(Boolean);
+
+    // ≥1 route: union of all individual buffers
+    let cov1 = bufs.reduce((acc, b) => safeUnion(acc, b), null);
+
+    // ≥2 routes: union of all pairwise intersections
+    let cov2 = null;
+    for (let i = 0; i < bufs.length; i++) {
+      for (let j = i + 1; j < bufs.length; j++) {
+        const inter = safeIntersect(bufs[i], bufs[j]);
+        if (inter) cov2 = safeUnion(cov2, inter);
+      }
+    }
+
+    // ≥3 routes: union of all triple intersections
+    let cov3 = null;
+    for (let i = 0; i < bufs.length; i++) {
+      for (let j = i + 1; j < bufs.length; j++) {
+        const ij = safeIntersect(bufs[i], bufs[j]);
+        if (!ij) continue;
+        for (let k = j + 1; k < bufs.length; k++) {
+          const ijk = safeIntersect(ij, bufs[k]);
+          if (ijk) cov3 = safeUnion(cov3, ijk);
+        }
+      }
+    }
+
+    // ≥0 routes (uncovered): bbox of all buffers minus cov1
+    let cov0 = null;
+    if (cov1) {
+      try {
+        const bbox = turf.bbox(cov1);
+        const pad = 0.02;
+        const bboxPoly = turf.bboxPolygon([bbox[0]-pad, bbox[1]-pad, bbox[2]+pad, bbox[3]+pad]);
+        cov0 = turf.difference(bboxPoly, cov1);
+      } catch(e) { cov0 = null; }
+    }
+
+    // Build Leaflet layers — stacked bottom to top: cov0, cov1, cov2, cov3
+    function makeLayer(geom, style) {
+      if (!geom) return null;
+      return L.geoJSON(geom, {
+        style: {
+          color: style.color,
+          weight: 0.5,
+          opacity: 0.4,
+          fillColor: style.fillColor,
+          fillOpacity: 0.2
+        },
+        interactive: false
+      });
+    }
+
+    coverageLayers = [
+      makeLayer(cov0, COV0_STYLE),
+      makeLayer(cov1, COV_STYLES[0]),
+      makeLayer(cov2, COV_STYLES[1]),
+      makeLayer(cov3, COV_STYLES[2])
+    ];
+
+    // --- Visible route layer ---
     const visLayer = L.geoJSON(GEOJSON, {
       style: routeStyle,
-      interactive: false   // clicks fall through to hit layer
+      interactive: false
     }).addTo(map);
 
-    // Hit layer — wide + invisible, handles all clicks
+    // --- Hit layer ---
     L.geoJSON(GEOJSON, {
-      style: f => ({
-        color: 'transparent',
-        weight: 20,
-        opacity: 0
-      }),
+      style: () => ({ color: 'transparent', weight: 20, opacity: 0 }),
       onEachFeature: (feature, hitLayer) => {
-        // Find matching visible sub-layer by feature id
         hitLayer.on('click', function(e) {
           L.DomEvent.stopPropagation(e);
 
-          if (selectedHit === this) {
-            deselect();
-            return;
-          }
+          if (selectedHit === this) { deselect(); return; }
 
-          // Deselect previous visible layer
-          if (selectedVis) {
-            selectedVis.setStyle(routeStyle(selectedVis.feature));
-          }
+          if (selectedVis) selectedVis.setStyle(routeStyle(selectedVis.feature));
 
-          // Find matching visible layer
           let visMatch = null;
           visLayer.eachLayer(vl => {
             if (vl.feature && vl.feature.id === feature.id) visMatch = vl;
           });
-
           if (visMatch) {
             visMatch.setStyle({
               color: COLORS.selected,
@@ -135,7 +274,6 @@ fetch('data/gis.geojson')
             });
             selectedVis = visMatch;
           }
-
           selectedHit = this;
           showInfo(feature);
         });
@@ -143,6 +281,25 @@ fetch('data/gis.geojson')
     }).addTo(map);
 
     map.fitBounds(visLayer.getBounds(), { padding: [20, 20] });
+
+    // --- Coverage toggle ---
+    btn.addEventListener('click', () => {
+      coverageOn = !coverageOn;
+      if (coverageOn) {
+        [3, 2, 1, 0].forEach(idx => {
+          if (coverageLayers[idx]) {
+            coverageLayers[idx].addTo(map);
+            coverageLayers[idx].bringToBack();
+          }
+        });
+        btn.classList.add('active');
+        legend.classList.add('visible');
+      } else {
+        coverageLayers.forEach(layer => { if (layer) layer.remove(); });
+        btn.classList.remove('active');
+        legend.classList.remove('visible');
+      }
+    });
   });
 
 map.on('click', deselect);
